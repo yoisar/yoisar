@@ -34,4 +34,4 @@ Este proyecto es una aplicación fullstack que combina un frontend en React y un
 
 ## Contacto
 
-Para más información o consultas, puedes escribir a [contacto@zoomtecnologias.com](mailto:contacto@zoomtecnologias.com).
+Para más información o consultas, puedes escribir a [yois@yoisar.com](mailto:yois@yoisar.com) o visitar [www.yoisar.com](https://www.yoisar.com/).

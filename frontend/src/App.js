@@ -61,7 +61,7 @@ export default function PresentacionYassel() {
                         ¿Querés colaborar, invertir o sumar tu experiencia a alguno de los proyectos?
                     </p>
                     <a
-                        href="mailto:contacto@zoomtecnologias.com"
+                        href="mailto:sioy23@gmail.com"
                         className="inline-block bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-700"
                     >
                         Escribime

@@ -17,5 +17,5 @@ Soy un desarrollador cubano radicado en Argentina con más de 20 años de experi
 ## Contacto
 
 ¿Querés colaborar, invertir o sumar tu experiencia a alguno de los proyectos?  
-📧 Escríbeme a: [contacto@zoomtecnologias.com](mailto:contacto@zoomtecnologias.com)  
+📧 Escríbeme a: [sioy23@gmail.com](mailto:sioy23@gmail.com)  
 🌐 Sitio personal: [yoisar.com](https://yoisar.com)
