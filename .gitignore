@@ -1,0 +1,40 @@
+# Node.js (Frontend)
+node_modules/
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Laravel (Backend)
+vendor/
+.env
+.env.*
+.phpunit.result.cache
+storage/*.key
+storage/logs/*.log
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+bootstrap/cache/*
+public/storage
+public/hot
+public/storage
+public/hot
+*.log
+*.cache
+*.phpunit.result.cache
+
+# General
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.lock

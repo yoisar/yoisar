@@ -1,24 +1,94 @@
-<h1 align="center">Hi 👋, I'm YOIS</h1>
-<h3 align="center">A passionate Senior Software Developer from Cuba</h3>
+# Proyecto YOISAR
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=yoisar&label=Profile%20views&color=0e75b6&style=flat" alt="yoisar" /> </p>
+Este proyecto es una aplicación fullstack que combina un frontend en React y un backend en Laravel, diseñada para mostrar la presentación personal de Yassel Omar Izquierdo Souchay y sus proyectos actuales.
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=yoisar" alt="yoisar" /></a> </p>
+## Estructura del Proyecto
 
-- 🔭 I’m currently working on **Hospital management system backend developer**
+```
+proyecto-yoisar/
+├── backend/        -> Laravel (Backend)
+│   ├── app/
+│   ├── routes/
+│   ├── .env
+│   └── Dockerfile
+├── frontend/       -> React (Frontend)
+│   ├── src/
+│   ├── public/
+│   └── Dockerfile
+├── docker-compose.yml
+└── README.md
+```
 
-- 🌱 I’m currently learning **Angular, React, Kubernets, Docker, FullStack Developments**
+## Requisitos Previos
 
-- 📫 How to reach me **sioy23@gmail.com**
+- Docker y Docker Compose instalados.
+- Node.js y npm instalados (opcional para desarrollo local del frontend).
+- Composer instalado (opcional para desarrollo local del backend).
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/lycuar" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="lycuar" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/yoisar" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="yoisar" height="30" width="40" /></a>
-<a href="https://instagram.com/yassel_ar" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="yassel_ar" height="30" width="40" /></a>
-</p>
+## Configuración
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://angular.io" target="_blank" rel="noreferrer"> <img src="https://angular.io/assets/images/logos/angular/angular.svg" alt="angular" width="40" height="40"/> </a> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.docker.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://graphql.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg" alt="graphql" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.jenkins.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="jenkins" width="40" height="40"/> </a> <a href="https://kubernetes.io" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="kubernetes" width="40" height="40"/> </a> <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg" alt="laravel" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://symfony.com" target="_blank" rel="noreferrer"> <img src="https://symfony.com/logos/symfony_black_03.svg" alt="symfony" width="40" height="40"/> </a> </p>
+1. Clona este repositorio:
+   ```bash
+   git clone <url-del-repositorio>
+   cd proyecto-yoisar
+   ```
 
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=yoisar&show_icons=true&locale=en&layout=compact" alt="yoisar" /></p>
+2. Configura las variables de entorno:
+   - Copia el archivo `.env.example` en `backend/` y renómbralo a `.env`.
+   - Configura las credenciales de la base de datos en el archivo `.env`.
+
+3. Construye y levanta los servicios con Docker Compose:
+   ```bash
+   docker-compose up --build
+   ```
+
+## Servicios
+
+- **Frontend (React):** Disponible en [http://localhost:3000](http://localhost:3000).
+- **Backend (Laravel):** Disponible en [http://localhost:9000](http://localhost:9000).
+- **Base de Datos (MySQL):** Disponible en el puerto `3306`.
+
+## Scripts Útiles
+
+### Frontend
+
+- Instalar dependencias:
+  ```bash
+  cd frontend
+  npm install
+  ```
+- Ejecutar en modo desarrollo:
+  ```bash
+  npm start
+  ```
+- Construir para producción:
+  ```bash
+  npm run build
+  ```
+
+### Backend
+
+- Instalar dependencias:
+  ```bash
+  cd backend
+  composer install
+  ```
+- Generar clave de aplicación:
+  ```bash
+  php artisan key:generate
+  ```
+- Migrar base de datos:
+  ```bash
+  php artisan migrate
+  ```
+
+## Tecnologías Utilizadas
+
+- **Frontend:** React, TailwindCSS.
+- **Backend:** Laravel, PHP 8.1.
+- **Base de Datos:** MySQL.
+- **Contenedores:** Docker, Docker Compose.
+
+## Contacto
+
+Para más información o consultas, puedes escribir a [contacto@zoomtecnologias.com](mailto:contacto@zoomtecnologias.com).
