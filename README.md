@@ -1,37 +1,21 @@
-# Proyecto YOISAR
+# Yassel Omar Izquierdo Souchay (YOIS)
 
-Este proyecto es una aplicación fullstack que combina un frontend en React y un backend en Laravel. Está diseñado para mostrar la presentación personal de **Yassel Omar Izquierdo Souchay (YOIS)** y sus proyectos actuales.
+¡Hola! Soy **Yassel Omar Izquierdo Souchay**, un desarrollador fullstack, emprendedor y fundador de **Cuotaplan**. También soy conocido como **YOIS**.
 
-## Tecnologías Utilizadas
+## Sobre Mí
 
-- **Frontend:** React, TailwindCSS.
-- **Backend:** Laravel, PHP 8.1.
-- **Base de Datos:** MySQL.
-- **Contenedores:** Docker, Docker Compose.
+Soy un desarrollador cubano radicado en Argentina con más de 20 años de experiencia en sistemas. Actualmente me dedico al 100% a proyectos propios con visión de escalar en Latinoamérica. Cada línea de código que escribo, cada feature que diseño y cada estrategia que lanzo tiene una meta clara: **construir soluciones reales que funcionen, generen impacto y dejen huella**.
 
-## Servicios
+## Proyectos Actuales
 
-- **Frontend (React):** Disponible en [http://localhost:6000](http://localhost:6000).
-- **Backend (Laravel):** Disponible en [http://localhost:6001](http://localhost:6001).
-- **Base de Datos (MySQL):** Disponible en el puerto `3306`.
-
-## Configuración
-
-1. Clona este repositorio:
-   ```bash
-   git clone <url-del-repositorio>
-   cd proyecto-yoisar
-   ```
-
-2. Configura las variables de entorno:
-   - Copia el archivo `.env.example` en `backend/` y renómbralo a `.env`.
-   - Configura las credenciales de la base de datos en el archivo `.env`.
-
-3. Construye y levanta los servicios con Docker Compose:
-   ```bash
-   docker-compose up --build
-   ```
+- **[Cuotaplan](https://cuotaplan.com):** Plataforma de financiación de bienes en cuotas con beneficios como saldo virtual, referidos y sorteos.
+- **Admin Barrios:** Gestión integral de barrios privados, con módulos de comunicación, administración y servicios comunes.
+- **Venta Rifas:** Plataforma para crear y gestionar rifas online con sistema de pago integrado.
+- **Taller OK:** Solución para digitalizar la gestión de talleres mecánicos.
+- **Proyecto Maderero:** Plataforma en desarrollo para la gestión de productores y distribuidores de madera en la región.
 
 ## Contacto
 
-Para más información o consultas, puedes escribir a [yois@yoisar.com](mailto:yois@yoisar.com) o visitar [www.yoisar.com](https://www.yoisar.com/).
+¿Querés colaborar, invertir o sumar tu experiencia a alguno de los proyectos?  
+📧 Escríbeme a: [sioy23@gmail.com](mailto:sioy23@gmail.com)  
+🌐 Sitio personal: [yoisar.com](https://yoisar.com)
