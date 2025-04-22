@@ -1,0 +1,994 @@
+user  www www;
+worker_processes auto;
+error_log  /www/wwwlogs/nginx_error.log  crit;
+pid        /www/server/nginx/logs/nginx.pid;
+worker_rlimit_nofile 51200;
+
+stream {
+    log_format tcp_format '$time_local|$remote_addr|$protocol|$status|$bytes_sent|$bytes_received|$session_time|$upstream_addr|$upstream_bytes_sent|$upstream_bytes_received|$upstream_connect_time';
+  
+    access_log /www/wwwlogs/tcp-access.log tcp_format;
+    error_log /www/wwwlogs/tcp-error.log;
+    include /www/server/panel/vhost/nginx/tcp/*.conf;
+}
+
+
+events
+    {
+        use epoll;
+        worker_connections 1024;
+        multi_accept on;
+    }
+
+http
+    {
+ #AAPANEL_FASTCGI_CONF_BEGIN
+ fastcgi_cache_key "$scheme$request_method$host$request_uri";
+ fastcgi_cache_path /dev/shm/nginx-cache/wp levels=1:2 keys_zone=WORDPRESS:100m inactive=60m max_size=1g;
+ fastcgi_cache_use_stale error timeout invalid_header http_500;
+ fastcgi_ignore_headers Cache-Control Expires Set-Cookie;
+ #AAPANEL_FASTCGI_CONF_END
+ 
+        include       mime.types;
+        #include luawaf.conf;
+
+        include proxy.conf;
+        lua_package_path "/www/server/nginx/lib/lua/?.lua;;";
+
+        default_type  application/octet-stream;
+
+        server_names_hash_bucket_size 512;
+        client_header_buffer_size 32k;
+        large_client_header_buffers 4 32k;
+        client_max_body_size 50m;
+
+        sendfile   on;
+        tcp_nopush on;
+
+        keepalive_timeout 65;
+
+        tcp_nodelay on;
+
+        fastcgi_connect_timeout 300;
+        fastcgi_send_timeout 300;
+        fastcgi_read_timeout 300;
+        fastcgi_buffer_size 64k;
+        fastcgi_buffers 4 64k;
+        fastcgi_busy_buffers_size 128k;
+        fastcgi_temp_file_write_size 256k;
+        fastcgi_intercept_errors on;
+
+        gzip on;
+        gzip_min_length  1k;
+        gzip_buffers     4 16k;
+        gzip_http_version 1.1;
+        gzip_comp_level 2;
+        gzip_types     text/plain application/javascript application/x-javascript text/javascript text/css application/xml application/json image/jpeg image/gif image/png font/ttf font/otf image/svg+xml application/xml+rss text/x-js;
+        gzip_vary on;
+        gzip_proxied   expired no-cache no-store private auth;
+        gzip_disable   "MSIE [1-6]\.";
+
+        limit_conn_zone $binary_remote_addr zone=perip:10m;
+        limit_conn_zone $server_name zone=perserver:10m;
+
+        server_tokens off;
+        access_log off;
+
+server
+    {
+        listen 888;
+        server_name phpmyadmin;
+        index index.html index.htm index.php;
+        root  /www/server/phpmyadmin;
+
+        #error_page   404   /404.html;
+        include enable-php.conf;
+
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+        {
+            expires      30d;
+        }
+
+        location ~ .*\.(js|css)?$
+        {
+            expires      12h;
+        }
+
+        location ~ /\.
+        {
+            deny all;
+        }
+
+        access_log  /www/wwwlogs/access.log;
+    }
+   
+    # Server Wordpress Cuotaplan
+    server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        server_name wp.cuotaplan.com;
+
+        # Certificados SSL
+        ssl_certificate /www/server/panel/vhost/letsencrypt/wp.cuotaplan.com/fullchain.pem;
+        ssl_certificate_key /www/server/panel/vhost/letsencrypt/wp.cuotaplan.com/privkey.pem;
+
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+        ssl_prefer_server_ciphers on;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+        # Redirigir todas las solicitudes hacia el contenedor de WordPress
+        location / {
+            proxy_pass http://127.0.0.1:8040;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        # Sirve archivos estáticos directamente si existen
+        location ~* \.(jpg|jpeg|png|gif|css|js|ico|svg)$ {
+            root /ruta/a/tu/wordpress;  # Ajusta esta ruta a la ubicación real de tu WordPress
+            try_files $uri $uri/ @proxy;  # Intenta servir el archivo estático
+            expires 30d;
+            access_log off;
+            add_header Cache-Control "public";
+        }
+
+        # En caso de que el archivo no exista, pasa al proxy
+        location @proxy {
+            proxy_pass http://127.0.0.1:8040;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        access_log /www/wwwlogs/cuotaplan_wordpress_access.log;
+        error_log /www/wwwlogs/cuotaplan_wordpress_error.log;
+    }
+   
+    # Redirección HTTP a HTTPS para el dominio api.cuotaplan.com
+    server {
+        listen 80;
+        server_name api.cuotaplan.com;
+        return 301 https://$host$request_uri;
+    }
+
+    # Configuración del servidor para www.adminbarrio.com en HTTP
+    server {
+        listen 80;
+        server_name www.adminbarrio.com;
+
+        location / {
+            proxy_pass http://127.0.0.1:3010;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_buffering off;
+            proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+            try_files $uri $uri/ /index.html;
+        }
+
+        location /media/ {
+            proxy_pass http://127.0.0.1:3010/media/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            expires 12h;
+        }
+
+        location /favicon.ico {
+            proxy_pass http://127.0.0.1:3010/favicon.ico;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /splash-screen.css {
+            proxy_pass http://127.0.0.1:3010/splash-screen.css;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        access_log /www/wwwlogs/adminbarrio_access.log;
+        error_log /www/wwwlogs/adminbarrio_error.log;
+    }
+
+    # Configuración del servidor para www.adminbarrio.com en HTTPS
+    server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        server_name www.adminbarrio.com;
+
+        ssl_certificate /www/server/panel/vhost/letsencrypt/adminbarrio.com/fullchain.pem;
+        ssl_certificate_key /www/server/panel/vhost/letsencrypt/adminbarrio.com/privkey.pem;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+        ssl_prefer_server_ciphers on;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+        location / {
+            proxy_pass http://127.0.0.1:3010;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_buffering off;
+            proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+            try_files $uri $uri/ /index.html;
+        }
+
+        location /media/ {
+            proxy_pass http://127.0.0.1:3010/media/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            expires 12h;
+        }
+
+        location /favicon.ico {
+            proxy_pass http://127.0.0.1:3010/favicon.ico;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /splash-screen.css {
+            proxy_pass http://127.0.0.1:3010/splash-screen.css;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        access_log /www/wwwlogs/adminbarrio_access.log;
+        error_log /www/wwwlogs/adminbarrio_error.log;
+    }
+
+    # Configuración del servidor para app.adminbarrio.com en HTTP
+    server {
+        listen 80;
+        server_name app.adminbarrio.com;
+
+        location / {
+            proxy_pass http://127.0.0.1:3011;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_buffering off;
+            proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+            try_files $uri $uri/ /index.html;
+        }
+
+        location /assets/ {
+            proxy_pass http://127.0.0.1:3011/assets/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            expires 12h;
+        }
+
+        location /favicon.ico {
+            proxy_pass http://127.0.0.1:3011/favicon.ico;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /media/ {
+            proxy_pass http://127.0.0.1:3011/media/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            expires 12h;
+        }
+
+        access_log /www/wwwlogs/app_adminbarrio_access.log;
+        error_log /www/wwwlogs/app_adminbarrio_error.log;
+    }
+
+    # Configuración del servidor para app.adminbarrio.com en HTTPS
+    server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        server_name app.adminbarrio.com;
+
+        ssl_certificate /www/server/panel/vhost/letsencrypt/app.adminbarrio.com/fullchain.pem;
+        ssl_certificate_key /www/server/panel/vhost/letsencrypt/app.adminbarrio.com/privkey.pem;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+        ssl_prefer_server_ciphers on;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+        location / {
+            proxy_pass http://127.0.0.1:3011;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_buffering off;
+            proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+            try_files $uri $uri/ /index.html;
+        }
+
+        location /assets/ {
+            proxy_pass http://127.0.0.1:3011/assets/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            expires 12h;
+        }
+
+        location /favicon.ico {
+            proxy_pass http://127.0.0.1:3011/favicon.ico;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /media/ {
+            proxy_pass http://127.0.0.1:3011/media/;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            expires 12h;
+        }
+
+        access_log /www/wwwlogs/app_adminbarrio_access.log;
+        error_log /www/wwwlogs/app_adminbarrio_error.log;
+    }
+
+    # Redirección HTTP a HTTPS para el dominio app.adminbarrio.com
+    server {
+        listen 80;
+        server_name app.adminbarrio.com;
+        return 301 https://$host$request_uri;
+    }
+    
+    # Configuración del servidor para api.adminbarrio.com en HTTP
+    server {
+        listen 80;
+        server_name api.adminbarrio.com;
+
+        location /api/ {
+            proxy_pass http://127.0.0.1:8010;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_buffering off;
+            proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+            # try_files $uri $uri/ /index.html;
+        }
+
+        access_log /www/wwwlogs/api_adminbarrio_access.log;
+        error_log /www/wwwlogs/api_adminbarrio_error.log;
+    }
+
+    # Configuración del servidor para api.adminbarrio.com en HTTPS
+    server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        server_name api.adminbarrio.com;
+
+        ssl_certificate /www/server/panel/vhost/letsencrypt/api.adminbarrio.com/fullchain.pem;
+        ssl_certificate_key /www/server/panel/vhost/letsencrypt/api.adminbarrio.com/privkey.pem;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+        ssl_prefer_server_ciphers on;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+        location /api/ {
+            proxy_pass http://127.0.0.1:8010;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_buffering off;
+            proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+        }
+
+        access_log /www/wwwlogs/api_adminbarrio_access.log;
+        error_log /www/wwwlogs/api_adminbarrio_error.log;
+    }
+
+    # Redirección HTTP a HTTPS para el dominio api.adminbarrio.com
+    server {
+        listen 80;
+        server_name api.adminbarrio.com;
+        return 301 https://$host$request_uri;
+    }
+    
+    server {
+        listen 443 ssl http2;
+        server_name admin.cuotaplan.com;
+        
+        ssl_certificate /www/server/panel/vhost/cert/admin.cuotaplan.com/fullchain.pem;
+        ssl_certificate_key /www/server/panel/vhost/cert/admin.cuotaplan.com/privkey.pem;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    
+        location / {
+            proxy_pass http://127.0.0.1:3201;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            try_files $uri $uri/ /index.html;
+        }
+    
+        access_log /www/wwwlogs/admin_cuotaplan_access.log;
+        error_log /www/wwwlogs/admin_cuotaplan_error.log;
+    }
+    
+    server {
+        listen 80;
+        server_name admin-test.cuotaplan.com;
+        return 301 https://$host$request_uri;
+    }
+    
+    server {
+        listen 443 ssl http2;
+        server_name admin-test.cuotaplan.com;
+        
+        ssl_certificate /www/server/panel/vhost/cert/admin-test.cuotaplan.com/fullchain.pem;
+        ssl_certificate_key /www/server/panel/vhost/cert/admin-test.cuotaplan.com/privkey.pem;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+        ssl_prefer_server_ciphers on;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        location / {
+            proxy_pass http://127.0.0.1:3203; # Puerto del contenedor cp-dev-dealer-admin en desarrollo
+            try_files $uri $uri/ /index.html;
+        }
+
+        # Manejo de rutas específicas de Vite
+        location /@vite/ {
+            proxy_pass http://127.0.0.1:3203;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /src/ {
+            proxy_pass http://127.0.0.1:3203;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /@react-refresh/ {
+            proxy_pass http://127.0.0.1:3203;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+        
+        location /media/ {
+            proxy_pass http://127.0.0.1:3203/media/; # Puerto del contenedor cp-dev-dealer-admin en desarrollo
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            autoindex on;
+            access_log off;
+            add_header Cache-Control "public, max-age=31536000, immutable";
+        }
+        
+        location ~* \.(?:ico|css|js|gif|jpe?g|png|woff2?|ttf|svg|eot|webp)$ {
+            proxy_pass http://127.0.0.1:3203; # Puerto del contenedor cp-dev-dealer-admin en desarrollo
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            expires 1y;
+            access_log off;
+            add_header Cache-Control "public, max-age=31536000, immutable";
+        }
+        
+        error_page 404 /index.html;
+        
+        access_log /var/log/nginx/admin_test_cuotaplan_access.log;
+        error_log /var/log/nginx/admin_test_cuotaplan_error.log;
+    }
+    server {
+    listen 80;
+    server_name test.cuotaplan.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name test.cuotaplan.com;
+
+    ssl_certificate /www/server/panel/vhost/cert/test.cuotaplan.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/test.cuotaplan.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://127.0.0.1:3204; # Puerto del contenedor cp-dev-dreams-rent-car en desarrollo
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /assets/ {
+        proxy_pass http://127.0.0.1:3204/assets/; # Puerto del contenedor cp-dev-dreams-rent-car en desarrollo
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        autoindex on;
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    location ~* \.(?:ico|css|js|gif|jpe?g|png|woff2?|ttf|svg|eot|webp)$ {
+        proxy_pass http://127.0.0.1:3204; # Puerto del contenedor cp-dev-dreams-rent-car en desarrollo
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        expires 1y;
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    error_page 404 /index.html;
+
+    access_log /var/log/nginx/test_cuotaplan_access.log;
+    error_log /var/log/nginx/test_cuotaplan_error.log;
+}
+
+# Configuración para pruebas (test.ventarifas.com)
+server {
+    listen 80;
+    server_name test.ventarifas.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name test.ventarifas.com;
+
+    ssl_certificate /www/server/panel/vhost/cert/test.ventarifas.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/test.ventarifas.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    location / {
+        proxy_pass http://127.0.0.1:3051; # Puerto del contenedor de frontend en pruebas
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Nueva regla para servir imágenes directamente
+    location ~* \.(jpg|jpeg|png|gif|ico|svg)$ {
+        root /path/to/your/images; # Ajusta esta ruta al directorio real de las imágenes
+        try_files $uri $uri/ =404;
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public, max-age=2592000";
+    }
+
+    # Ajuste para servir imágenes desde el directorio correcto
+    location /images/ {
+        root /Users/yois/projects/my-mac-portfolio/ventarifas/app/rifa-online-template/public/;
+        try_files $uri $uri/ =404;
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public, max-age=2592000";
+    }
+
+    error_page 404 /index.html;
+
+    access_log /www/wwwlogs/test_ventarifas_access.log;
+    error_log /www/wwwlogs/test_ventarifas_error.log;
+}
+
+# Configuración para producción (www.ventarifas.com y ventarifas.com)
+server {
+    listen 80;
+    server_name www.ventarifas.com ventarifas.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name www.ventarifas.com ventarifas.com;
+
+    ssl_certificate /www/server/panel/vhost/cert/www.ventarifas.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/www.ventarifas.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    location / {
+        proxy_pass http://127.0.0.1:8081; # Cambiado puerto de producción para www.ventarifas.com
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location ~* \.(jpg|jpeg|png|gif|ico|svg)$ {
+        root /Users/yois/projects/my-mac-portfolio/ventarifas/app/rifa-online-template/public/;
+        try_files $uri $uri/ =404;
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public, max-age=2592000";
+    }
+
+    location /_next/static/ {
+        alias /Users/yois/projects/my-mac-portfolio/ventarifas/app/rifa-online-template/.next/static/;
+        expires 1y;
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    location /images/ {
+        root /path/to/your/project/rifa-online-template/public/; # Ajusta esta ruta al directorio real
+        try_files $uri $uri/ =404;
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public, max-age=2592000";
+    }
+
+    error_page 404 /index.html;
+
+    access_log /www/wwwlogs/www_ventarifas_access.log;
+    error_log /www/wwwlogs/www_ventarifas_error.log;
+}
+
+server {
+    listen 80;
+    server_name cuotaplan.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name cuotaplan.com;
+
+    ssl_certificate /www/server/panel/vhost/cert/cuotaplan.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/cuotaplan.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://127.0.0.1:3202; # Puerto del contenedor cp-dev-dreams-rent-car en producción
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /assets/ {
+        proxy_pass http://127.0.0.1:3202/assets/; # Puerto del contenedor cp-dev-dreams-rent-car en producción
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        autoindex on;
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    location ~* \.(?:ico|css|js|gif|jpe?g|png|woff2?|ttf|svg|eot|webp)$ {
+        proxy_pass http://127.0.0.1:3202; # Puerto del contenedor cp-dev-dreams-rent-car en producción
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        expires 1y;
+        access_log off;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    error_page 404 /index.html;
+
+    access_log /var/log/nginx/cuotaplan_access.log;
+    error_log /var/log/nginx/cuotaplan_error.log;
+}
+
+# Configuración HTTPS
+server {
+    listen 443 ssl http2;
+    server_name api-test.cuotaplan.com;
+
+    ssl_certificate /www/server/panel/vhost/cert/api-test.cuotaplan.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/api-test.cuotaplan.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    # Encabezados para proxy
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    # Configuración principal del backend API
+    location / {
+        proxy_pass http://127.0.0.1:8001; # Puerto del contenedor cp-dev-backend en desarrollo
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_buffering off;
+        proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+    }
+
+    # Manejo de errores 404
+    error_page 404 /index.html;
+
+    # Logs personalizados
+    access_log /var/log/nginx/api_test_cuotaplan_access.log;
+    error_log /var/log/nginx/api_test_cuotaplan_error.log;
+}
+
+# Configuración para api-test.cuotaplan.com
+server {
+    listen 80;
+    server_name api-test.cuotaplan.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name api-test.cuotaplan.com;
+
+    ssl_certificate /www/server/panel/vhost/cert/api-test.cuotaplan.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/api-test.cuotaplan.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://127.0.0.1:8001; # Puerto del contenedor cp-dev-backend en desarrollo
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_buffering off;
+        proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+    }
+
+    error_page 404 /index.html;
+
+    access_log /var/log/nginx/api_test_cuotaplan_access.log;
+    error_log /var/log/nginx/api_test_cuotaplan_error.log;
+}
+
+# Configuración para api.cuotaplan.com
+server {
+    listen 80;
+    server_name api.cuotaplan.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name api.cuotaplan.com;
+
+    ssl_certificate /www/server/panel/vhost/cert/api.cuotaplan.com/fullchain.pem;
+    ssl_certificate_key /www/server/panel/vhost/cert/api.cuotaplan.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    location / {
+        proxy_pass http://127.0.0.1:9000; # Puerto del contenedor cp-api en producción
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_buffering off;
+        proxy_ignore_headers "Cache-Control" "Expires" "Set-Cookie";
+    }
+
+    error_page 404 /index.html;
+
+    access_log /var/log/nginx/api_cuotaplan_access.log;
+    error_log /var/log/nginx/api_cuotaplan_error.log;
+}
+
+# Configuración para entorno local
+server {
+    listen 80;
+    server_name local.cuotaplan.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:5173; # Frontend Usuario
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /admin/ {
+        proxy_pass http://127.0.0.1:3201; # Admin Plataforma
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000; # Backend API
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# Configuración para entorno de pruebas
+server {
+    listen 80;
+    server_name test.cuotaplan.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:5174; # Frontend Usuario
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /admin/ {
+        proxy_pass http://127.0.0.1:3202; # Admin Plataforma
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:8001; # Backend API
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+# Configuración para entorno de producción
+server {
+    listen 80;
+    server_name cuotaplan.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:80; # Frontend Usuario
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /admin/ {
+        proxy_pass http://127.0.0.1:443; # Admin Plataforma
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:9000; # Backend API
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+server {
+        listen 80;
+        server_name n8n.zoomtecnologias.com;
+
+        location / {
+            proxy_pass http://127.0.0.1:5678;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        access_log /www/wwwlogs/n8n_zoomtecnologias_access.log;
+        error_log /www/wwwlogs/n8n_zoomtecnologias_error.log;
+    }
+
+server {
+        listen 443 ssl;
+        server_name n8n.zoomtecnologias.com;
+
+        ssl_certificate /www/server/panel/vhost/cert/n8n.zoomtecnologias.com/fullchain.pem;
+        ssl_certificate_key /www/server/panel/vhost/cert/n8n.zoomtecnologias.com/privkey.pem;
+
+        location / {
+            proxy_pass http://127.0.0.1:5678;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        access_log /www/wwwlogs/n8n_zoomtecnologias_access.log;
+        error_log /www/wwwlogs/n8n_zoomtecnologias_error.log;
+    }
+
+# Cierre del bloque `http`
+}
