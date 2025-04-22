@@ -1,7 +1,8 @@
 version: '3.8'
 
 services:
-  frontend:
+  yois-frontend:
+    container_name: yois_frontend
     build: ./frontend
     ports:
       - "6000:3000"
@@ -10,16 +11,18 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
-  backend:
+  yois-backend:
+    container_name: yois_backend
     build: ./backend
     ports:
-      - "9000:9000"
+      - "6001:9000"
     volumes:
       - ./backend:/var/www
     depends_on:
-      - mysql
+      - yois-mysql
 
-  mysql:
+  yois-mysql:
+    container_name: yois_mysql
     image: mysql:8
     restart: always
     ports:
