@@ -80,6 +80,17 @@ export default function PresentacionYassel() {
                         Escribime
                     </a>
                 </section>
+
+                <section>
+                    <h2 className="h3 fw-bold mb-3 text-dark">Colaboraciones</h2>
+                    <p className="text-secondary">
+                        Si querés apoyar mis proyectos, podés hacerlo a través de Mercado Pago:
+                    </p>
+                    <ul className="list-unstyled">
+                        <li><strong>CVU:</strong> 0000003100091368985618</li>
+                        <li><strong>Alias:</strong> yois.mp</li>
+                    </ul>
+                </section>
             </div>
         </div>
     );
