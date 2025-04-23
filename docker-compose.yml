@@ -3,9 +3,11 @@ version: '3.8'
 services:
   yois-frontend:
     container_name: yois_frontend
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
-      - "6000:3000" # Asegúrate de acceder a http://localhost:6000
+      - "8080:3000" # Cambiado de 6000 a 8080
     volumes:
       - ./frontend:/app
     environment:
