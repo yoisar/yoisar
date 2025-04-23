@@ -5,7 +5,7 @@ services:
     container_name: yois_frontend
     build: ./frontend
     ports:
-      - "6000:3000"
+      - "6000:3000" # Asegúrate de acceder a http://localhost:6000
     volumes:
       - ./frontend:/app
     environment:
