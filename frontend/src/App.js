@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de que Bootstrap esté importado
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 
 export default function PresentacionYassel() {
@@ -6,9 +6,9 @@ export default function PresentacionYassel() {
         <div className="min-vh-100 bg-light py-4 px-3">
             <div className="container bg-white rounded-3 shadow p-4">
                 <header className="text-center">
-                    <h1 className="display-4 fw-bold text-dark">Yassel Omar Izquierdo Souchay</h1>
+                    <h1 className="display-4 fw-bold text-dark">YOIS</h1> {/* Actualizado con el nombre completo */}
                     <p className="lead text-secondary">
-                        Desarrollador Fullstack | Emprendedor | Fundador de Cuotaplan | También conocido como YOIS
+                        Desarrollador Fullstack | Emprendedor IT
                     </p>
                     <p className="text-muted">
                         Sitio personal: <a href="https://www.yoisar.com" className="text-primary text-decoration-underline">yoisar.com</a>
