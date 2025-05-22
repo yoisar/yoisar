@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from "react";
 
 export default function PresentacionYassel() {
     return (
@@ -33,6 +32,7 @@ export default function PresentacionYassel() {
                                 </p>
                             </div>
                         </div>
+                        {/* 
                         <div className="col-md-6">
                             <div className="bg-light rounded-3 p-3">
                                 <h3 className="h5 fw-semibold text-success">Admin Barrios</h3>
@@ -41,6 +41,7 @@ export default function PresentacionYassel() {
                                 </p>
                             </div>
                         </div>
+                        */}
                         <div className="col-md-6">
                             <div className="bg-light rounded-3 p-3">
                                 <h3 className="h5 fw-semibold text-danger">Venta Rifas</h3>
@@ -49,6 +50,7 @@ export default function PresentacionYassel() {
                                 </p>
                             </div>
                         </div>
+                        {/*
                         <div className="col-md-6">
                             <div className="bg-light rounded-3 p-3">
                                 <h3 className="h5 fw-semibold text-warning">Taller OK</h3>
@@ -65,6 +67,7 @@ export default function PresentacionYassel() {
                                 </p>
                             </div>
                         </div>
+                        */}
                     </div>
                 </section>
 
