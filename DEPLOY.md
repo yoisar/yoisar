@@ -11,10 +11,25 @@ Para que el deploy automático funcione, necesitas configurar los siguientes sec
 Ve a: `Settings > Secrets and variables > Actions > Repository secrets`
 
 **Secrets requeridos:**
-- `SERVER_HOST`: La IP o dominio de tu servidor (ej: `tu-servidor.com`)
+- `SSH_PRIVATE_KEY`: Tu clave SSH privada (formato ed25519)
 - `SERVER_USER`: Usuario SSH para conectar al servidor (ej: `root` o `yois`)
-- `SERVER_SSH_KEY`: Tu clave SSH privada para conectar al servidor
-- `SERVER_PORT`: Puerto SSH del servidor (opcional, por defecto es 22)
+
+**Configuración SSH:**
+- Host: `92.112.178.62`
+- Puerto: `2223`
+- Tipo de clave: `ed25519`
+
+**Generar clave SSH (si no tienes una):**
+```bash
+# Generar nueva clave ed25519
+ssh-keygen -t ed25519 -C "deploy@yoisar.com"
+
+# Copiar clave pública al servidor
+ssh-copy-id -p 2223 -i ~/.ssh/id_ed25519.pub usuario@92.112.178.62
+
+# Mostrar clave privada para copiar a GitHub Secrets
+cat ~/.ssh/id_ed25519
+```
 
 ### 2. Configuración del Servidor
 
@@ -40,10 +55,20 @@ Asegúrate de que tu servidor tenga:
 ├── deploy-dev.sh               # Script deploy desarrollo
 ├── deploy-prod.sh              # Script deploy producción
 ├── sync-repo.sh               # Script sincronización repositorio
+├── test-ssh.sh                # Script test conexión SSH
 └── nginx.cfg                   # Configuración nginx del servidor
 ```
 
 ## 🔧 Scripts de Deploy
+
+### Testear Conexión SSH
+```bash
+./test-ssh.sh <usuario>
+```
+- Verifica la conexión SSH al servidor
+- Comprueba que Docker esté instalado
+- Valida que el directorio de la app exista
+- Ejemplo: `./test-ssh.sh root`
 
 ### Sincronizar Repositorio
 ```bash
