@@ -54,10 +54,10 @@ docker-compose -f docker-compose.prod.yml ps
 
 # Verificar que el frontend esté respondiendo
 echo "🔍 Verificando que el frontend esté respondiendo..."
-if curl -f -s http://localhost:8080 > /dev/null; then
-    echo "✅ Frontend respondiendo correctamente en puerto 8080"
+if curl -f -s http://localhost:8090 > /dev/null; then
+    echo "✅ Frontend respondiendo correctamente en puerto 8090"
 else
-    echo "⚠️  Frontend no responde en puerto 8080"
+    echo "⚠️  Frontend no responde en puerto 8090"
 fi
 
 # Mostrar logs recientes
