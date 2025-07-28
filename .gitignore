@@ -1,6 +1,7 @@
 # Node.js (Frontend)
 node_modules/
 build/
+coverage/
 .env.local
 .env.development.local
 .env.test.local
