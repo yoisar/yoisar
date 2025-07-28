@@ -29,7 +29,7 @@ export default function PresentacionYassel() {
                                          backdropFilter: 'blur(10px)',
                                          border: '2px solid rgba(255,255,255,0.3)'
                                      }}>
-                                    <span className="fs-1 text-white">👨‍💻</span>
+                                    <span className="fs-1 text-white">🧑🏽‍💻</span>
                                 </div>
                                 <h1 className="display-4 fw-bold text-white mb-3">
                                     Hola, soy YOIS
