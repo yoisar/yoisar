@@ -28,7 +28,7 @@ export default function PresentacionYassel() {
                             <div className="bg-light rounded-3 p-3">
                                 <h3 className="h5 fw-semibold text-primary">Cuotaplan</h3>
                                 <p className="text-secondary">
-                                    Plataforma de financiación de bienes en cuotas con beneficios como saldo virtual, referidos y sorteos. En expansión regional.
+                                    Plataforma que conecta a clientes de comercios que pagan en cuotas con beneficios exclusivos como saldo virtual, sorteos y descuentos. No comercializamos productos financiados, sino que facilitamos su acceso.
                                 </p>
                             </div>
                         </div>
@@ -84,7 +84,7 @@ export default function PresentacionYassel() {
                     </a>
                 </section>
 
-                <section>
+                {/* <section>
                     <h2 className="h3 fw-bold mb-3 text-dark">Colaboraciones</h2>
                     <p className="text-secondary">
                         Si querés apoyar mis proyectos, podés hacerlo a través de Mercado Pago:
@@ -93,7 +93,7 @@ export default function PresentacionYassel() {
                         <li><strong>CVU:</strong> 0000003100091368985618</li>
                         <li><strong>Alias:</strong> yois.mp</li>
                     </ul>
-                </section>
+                </section> */}
             </div>
         </div>
     );

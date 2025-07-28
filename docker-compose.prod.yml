@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  yois-frontend-prod:
+    container_name: yois_frontend_prod
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8080:80"  # Puerto mapeado al nginx del sistema host
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+
+  yois-backend:
+    container_name: yois_backend
+    build: ./backend
+    ports:
+      - "6001:9000"
+    volumes:
+      - ./backend:/var/www
+    depends_on:
+      - yois-mysql
+    restart: unless-stopped
+
+  yois-mysql:
+    container_name: yois_mysql
+    image: mysql:8
+    restart: unless-stopped
+    ports:
+      - "6006:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: yois_db
+      MYSQL_USER: yois
+      MYSQL_PASSWORD: secret
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

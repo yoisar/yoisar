@@ -19,6 +19,25 @@ storage/logs/*.log
 storage/framework/cache/*
 storage/framework/sessions/*
 storage/framework/views/*
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+storage/framework/views/*
 bootstrap/cache/*
 public/storage
 public/hot
