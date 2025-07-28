@@ -11,13 +11,15 @@ Para que el deploy automático funcione, necesitas configurar los siguientes sec
 Ve a: `Settings > Secrets and variables > Actions > Repository secrets`
 
 **Secrets requeridos:**
-- `SSH_PRIVATE_KEY`: Tu clave SSH privada (formato ed25519)
-- `SERVER_USER`: Usuario SSH para conectar al servidor (ej: `root` o `yois`)
+- `SSH_PRIVATE_KEY`: Tu clave SSH privada (formato ed25519) - Copia el contenido completo de `~/.ssh/yoisar_deploy`
+- `SERVER_USER`: Usuario SSH para conectar al servidor - Usar: `root`
 
 **Configuración SSH:**
 - Host: `92.112.178.62`
 - Puerto: `2223`
+- Usuario: `root`
 - Tipo de clave: `ed25519`
+- Archivo de clave: `~/.ssh/yoisar_deploy`
 
 **Generar clave SSH (si no tienes una):**
 ```bash
@@ -63,12 +65,21 @@ Asegúrate de que tu servidor tenga:
 
 ### Testear Conexión SSH
 ```bash
-./test-ssh.sh <usuario>
+./test-ssh.sh      # Usa root por defecto
+./test-ssh.sh root # Especificar usuario manualmente
 ```
 - Verifica la conexión SSH al servidor
 - Comprueba que Docker esté instalado
 - Valida que el directorio de la app exista
-- Ejemplo: `./test-ssh.sh root`
+
+### Verificar Estado del Deploy
+```bash
+./check-deploy.sh      # Usa root por defecto
+./check-deploy.sh root # Especificar usuario manualmente
+```
+- Verifica el estado completo del deploy
+- Muestra logs de contenedores
+- Comprueba que la aplicación responda
 
 ### Sincronizar Repositorio
 ```bash

@@ -7,7 +7,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile.prod
     ports:
-      - "8080:80"  # Puerto mapeado al nginx del sistema host
+      - "8090:80"  # Puerto mapeado al nginx del sistema host (cambiado de 8080 a 8090)
     restart: unless-stopped
     environment:
       - NODE_ENV=production
