@@ -51,18 +51,18 @@ jobs:
     - name: Setup SSH
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519        
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/yoisar_deploy
+        chmod 600 ~/.ssh/yoisar_deploy        
         ssh-keyscan -H github.com >> ~/.ssh/known_hosts
         ssh-keyscan -H -p 2223 92.112.178.62 >> ~/.ssh/known_hosts
         
     - name: Test SSH connection
       run: |
-        ssh -p 2223 -i ~/.ssh/id_ed25519 -o ConnectTimeout=10 ${{ secrets.SERVER_USER }}@92.112.178.62 "echo 'SSH connection successful'"
+        ssh -p 2223 -i ~/.ssh/yoisar_deploy -o ConnectTimeout=10 ${{ secrets.SERVER_USER }}@92.112.178.62 "echo 'SSH connection successful'"
         
     - name: Deploy to production server
       run: |
-        ssh -p 2223 -i ~/.ssh/id_ed25519 ${{ secrets.SERVER_USER }}@92.112.178.62 << 'EOF'
+        ssh -p 2223 -i ~/.ssh/yoisar_deploy ${{ secrets.SERVER_USER }}@92.112.178.62 << 'EOF'
           cd /www/wwwroot/yoisar.com/app
           ./deploy-prod.sh
         EOF
