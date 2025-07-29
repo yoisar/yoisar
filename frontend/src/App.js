@@ -1,6 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function PresentacionYassel() {
+    // Calcular años de experiencia dinámicamente desde 2001
+    const añosExperiencia = new Date().getFullYear() - 2001;
+    
     return (
         <div className="min-vh-100" style={{
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -76,7 +79,7 @@ export default function PresentacionYassel() {
                                     <div className="row align-items-center">
                                         <div className="col-md-8 mx-auto">
                                             <p className="text-secondary fs-5 lh-lg text-center">
-                                                Soy desarrollador cubano radicado en Argentina, con más de <strong>20 años de experiencia</strong> en sistemas. 
+                                                Soy desarrollador cubano radicado en Argentina, con más de <strong>{añosExperiencia} años de experiencia</strong> en sistemas. 
                                                 Actualmente me dedico al 100% a proyectos propios con visión de escalar en Latinoamérica. 
                                                 Cada línea de código que escribo, cada feature que diseño, y cada estrategia que lanzo tiene una meta clara: 
                                                 <span className="text-primary fw-semibold">construir soluciones reales que funcionen, generen impacto y dejen huella.</span>
@@ -124,8 +127,9 @@ export default function PresentacionYassel() {
                                         <h3 className="h4 fw-bold text-white mb-0">Cuotaplan</h3>
                                     </div>
                                     <p className="text-white-50 mb-3">
-                                        Plataforma que conecta a clientes de comercios que pagan en cuotas con beneficios exclusivos 
-                                        como saldo virtual, sorteos y descuentos.
+                                        CuotaPlan es una plataforma que conecta a personas y comercios adheridos, ofreciendo un ecosistema 
+                                        de beneficios exclusivos como saldo virtual, sorteos, puntos y descuentos. Brinda a los comercios 
+                                        herramientas de fidelización, gestión de referidos y campañas promocionales desde un panel centralizado.
                                     </p>
                                     <div className="d-flex gap-2 mb-3">
                                         <span className="badge bg-light text-dark rounded-pill">FinTech</span>
@@ -170,8 +174,8 @@ export default function PresentacionYassel() {
                                     </p>
                                     <div className="d-flex gap-2 mb-3">
                                         <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Next.js</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Node.js</span>
+                                        <span className="badge bg-light text-dark rounded-pill">React</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
                                     <a href="https://ventarifas.com" 
                                        target="_blank" 
@@ -211,8 +215,8 @@ export default function PresentacionYassel() {
                                     </p>
                                     <div className="d-flex gap-2 mb-3">
                                         <span className="badge bg-light text-dark rounded-pill">PropTech</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Vue.js</span>
-                                        <span className="badge bg-light text-dark rounded-pill">PHP</span>
+                                        <span className="badge bg-light text-dark rounded-pill">React</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
                                     <a href="https://adminbarrio.com" 
                                        target="_blank" 
