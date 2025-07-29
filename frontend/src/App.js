@@ -102,7 +102,7 @@ export default function PresentacionYassel() {
                     </div>
                     
                     <div className="row g-4 justify-content-center">
-                        <div className="col-lg-5 col-md-6">
+                        <div className="col-lg-4 col-md-6">
                             <div className="card border-0 h-100 shadow-lg" style={{
                                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                                 borderRadius: '20px',
@@ -127,16 +127,23 @@ export default function PresentacionYassel() {
                                         Plataforma que conecta a clientes de comercios que pagan en cuotas con beneficios exclusivos 
                                         como saldo virtual, sorteos y descuentos.
                                     </p>
-                                    <div className="d-flex gap-2">
+                                    <div className="d-flex gap-2 mb-3">
                                         <span className="badge bg-light text-dark rounded-pill">FinTech</span>
                                         <span className="badge bg-light text-dark rounded-pill">React</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
+                                    <a href="https://cuotaplan.com/index" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <span className="me-1">🔗</span>
+                                        Ver Proyecto
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         
-                        <div className="col-lg-5 col-md-6">
+                        <div className="col-lg-4 col-md-6">
                             <div className="card border-0 h-100 shadow-lg" style={{
                                 background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
                                 borderRadius: '20px',
@@ -161,11 +168,59 @@ export default function PresentacionYassel() {
                                         Plataforma para crear y gestionar rifas online con sistema de pago integrado 
                                         y comisiones para organizadores.
                                     </p>
-                                    <div className="d-flex gap-2">
+                                    <div className="d-flex gap-2 mb-3">
                                         <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
                                         <span className="badge bg-light text-dark rounded-pill">Next.js</span>
                                         <span className="badge bg-light text-dark rounded-pill">Node.js</span>
                                     </div>
+                                    <a href="https://ventarifas.com" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <span className="me-1">🔗</span>
+                                        Ver Proyecto
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg" style={{
+                                background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                             style={{
+                                                 width: '50px', 
+                                                 height: '50px', 
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <span className="fs-4">🏘️</span>
+                                        </div>
+                                        <h3 className="h4 fw-bold text-white mb-0">AdminBarrios</h3>
+                                    </div>
+                                    <p className="text-white-50 mb-3">
+                                        Gestión Integral de Barrios. Plataforma para administrar eficientemente servicios, 
+                                        mejorar la comunicación entre vecinos y facilitar decisiones comunitarias.
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3">
+                                        <span className="badge bg-light text-dark rounded-pill">PropTech</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Vue.js</span>
+                                        <span className="badge bg-light text-dark rounded-pill">PHP</span>
+                                    </div>
+                                    <a href="https://adminbarrio.com" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <span className="me-1">🔗</span>
+                                        Ver Proyecto
+                                    </a>
                                 </div>
                             </div>
                         </div>
