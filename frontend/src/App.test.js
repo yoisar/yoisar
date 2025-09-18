@@ -31,16 +31,10 @@ test('renders cuotaplan project heading', () => {
   expect(cuotaplanHeading).toBeInTheDocument();
 });
 
-test('renders venta rifas project', () => {
+test('renders fideliza project heading', () => {
   render(<App />);
-  const ventaRifasProject = screen.getByText(/Venta Rifas/i);
-  expect(ventaRifasProject).toBeInTheDocument();
-});
-
-test('renders adminbarrios project', () => {
-  render(<App />);
-  const adminBarriosProject = screen.getByText(/AdminBarrios/i);
-  expect(adminBarriosProject).toBeInTheDocument();
+  const fidelizaHeading = screen.getByRole('heading', { name: /Fideliza/i });
+  expect(fidelizaHeading).toBeInTheDocument();
 });
 
 test('renders contact email link', () => {
@@ -75,17 +69,16 @@ test('renders view projects button', () => {
   expect(projectsButton).toBeInTheDocument();
 });
 
-test('renders project links', () => {
+test('renders visible project links', () => {
   render(<App />);
   
-  // Test that all 3 project links exist
-  const projectLinks = screen.getAllByRole('link', { name: /🔗 Ver Proyecto/i });
-  expect(projectLinks).toHaveLength(3);
+  // Test that only 2 visible project links exist (hidden projects should not be counted)
+  const visibleProjectLinks = screen.getAllByRole('link', { name: /🔗 Ver Proyecto/i });
+  expect(visibleProjectLinks).toHaveLength(2);
   
-  // Test specific URLs
-  expect(projectLinks[0]).toHaveAttribute('href', 'https://cuotaplan.com/index');
-  expect(projectLinks[1]).toHaveAttribute('href', 'https://ventarifas.com');
-  expect(projectLinks[2]).toHaveAttribute('href', 'https://adminbarrio.com');
+  // Test specific URLs for visible projects
+  expect(visibleProjectLinks[0]).toHaveAttribute('href', 'https://cuotaplan.com/index');
+  expect(visibleProjectLinks[1]).toHaveAttribute('href', 'https://fideliza.yoisar.com/fideliza');
 });
 
 test('displays dynamic years of experience', () => {
@@ -96,26 +89,34 @@ test('displays dynamic years of experience', () => {
   expect(experienceText).toBeInTheDocument();
 });
 
-test('renders all project technologies', () => {
+test('renders visible project technologies', () => {
   render(<App />);
   
-  // Check for technology badges
+  // Check for technology badges in visible projects
   const reactBadges = screen.getAllByText(/React/i);
   const laravelBadges = screen.getAllByText(/Laravel/i);
+  const reactNativeBadges = screen.getAllByText(/React Native/i);
   
-  expect(reactBadges.length).toBeGreaterThanOrEqual(3); // Should have at least 3 React badges
-  expect(laravelBadges.length).toBeGreaterThanOrEqual(3); // Should have at least 3 Laravel badges
+  expect(reactBadges.length).toBeGreaterThanOrEqual(1); // CuotaPlan has React
+  expect(laravelBadges.length).toBeGreaterThanOrEqual(2); // Both projects have Laravel
+  expect(reactNativeBadges.length).toBe(1); // Fideliza has React Native
 });
 
-test('renders project categories', () => {
+test('renders visible project categories', () => {
   render(<App />);
   
-  // Check for project category badges
+  // Check for project category badges in visible projects
   const fintechBadge = screen.getByText(/FinTech/i);
-  const ecommerceBadge = screen.getByText(/E-commerce/i);
-  const proptechBadge = screen.getByText(/PropTech/i);
+  const crmBadge = screen.getByText(/CRM/i);
   
   expect(fintechBadge).toBeInTheDocument();
-  expect(ecommerceBadge).toBeInTheDocument();
-  expect(proptechBadge).toBeInTheDocument();
+  expect(crmBadge).toBeInTheDocument();
+});
+
+test('hidden projects are not visible', () => {
+  render(<App />);
+  
+  // Check that hidden projects are in DOM but not visible
+  const hiddenProjects = document.querySelectorAll('[style*="display: none"]');
+  expect(hiddenProjects.length).toBeGreaterThanOrEqual(2); // Should have 2 hidden project divs
 });
