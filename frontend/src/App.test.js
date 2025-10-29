@@ -25,12 +25,6 @@ test('renders projects section', () => {
   expect(projectsSection).toBeInTheDocument();
 });
 
-test('renders cuotaplan project heading', () => {
-  render(<App />);
-  const cuotaplanHeading = screen.getByRole('heading', { name: /Cuotaplan/i });
-  expect(cuotaplanHeading).toBeInTheDocument();
-});
-
 test('renders fideliza project heading', () => {
   render(<App />);
   const fidelizaHeading = screen.getByRole('heading', { name: /Fideliza/i });
@@ -72,13 +66,12 @@ test('renders view projects button', () => {
 test('renders visible project links', () => {
   render(<App />);
   
-  // Test that only 2 visible project links exist (hidden projects should not be counted)
+  // Test that only 1 visible project link exists (only Fideliza is visible)
   const visibleProjectLinks = screen.getAllByRole('link', { name: /🔗 Ver Proyecto/i });
-  expect(visibleProjectLinks).toHaveLength(2);
+  expect(visibleProjectLinks).toHaveLength(1);
   
-  // Test specific URLs for visible projects
-  expect(visibleProjectLinks[0]).toHaveAttribute('href', 'https://cuotaplan.com/index');
-  expect(visibleProjectLinks[1]).toHaveAttribute('href', 'https://fideliza.yoisar.com/fideliza');
+  // Test specific URL for visible project
+  expect(visibleProjectLinks[0]).toHaveAttribute('href', 'https://fideliza.yoisar.com/fideliza');
 });
 
 test('displays dynamic years of experience', () => {
@@ -92,31 +85,29 @@ test('displays dynamic years of experience', () => {
 test('renders visible project technologies', () => {
   render(<App />);
   
-  // Check for technology badges in visible projects
-  const reactBadges = screen.getAllByText(/React/i);
-  const laravelBadges = screen.getAllByText(/Laravel/i);
+  // Check for technology badges in visible projects (only Fideliza)
   const reactNativeBadges = screen.getAllByText(/React Native/i);
+  const laravelBadges = screen.getAllByText(/Laravel/i);
+  const crmBadges = screen.getAllByText(/CRM/i);
   
-  expect(reactBadges.length).toBeGreaterThanOrEqual(1); // CuotaPlan has React
-  expect(laravelBadges.length).toBeGreaterThanOrEqual(2); // Both projects have Laravel
   expect(reactNativeBadges.length).toBe(1); // Fideliza has React Native
+  expect(laravelBadges.length).toBeGreaterThanOrEqual(1); // Fideliza has Laravel
+  expect(crmBadges.length).toBe(1); // Fideliza has CRM
 });
 
 test('renders visible project categories', () => {
   render(<App />);
   
-  // Check for project category badges in visible projects
-  const fintechBadge = screen.getByText(/FinTech/i);
+  // Check for project category badges in visible projects (only Fideliza)
   const crmBadge = screen.getByText(/CRM/i);
   
-  expect(fintechBadge).toBeInTheDocument();
   expect(crmBadge).toBeInTheDocument();
 });
 
 test('hidden projects are not visible', () => {
   render(<App />);
   
-  // Check that hidden projects are in DOM but not visible
+  // Check that hidden projects are in DOM but not visible (Cuotaplan, Venta Rifas, AdminBarrios)
   const hiddenProjects = document.querySelectorAll('[style*="display: none"]');
-  expect(hiddenProjects.length).toBeGreaterThanOrEqual(2); // Should have 2 hidden project divs
+  expect(hiddenProjects.length).toBeGreaterThanOrEqual(3); // Should have 3 hidden project divs
 });
