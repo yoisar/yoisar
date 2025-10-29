@@ -105,7 +105,7 @@ export default function PresentacionYassel() {
                     </div>
                     
                     <div className="row g-4 justify-content-center">
-                        <div className="col-lg-5 col-md-6">
+                        <div className="col-lg-5 col-md-6" style={{ display: 'none' }}>
                             <div className="card border-0 h-100 shadow-lg" style={{
                                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                                 borderRadius: '20px',
@@ -229,7 +229,7 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
 
-                        <div className="col-lg-5 col-md-6">
+                        <div className="col-lg-8 col-md-10">
                             <div className="card border-0 h-100 shadow-lg" style={{
                                 background: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
                                 borderRadius: '20px',
