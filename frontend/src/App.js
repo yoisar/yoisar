@@ -19,47 +19,51 @@ export default function PresentacionYassel() {
             </nav>
 
             {/* Hero Section */}
-            <section className="py-5">
-                <div className="container">
-                    <div className="row justify-content-center text-center">
-                        <div className="col-lg-8">
-                            <div className="mb-4">
-                                <div className="rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center" 
-                                     style={{
-                                         width: '120px', 
-                                         height: '120px', 
-                                         background: 'rgba(255,255,255,0.2)',
-                                         backdropFilter: 'blur(10px)',
-                                         border: '2px solid rgba(255,255,255,0.3)'
-                                     }}>
-                                    {/* <span className="fs-1 text-white fw-bold">YOIS</span> */}
-                                </div>
-                                <h1 className="display-4 fw-bold text-white mb-3">
-                                    Hola, soy YOIS
-                                </h1>
-                                <p className="lead text-white-50 mb-4">
-                                    Desarrollador Fullstack | Emprendedor IT
-                                </p>
-                                <p className="text-white-50 mb-4">
-                                    Creando soluciones digitales que transforman ideas en realidad
-                                </p>
-                                <div className="d-flex gap-3 justify-content-center flex-wrap">
-                                    <a href="mailto:me@yoisar.com" 
-                                       className="btn btn-light btn-lg px-4 py-2 rounded-pill">
-                                        📧 Contactar
-                                    </a>
-                                    <a href="#proyectos" 
-                                       className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
-                                        🚀 Ver Proyectos
-                                    </a>
+                        <section className="py-5">
+                            <div className="container">
+                                <div className="row justify-content-center text-center">
+                                    <div className="col-lg-8">
+                                        <div className="mb-4">
+                                            <div className="rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center overflow-hidden" 
+                                                 style={{
+                                                     width: '120px', 
+                                                     height: '120px', 
+                                                     border: '3px solid rgba(255,255,255,0.5)',
+                                                     boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
+                                                 }}>
+                                                <img 
+                                                    src="/yois-perfil.jpg" 
+                                                    alt="YOIS Profile" 
+                                                    className="w-100 h-100" 
+                                                    style={{ objectFit: 'cover' }}
+                                                />
+                                            </div>
+                                            <h1 className="display-4 fw-bold text-white mb-3">
+                                                Hola, soy YOIS
+                                            </h1>
+                                            <p className="lead text-white-50 mb-4">
+                                                Desarrollador Fullstack | Emprendedor IT
+                                            </p>
+                                            <p className="text-white-50 mb-4">
+                                                Creando soluciones digitales que transforman ideas en realidad
+                                            </p>
+                                            <div className="d-flex gap-3 justify-content-center flex-wrap">
+                                                <a href="mailto:me@yoisar.com" 
+                                                   className="btn btn-light btn-lg px-4 py-2 rounded-pill">
+                                                    📧 Contactar
+                                                </a>
+                                                <a href="#proyectos" 
+                                                   className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
+                                                    🚀 Ver Proyectos
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                        </section>
 
-            {/* About Section */}
+                        {/* About Section */}
             <section className="py-5">
                 <div className="container">
                     <div className="row justify-content-center">
