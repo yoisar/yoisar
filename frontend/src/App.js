@@ -12,9 +12,9 @@ export default function PresentacionYassel() {
             {/* Navigation Bar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
                 <div className="container">
-                    <a className="navbar-brand fw-bold fs-3" href="#" style={{ color: '#fff' }}>
+                    {/* <a className="navbar-brand fw-bold fs-3" href="#" style={{ color: '#fff' }}>
                         YOIS
-                    </a>
+                    </a> */}
                 </div>
             </nav>
 
