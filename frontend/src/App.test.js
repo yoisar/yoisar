@@ -66,12 +66,15 @@ test('renders view projects button', () => {
 test('renders visible project links', () => {
   render(<App />);
   
-  // Test that only 1 visible project link exists (only Fideliza is visible)
+  // Test that 3 visible project links exist (Fideliza, Ventarifas, Inversores)
   const visibleProjectLinks = screen.getAllByRole('link', { name: /🔗 Ver Proyecto/i });
-  expect(visibleProjectLinks).toHaveLength(1);
+  expect(visibleProjectLinks).toHaveLength(3);
   
-  // Test specific URL for visible project
-  expect(visibleProjectLinks[0]).toHaveAttribute('href', 'https://fideliza.yoisar.com/fideliza');
+  // Test specific URLs for visible projects
+  const hrefs = visibleProjectLinks.map(link => link.getAttribute('href'));
+  expect(hrefs).toContain('https://fideliza.yoisar.com/fideliza');
+  expect(hrefs).toContain('https://ventarifas.com');
+  expect(hrefs).toContain('https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico');
 });
 
 test('displays dynamic years of experience', () => {
@@ -85,14 +88,20 @@ test('displays dynamic years of experience', () => {
 test('renders visible project technologies', () => {
   render(<App />);
   
-  // Check for technology badges in visible projects (only Fideliza)
+  // Check for technology badges in visible projects (Fideliza and Ventarifas)
   const reactNativeBadges = screen.getAllByText(/React Native/i);
   const laravelBadges = screen.getAllByText(/Laravel/i);
   const crmBadges = screen.getAllByText(/CRM/i);
+  const marketplaceBadges = screen.getAllByText(/Marketplace/i);
+  const nextBadges = screen.getAllByText(/Next\.js|Nextjs/i);
+  const investmentBadges = screen.getAllByText(/Investment/i);
   
   expect(reactNativeBadges.length).toBe(1); // Fideliza has React Native
-  expect(laravelBadges.length).toBeGreaterThanOrEqual(1); // Fideliza has Laravel
+  expect(laravelBadges.length).toBeGreaterThanOrEqual(1); // visible projects use Laravel
   expect(crmBadges.length).toBe(1); // Fideliza has CRM
+  expect(marketplaceBadges.length).toBeGreaterThanOrEqual(1); // Ventarifas is a marketplace
+  expect(nextBadges.length).toBeGreaterThanOrEqual(1); // Ventarifas built with Next.js
+  expect(investmentBadges.length).toBeGreaterThanOrEqual(1); // investor card shows Investment badge
 });
 
 test('renders visible project categories', () => {
@@ -107,7 +116,7 @@ test('renders visible project categories', () => {
 test('hidden projects are not visible', () => {
   render(<App />);
   
-  // Check that hidden projects are in DOM but not visible (Cuotaplan, Venta Rifas, AdminBarrios)
+  // Check that hidden projects are in DOM but not visible (Cuotaplan, AdminBarrios)
   const hiddenProjects = document.querySelectorAll('[style*="display: none"]');
-  expect(hiddenProjects.length).toBeGreaterThanOrEqual(3); // Should have 3 hidden project divs
+  expect(hiddenProjects.length).toBeGreaterThanOrEqual(2); // Should have at least 2 hidden project divs
 });

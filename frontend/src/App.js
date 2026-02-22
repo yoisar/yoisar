@@ -150,48 +150,6 @@ export default function PresentacionYassel() {
                                 </div>
                             </div>
                         </div>
-                        
-                        <div className="col-lg-4 col-md-6" style={{ display: 'none' }}>
-                            <div className="card border-0 h-100 shadow-lg" style={{
-                                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                                borderRadius: '20px',
-                                transform: 'translateY(0)',
-                                transition: 'transform 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
-                                <div className="card-body p-4">
-                                    <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
-                                             style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
-                                                 background: 'rgba(255,255,255,0.2)'
-                                             }}>
-                                            <span className="fs-4">🎫</span>
-                                        </div>
-                                        <h3 className="h4 fw-bold text-white mb-0">Venta Rifas</h3>
-                                    </div>
-                                    <p className="text-white-50 mb-3">
-                                        Plataforma para crear y gestionar rifas online con sistema de pago integrado 
-                                        y comisiones para organizadores.
-                                    </p>
-                                    <div className="d-flex gap-2 mb-3">
-                                        <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
-                                        <span className="badge bg-light text-dark rounded-pill">React</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
-                                    </div>
-                                    <a href="https://ventarifas.com" 
-                                       target="_blank" 
-                                       rel="noopener noreferrer"
-                                       className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
-                                        Ver Proyecto
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
                         <div className="col-lg-4 col-md-6" style={{ display: 'none' }}>
                             <div className="card border-0 h-100 shadow-lg" style={{
                                 background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
@@ -255,9 +213,10 @@ export default function PresentacionYassel() {
                                         <h3 className="h4 fw-bold text-white mb-0">Fideliza</h3>
                                     </div>
                                     <p className="text-white-50 mb-3">
-                                        Suite completa de herramientas de fidelización de clientes que permite a las empresas crear 
-                                        programas de lealtad personalizados, gestionar puntos, recompensas y campañas promocionales 
-                                        para aumentar la retención y el engagement de sus clientes.
+                                        Plataforma integral para comercios e inversionistas que combina catálogo vivo, programas de puntos,
+                                        referidos, rifas propias y de terceros, delivery partners y más. Gestión centralizada de inventario,
+                                        promociones y sorteos; actualmente con comercios activos, usuarios acumulando puntos y participantes
+                                        en rifas reales.
                                     </p>
                                     <div className="d-flex gap-2 mb-3">
                                         <span className="badge bg-light text-dark rounded-pill">CRM</span>
@@ -275,7 +234,7 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
                         
-                        <div className="col-lg-4 col-md-6" style={{ display: 'none' }}>
+                        <div className="col-lg-4 col-md-6">
                             <div className="card border-0 h-100 shadow-lg" style={{
                                 background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
                                 borderRadius: '20px',
@@ -294,15 +253,16 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">🎫</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-white mb-0">Venta Rifas</h3>
+                                        <h3 className="h4 fw-bold text-white mb-0">Ventarifas</h3>
                                     </div>
                                     <p className="text-white-50 mb-3">
-                                        Plataforma para crear y gestionar rifas online con sistema de pago integrado 
-                                        y comisiones para organizadores.
+                                        Crea y vende rifas online en minutos. Plataforma desarrollada en Next.js como
+                                        marketplace de rifas; pagos seguros, números automáticos y panel en tiempo real
+                                        para organizadores. Canon inicial más 15 % sobre lo recaudado.
                                     </p>
                                     <div className="d-flex gap-2 mb-3">
-                                        <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
-                                        <span className="badge bg-light text-dark rounded-pill">React</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Marketplace</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Next.js</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
                                     <a href="https://ventarifas.com" 
@@ -316,6 +276,47 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
                         
+                        {/* Investor card */}
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg" style={{
+                                background: 'linear-gradient(135deg, #facc15 0%, #f59e0b 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                             style={{
+                                                 width: '50px', 
+                                                 height: '50px', 
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <span className="fs-4">💼</span>
+                                        </div>
+                                        <h3 className="h4 fw-bold text-white mb-0">Inversores</h3>
+                                    </div>
+                                    <p className="text-white-50 mb-3">
+                                        Ronda de inversión en un ecosistema tecnológico con múltiples líneas de negocio.
+                                        Pool mensual 30 % del ingreso distribuible hasta cap 2.5× el capital. Meta de
+                                        recaudar $10 000 000 pesos. Invertí desde $50 000 y seguí tu aporte en tiempo real.
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3">
+                                        <span className="badge bg-light text-dark rounded-pill">FinTech</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Investment</span>
+                                    </div>
+                                    <a href="https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <span className="me-1">🔗</span>
+                                        Ver Proyecto
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
