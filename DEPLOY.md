@@ -17,10 +17,12 @@ Esta es una aplicación React/Laravel para el portfolio personal de Yois, config
 
 ### Características Desplegadas:
 - ✅ Cálculo dinámico de experiencia (desde 2001)
-- ✅ 3 Proyectos con enlaces funcionales:
+- ✅ 5 Proyectos con enlaces funcionales:
+  - Fideliza → https://fideliza.yoisar.com/fideliza
   - CuotaPlan → https://cuotaplan.com/index
-  - Venta Rifas → https://ventarifas.com  
+  - Ventarifas → https://ventarifas.com  
   - AdminBarrios → https://adminbarrio.com
+  - Inversores → https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico
 - ✅ Tecnologías: React (frontend) + Laravel (backend)
 - ✅ Google Analytics configurado (G-5723RCL09L)
 - ✅ Responsive design con Bootstrap

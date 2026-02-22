@@ -98,17 +98,27 @@ $ curl -s -o /dev/null -w '%{http_code}\n%{time_total}s' https://yoisar.com
 - ✅ **Contact Section:** Email y website links
 
 ### Proyectos Incluidos
-1. **CuotaPlan** 
+1. **Fideliza**
+   - URL: https://fideliza.yoisar.com/fideliza
+   - Tech: CRM, React Native, Laravel
+   - Descripción: Plataforma comercial e inversores con catálogo, puntos, referidos y rifas integradas
+
+2. **CuotaPlan** 
    - URL: https://cuotaplan.com/index
    - Tech: FinTech, React, Laravel
    - Descripción: Ecosistema de beneficios para comercios
 
-2. **Venta Rifas**
+3. **Ventarifas**
    - URL: https://ventarifas.com  
-   - Tech: E-commerce, React, Laravel
-   - Descripción: Plataforma de rifas online
+   - Tech: Marketplace, Next.js, Laravel
+   - Descripción: Marketplace de rifas online desarrollado en Next.js
 
-3. **AdminBarrios**
+4. **Inversores**
+   - URL: https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico
+   - Tech: FinTech, Next.js
+   - Descripción: Ronda de inversión con pool 30 % del ingreso distribuible, cap 2.5× y meta $10M
+
+5. **AdminBarrios**
    - URL: https://adminbarrio.com
    - Tech: PropTech, React, Laravel  
    - Descripción: Gestión integral de barrios
