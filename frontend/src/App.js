@@ -110,7 +110,7 @@ export default function PresentacionYassel() {
                     
                     <div className="row g-4 justify-content-center">
                         <div className="col-lg-5 col-md-6" style={{ display: 'none' }}>
-                            <div className="card border-0 h-100 shadow-lg" style={{
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                                 borderRadius: '20px',
                                 transform: 'translateY(0)',
@@ -128,9 +128,9 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">💳</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-white mb-0">Cuotaplan</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">Cuotaplan</h3>
                                     </div>
-                                    <p className="text-white-50 mb-3">
+                                    <p className="text-dark mb-3 lh-lg">
                                         CuotaPlan es una plataforma que conecta a personas y comercios adheridos, ofreciendo un ecosistema 
                                         de beneficios exclusivos como saldo virtual, sorteos, puntos y descuentos. Brinda a los comercios 
                                         herramientas de fidelización, gestión de referidos y campañas promocionales desde un panel centralizado.
@@ -151,7 +151,7 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6" style={{ display: 'none' }}>
-                            <div className="card border-0 h-100 shadow-lg" style={{
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
                                 borderRadius: '20px',
                                 transform: 'translateY(0)',
@@ -169,9 +169,9 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">🏘️</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-white mb-0">AdminBarrios</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">AdminBarrios</h3>
                                     </div>
-                                    <p className="text-white-50 mb-3">
+                                    <p className="text-dark mb-3 lh-lg">
                                         Gestión Integral de Barrios. Plataforma para administrar eficientemente servicios, 
                                         mejorar la comunicación entre vecinos y facilitar decisiones comunitarias.
                                     </p>
@@ -192,7 +192,7 @@ export default function PresentacionYassel() {
                         </div>
 
                         <div className="col-lg-8 col-md-10">
-                            <div className="card border-0 h-100 shadow-lg" style={{
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
                                 borderRadius: '20px',
                                 transform: 'translateY(0)',
@@ -210,9 +210,9 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">🎯</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-white mb-0">Fideliza</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">Fideliza</h3>
                                     </div>
-                                    <p className="text-white-50 mb-3">
+                                    <p className="text-dark mb-3 lh-lg">
                                         Plataforma integral para comercios e inversionistas que combina catálogo vivo, programas de puntos,
                                         referidos, rifas propias y de terceros, delivery partners y más. Gestión centralizada de inventario,
                                         promociones y sorteos; actualmente con comercios activos, usuarios acumulando puntos y participantes
@@ -235,7 +235,7 @@ export default function PresentacionYassel() {
                         </div>
                         
                         <div className="col-lg-4 col-md-6">
-                            <div className="card border-0 h-100 shadow-lg" style={{
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
                                 borderRadius: '20px',
                                 transform: 'translateY(0)',
@@ -253,9 +253,9 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">🎫</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-white mb-0">Ventarifas</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">Ventarifas</h3>
                                     </div>
-                                    <p className="text-white-50 mb-3">
+                                    <p className="text-dark mb-3 lh-lg">
                                         Crea y vende rifas online en minutos. Plataforma desarrollada en Next.js como
                                         marketplace de rifas; pagos seguros, números automáticos y panel en tiempo real
                                         para organizadores. Canon inicial más 15 % sobre lo recaudado.
@@ -278,7 +278,7 @@ export default function PresentacionYassel() {
                         
                         {/* Investor card */}
                         <div className="col-lg-4 col-md-6">
-                            <div className="card border-0 h-100 shadow-lg" style={{
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #facc15 0%, #f59e0b 100%)',
                                 borderRadius: '20px',
                                 transform: 'translateY(0)',
@@ -296,9 +296,9 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">💼</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-white mb-0">Inversores</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">Inversores</h3>
                                     </div>
-                                    <p className="text-white-50 mb-3">
+                                    <p className="text-dark mb-3 lh-lg">
                                         Ronda de inversión en un ecosistema tecnológico con múltiples líneas de negocio.
                                         Pool mensual 30 % del ingreso distribuible hasta cap 2.5× el capital. Meta de
                                         recaudar $10 000 000 pesos. Invertí desde $50 000 y seguí tu aporte en tiempo real.
