@@ -45,6 +45,11 @@ html {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Ensure dark text inside project cards regardless of background gradients */
+.project-card .card-body {
+  color: #000 !important;
+}
+
 .card-hover:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
