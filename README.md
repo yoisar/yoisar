@@ -1,21 +1,101 @@
-# Yassel Omar Izquierdo Souchay (YOIS)
+# 🚀  Yassel Omar Izquierdo Souchay (YOIS)
 
-¡Hola! Soy **Yassel Omar Izquierdo Souchay**, un desarrollador fullstack, emprendedor y fundador de **Cuotaplan**. También soy conocido como **YOIS**.
+### Fullstack Developer • SaaS Builder • Tech Entrepreneur
 
-## Sobre Mí
+Construyo productos digitales reales desde cero hasta producción.  
+Enfocado en SaaS, fintech, marketplaces y plataformas escalables.
 
-Soy un desarrollador cubano radicado en Argentina con más de 20 años de experiencia en sistemas. Actualmente me dedico al 100% a proyectos propios con visión de escalar en Latinoamérica. Cada línea de código que escribo, cada feature que diseño y cada estrategia que lanzo tiene una meta clara: **construir soluciones reales que funcionen, generen impacto y dejen huella**.
+📍 Argentina  
+🌎 Remote LATAM / Worldwide  
 
-## Proyectos Actuales
+---
 
-- **[Cuotaplan](https://cuotaplan.com):** Plataforma de financiación de bienes en cuotas con beneficios como saldo virtual, referidos y sorteos.
-- **Admin Barrios:** Gestión integral de barrios privados, con módulos de comunicación, administración y servicios comunes.
-- **Venta Rifas:** Plataforma para crear y gestionar rifas online con sistema de pago integrado.
-- **Taller OK:** Solución para digitalizar la gestión de talleres mecánicos.
-- **Proyecto Maderero:** Plataforma en desarrollo para la gestión de productores y distribuidores de madera en la región.
+# 🧠 En qué estoy enfocado
+- Construcción de productos SaaS
+- Plataformas fintech
+- Marketplaces digitales
+- E-commerce escalables
+- Sistemas B2B para distribuidores
+- Plataformas de fidelización
+- Arquitectura multi-tenant
+- MVPs rápidos para startups
 
-## Contacto
+---
 
-¿Querés colaborar, invertir o sumar tu experiencia a alguno de los proyectos?  
-📧 Escríbeme a: [me@yoisar.com](mailto:me@yoisar.com)  
-🌐 Sitio personal: [yoisar.com](https://yoisar.com)
+# 🚀 Proyectos que estoy construyendo
+
+## 🛍 YOIS Snacks
+E-commerce con red de revendedores, comisiones y distribución  
+Stack: Laravel + React Native
+
+## 🎟 VentaRifas
+Marketplace para crear y vender rifas online  
+Stack: Next.js + Laravel
+
+## 🧠 Fideliza
+Plataforma de fidelización con puntos, referidos y gamificación  
+Stack: Laravel + React Native
+
+## 📦 Distriboo
+SaaS B2B para distribuidores mayoristas  
+Stack: Laravel + React
+
+## 💰 Cuotaplan
+Plataforma fintech de beneficios y saldo virtual  
+Stack: Laravel + React
+
+---
+
+# ⚡ Stack tecnológico
+
+### Backend
+Laravel • PHP • Symfony • REST APIs
+
+### Frontend
+React • Next.js • TypeScript
+
+### Mobile
+React Native • Expo
+
+### Database
+MySQL • PostgreSQL
+
+### Infraestructura
+Docker • Linux • VPS • Git
+
+---
+
+# 🎯 Mi enfoque
+No solo desarrollo software.  
+Construyo productos digitales con modelo de negocio.
+
+✔ MVP rápido  
+✔ Arquitectura escalable  
+✔ SaaS multi-tenant  
+✔ Sistemas complejos  
+✔ Integraciones API  
+✔ Dashboards administrativos  
+
+---
+
+# 🤝 Busco colaborar en
+- Startups
+- Productos SaaS
+- Fintech
+- Marketplaces
+- Plataformas B2B
+- Proyectos ambiciosos
+
+---
+
+# 📫 Contacto
+
+LinkedIn  
+https://linkedin.com/in/yoisar/
+
+Web  
+https://yoisar.com
+
+---
+
+⭐ Construyendo productos digitales escalables
