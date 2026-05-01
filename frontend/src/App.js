@@ -276,6 +276,132 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
                         
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
+                                background: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                             style={{
+                                                 width: '50px', 
+                                                 height: '50px', 
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <span className="fs-4">📦</span>
+                                        </div>
+                                        <h3 className="h4 fw-bold text-dark mb-0">Distriboo</h3>
+                                    </div>
+                                    <p className="text-dark mb-3 lh-lg">
+                                        Plataforma SaaS B2B para digitalizar la operación de distribuidores, eliminando
+                                        pedidos manuales y optimizando ventas, logística y precios. MVP funcional en
+                                        pruebas con clientes reales.
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3">
+                                        <span className="badge bg-light text-dark rounded-pill">SaaS B2B</span>
+                                        <span className="badge bg-light text-dark rounded-pill">React</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
+                                    </div>
+                                    <a href="https://distriboo.yoisar.com/" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <span className="me-1">🔗</span>
+                                        Ver Proyecto
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
+                                background: 'linear-gradient(135deg, #4776e6 0%, #8e54e9 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                             style={{
+                                                 width: '50px', 
+                                                 height: '50px', 
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <span className="fs-4">🏛</span>
+                                        </div>
+                                        <h3 className="h4 fw-bold text-dark mb-0">Archivo General</h3>
+                                    </div>
+                                    <p className="text-dark mb-3 lh-lg">
+                                        Sistema de gestión documental para la Gobernación de Misiones. Moderniza la
+                                        administración, consulta y digitalización de documentos institucionales con
+                                        arquitectura escalable.
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3">
+                                        <span className="badge bg-light text-dark rounded-pill">GovTech</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Next.js</span>
+                                        <span className="badge bg-light text-dark rounded-pill">PostgreSQL</span>
+                                    </div>
+                                    <a href="https://test.archivo.yoisar.com/" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <span className="me-1">🔗</span>
+                                        Ver Proyecto
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
+                                background: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                             style={{
+                                                 width: '50px', 
+                                                 height: '50px', 
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <span className="fs-4">🛍</span>
+                                        </div>
+                                        <h3 className="h4 fw-bold text-dark mb-0">YOIS Snacks</h3>
+                                    </div>
+                                    <p className="text-dark mb-3 lh-lg">
+                                        E-commerce de snacks saludables con red propia de revendedores, sistema de
+                                        comisiones y gestión de distribución. En producción con ventas reales y
+                                        operación activa.
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3">
+                                        <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
+                                        <span className="badge bg-light text-dark rounded-pill">React Native</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
+                                    </div>
+                                    <a href="https://yoissnacks.com/" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <span className="me-1">🔗</span>
+                                        Ver Proyecto
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                         {/* Investor card */}
                         <div className="col-lg-4 col-md-6">
                             <div className="card border-0 h-100 shadow-lg project-card" style={{
