@@ -253,7 +253,10 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">🎫</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">Ventarifas</h3>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">VentaRifas</h3>
+                                            <small className="text-dark opacity-75">Raffles Marketplace Platform</small>
+                                        </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
                                         Crea y vende rifas online en minutos. Plataforma desarrollada en Next.js como
@@ -295,7 +298,10 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">📦</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">Distriboo</h3>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">Distriboo</h3>
+                                            <small className="text-dark opacity-75">B2B Distribution SaaS</small>
+                                        </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
                                         Plataforma SaaS B2B para digitalizar la operación de distribuidores, eliminando
@@ -337,7 +343,10 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">🏛</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">Archivo General</h3>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">Archivo Misiones Digital</h3>
+                                            <small className="text-dark opacity-75">Document Management Platform</small>
+                                        </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
                                         Sistema de gestión documental para la Gobernación de Misiones. Moderniza la
@@ -379,7 +388,10 @@ export default function PresentacionYassel() {
                                              }}>
                                             <span className="fs-4">🛍</span>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">YOIS Snacks</h3>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">YOIS Snacks</h3>
+                                            <small className="text-dark opacity-75">Smart Snack Commerce Platform</small>
+                                        </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
                                         E-commerce de snacks saludables con red propia de revendedores, sistema de
