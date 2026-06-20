@@ -1,27 +1,27 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders YOIS title', () => {
+test('renders hero title', () => {
   render(<App />);
-  const titleElement = screen.getByText(/Soluciones SaaS y Desarrollo Ágil con Inteligencia Artificial Integrada/i);
+  const titleElement = screen.getByText(/Soy Yois\. Desarrollo SaaS, Apps con IA y despliego infraestructura escalable\./i);
   expect(titleElement).toBeInTheDocument();
 });
 
 test('renders about section', () => {
   render(<App />);
-  const aboutSection = screen.getByText(/¿Quiénes Somos\?/i);
+  const aboutSection = screen.getByText(/Yo soy Yois, y esta es mi ingeniería de software\./i);
   expect(aboutSection).toBeInTheDocument();
 });
 
 test('renders contact section', () => {
   render(<App />);
-  const contactSection = screen.getByText(/¿Hablamos\?/i);
+  const contactSection = screen.getByText(/¿Empezamos tu proyecto\?/i);
   expect(contactSection).toBeInTheDocument();
 });
 
 test('renders projects section', () => {
   render(<App />);
-  const projectsSection = screen.getByText(/Casos de Éxito/i);
+  const projectsSection = screen.getByRole('heading', { name: /Mis Proyectos/i });
   expect(projectsSection).toBeInTheDocument();
 });
 
@@ -46,22 +46,22 @@ test('renders website link', () => {
 
 test('renders infraestructura description', () => {
   render(<App />);
-  const description = screen.getByText(/Software Factory/i);
+  const description = screen.getByText(/Mi infraestructura, tu tranquilidad\./i);
   expect(description).toBeInTheDocument();
 });
 
 test('renders hero cta buttons', () => {
   render(<App />);
-  const cotizarButton = screen.getByRole('link', { name: /💼 Cotiza tu Proyecto/i });
-  const iaButton = screen.getByRole('link', { name: /🤖 Hablemos de IA/i });
+  const cotizarButton = screen.getByRole('link', { name: /💼 Hablemos de tu idea/i });
+  const iaButton = screen.getByRole('link', { name: /🤖 Cotizá conmigo/i });
   expect(cotizarButton).toBeInTheDocument();
   expect(iaButton).toBeInTheDocument();
 });
 
 test('renders visible project links', () => {
   render(<App />);
-  
-  // Test that 6 visible project links exist (Fideliza, Ventarifas, Distriboo, Archivo Misiones, YOIS Snacks, Inversores)
+
+  // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Inversores)
   const visibleProjectLinks = screen.getAllByRole('link', { name: /🔗 Ver Proyecto/i });
   expect(visibleProjectLinks).toHaveLength(6);
 
@@ -82,8 +82,7 @@ test('displays dynamic years of experience', () => {
 
 test('renders visible project technologies', () => {
   render(<App />);
-  
-  // Check for technology badges in visible projects (Fideliza, Ventarifas, YOIS Snacks, etc.)
+
   const reactNativeBadges = screen.getAllByText(/React Native/i);
   const laravelBadges = screen.getAllByText(/Laravel/i);
   const crmBadges = screen.getAllByText(/CRM/i);
@@ -99,19 +98,45 @@ test('renders visible project technologies', () => {
   expect(investmentBadges.length).toBeGreaterThanOrEqual(1); // investor card shows Investment badge
 });
 
-test('renders visible project categories', () => {
+test('renders project status badges from anexo', () => {
   render(<App />);
-  
-  // Check for project category badges in visible projects (only Fideliza)
-  const crmBadge = screen.getByText(/CRM/i);
-  
-  expect(crmBadge).toBeInTheDocument();
+
+  const activosEnProduccion = screen.getAllByText(/Activo \/ En Producción/i);
+  const enDesarrollo = screen.getAllByText(/En Desarrollo \(Activo\)/i);
+  const misionCritica = screen.getAllByText(/Activo \/ Misión Crítica/i);
+
+  expect(activosEnProduccion.length).toBeGreaterThanOrEqual(4); // VentaRifas, Distriboo, YOIS Snacks, Fideliza
+  expect(enDesarrollo.length).toBe(2); // Planning Yoisar, PortalCheck
+  expect(misionCritica.length).toBe(2); // Sistema CGM, App Patología
+});
+
+test('renders all anexo projects regardless of development status', () => {
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: /Planning Yoisar/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /PortalCheck/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Sistema CGM \(Gobierno\)/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /App Patología \(Gobierno\)/i })).toBeInTheDocument();
 });
 
 test('hidden projects are not visible', () => {
   render(<App />);
-  
+
   // Check that hidden projects are in DOM but not visible (Cuotaplan, AdminBarrios)
   const hiddenProjects = document.querySelectorAll('[style*="display: none"]');
   expect(hiddenProjects.length).toBeGreaterThanOrEqual(2); // Should have at least 2 hidden project divs
+});
+
+test('renders YOIS brand at least 3 times in copy', () => {
+  render(<App />);
+
+  const yoisOccurrences = screen.getAllByText(/YOIS/);
+  expect(yoisOccurrences.length).toBeGreaterThanOrEqual(3);
+});
+
+test('renders footer with brand signature', () => {
+  render(<App />);
+
+  const footer = screen.getByText(/© 2026 - YOIS \| Desarrollo, SaaS e IA/i);
+  expect(footer).toBeInTheDocument();
 });
