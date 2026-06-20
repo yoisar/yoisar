@@ -24,9 +24,14 @@ else
     echo "⚠️  Error al descargar cambios, continuando con el deploy..."
 fi
 
-# Detener contenedores existentes
+# Detener y eliminar contenedores existentes. Se fuerza "rm -f" además de
+# "down" porque docker-compose v1 puede dejar contenedores detenidos sin
+# eliminar tras un "down", y al reconstruir sobre ellos falla con
+# "KeyError: 'ContainerConfig'" (no se usan --volumes para no perder los
+# datos de MySQL).
 echo "⏹️  Deteniendo contenedores de producción..."
-docker-compose -f docker-compose.prod.yml down
+docker-compose -f docker-compose.prod.yml down --remove-orphans
+docker-compose -f docker-compose.prod.yml rm -f
 
 # Reconstruir y levantar contenedores de producción
 echo "🔧 Reconstruyendo y levantando contenedores de producción..."
