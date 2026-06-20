@@ -3,13 +3,13 @@ import App from './App';
 
 test('renders hero title', () => {
   render(<App />);
-  const titleElement = screen.getByText(/Soy Yois\. Desarrollo SaaS, Apps con IA y despliego infraestructura escalable\./i);
+  const titleElement = screen.getByText(/Desarrollo SaaS, Apps con IA y despliego infraestructura escalable\./i);
   expect(titleElement).toBeInTheDocument();
 });
 
 test('renders about section', () => {
   render(<App />);
-  const aboutSection = screen.getByText(/Yo soy Yois, y esta es mi ingeniería de software\./i);
+  const aboutSection = screen.getByText(/Así trabajo: mi ingeniería de software/i);
   expect(aboutSection).toBeInTheDocument();
 });
 

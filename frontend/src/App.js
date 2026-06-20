@@ -6,62 +6,71 @@ export default function PresentacionYassel() {
     
     return (
         <div className="min-vh-100" style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+            background: 'linear-gradient(160deg, #0f172a 0%, #4338ca 55%, #7c3aed 100%)',
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            letterSpacing: '0.01em'
         }}>
             {/* Navigation Bar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
                 <div className="container">
-                    {/* <a className="navbar-brand fw-bold fs-3" href="#" style={{ color: '#fff' }}>
+                    <a className="navbar-brand fw-bold fs-4 d-flex align-items-center" href="#" style={{ color: '#fff', letterSpacing: '0.05em' }}>
+                        <span className="rounded-circle d-inline-flex align-items-center justify-content-center me-2"
+                              style={{ width: '36px', height: '36px', background: 'rgba(255,255,255,0.15)' }}>
+                            Y
+                        </span>
                         YOIS
-                    </a> */}
+                    </a>
                 </div>
             </nav>
 
             {/* Hero Section */}
-                        <section className="py-5">
-                            <div className="container">
-                                <div className="row justify-content-center text-center">
-                                    <div className="col-lg-9">
-                                        <div className="mb-4">
-                                            <h1 className="display-4 fw-bold text-white mb-3">
-                                                Soy Yois. Desarrollo SaaS, Apps con IA y despliego infraestructura escalable.
-                                            </h1>
-                                            <p className="lead text-white-50 mb-4">
-                                                Desde sistemas para el Gobierno de Misiones hasta plataformas de gestión horizontal.
-                                                Tu proyecto corre sobre mi infraestructura y mi experiencia.
-                                            </p>
-                                            <div className="d-flex gap-3 justify-content-center flex-wrap">
-                                                <a href="#contacto"
-                                                   className="btn btn-light btn-lg px-4 py-2 rounded-pill">
-                                                    💼 Hablemos de tu idea
-                                                </a>
-                                                <a href="#contacto"
-                                                   className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
-                                                    🤖 Cotizá conmigo
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+            <section className="py-5 py-md-6">
+                <div className="container">
+                    <div className="row justify-content-center text-center">
+                        <div className="col-lg-9">
+                            <div className="mb-4">
+                                <span className="badge rounded-pill px-3 py-2 mb-4 fw-semibold"
+                                      style={{ background: 'rgba(255,255,255,0.12)', color: '#e0e7ff', letterSpacing: '0.08em', fontSize: '0.8rem' }}>
+                                    YOIS · SOFTWARE &amp; IA
+                                </span>
+                                <h1 className="display-4 fw-bold text-white mb-3" style={{ lineHeight: 1.15 }}>
+                                    Desarrollo SaaS, Apps con IA y despliego infraestructura escalable.
+                                </h1>
+                                <p className="lead text-white-50 mb-4 mx-auto" style={{ maxWidth: '640px' }}>
+                                    Desde sistemas para el Gobierno de Misiones hasta plataformas de gestión horizontal.
+                                    Tu proyecto corre sobre mi infraestructura y mi experiencia.
+                                </p>
+                                <div className="d-flex gap-3 justify-content-center flex-wrap">
+                                    <a href="#contacto"
+                                       className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-semibold shadow">
+                                        💼 Hablemos de tu idea
+                                    </a>
+                                    <a href="#contacto"
+                                       className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill fw-semibold">
+                                        🤖 Cotizá conmigo
+                                    </a>
                                 </div>
                             </div>
-                        </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-                        {/* About Section - Infraestructura */}
+            {/* About Section - Infraestructura */}
             <section className="py-5">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="card border-0 shadow-lg" style={{
-                                background: 'rgba(255,255,255,0.95)',
-                                backdropFilter: 'blur(10px)',
-                                borderRadius: '20px'
+                                background: 'rgba(255,255,255,0.97)',
+                                backdropFilter: 'blur(12px)',
+                                borderRadius: '24px'
                             }}>
                                 <div className="card-body p-5">
                                     <div className="text-center mb-4">
                                         <h2 className="h2 fw-bold text-dark mb-3">
                                             <span className="me-2">🏗️</span>
-                                            Yo soy Yois, y esta es mi ingeniería de software.
+                                            Así trabajo: mi ingeniería de software
                                         </h2>
                                     </div>
                                     <div className="row align-items-center">
@@ -71,7 +80,7 @@ export default function PresentacionYassel() {
                                                 en inteligencia artificial y soluciones de gestión. No solo escribo código: alojo, mantengo
                                                 y escalo cada aplicación en <span className="text-primary fw-semibold">mi propia infraestructura dedicada en la nube
                                                 y servicios de alta disponibilidad (microservicios)</span>, con experiencia en proyectos de gobierno y entornos críticos
-                                                como hospitales y casas de gobierno. Mis proyectos siempre llevan el sello <strong>YOIS</strong> de cercanía técnica
+                                                como hospitales y casas de gobierno. Mi sello <strong>YOIS</strong> significa cercanía técnica
                                                 y responsabilidad extrema por el producto final.
                                             </p>
                                         </div>
@@ -94,14 +103,20 @@ export default function PresentacionYassel() {
                     </div>
                     <div className="row g-4 justify-content-center">
                         <div className="col-lg-4 col-md-6">
-                            <div className="card border-0 h-100 shadow-lg" style={{
-                                background: 'rgba(255,255,255,0.95)',
-                                borderRadius: '20px'
-                            }}>
+                            <div className="card border-0 h-100 shadow-lg service-card" style={{
+                                background: 'rgba(255,255,255,0.97)',
+                                borderRadius: '20px',
+                                transition: 'transform 0.25s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4 text-center">
-                                    <div className="fs-1 mb-3">💻</div>
+                                    <div className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                                         style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
+                                        💻
+                                    </div>
                                     <h3 className="h5 fw-bold text-dark mb-3">Desarrollo de Apps a Medida</h3>
-                                    <p className="text-secondary">
+                                    <p className="text-secondary mb-0">
                                         Construyo software desde cero con arquitectura en microservicios.
                                         Me adapto a sistemas legacy y a las necesidades específicas de tu negocio.
                                     </p>
@@ -109,14 +124,20 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
-                            <div className="card border-0 h-100 shadow-lg" style={{
-                                background: 'rgba(255,255,255,0.95)',
-                                borderRadius: '20px'
-                            }}>
+                            <div className="card border-0 h-100 shadow-lg service-card" style={{
+                                background: 'rgba(255,255,255,0.97)',
+                                borderRadius: '20px',
+                                transition: 'transform 0.25s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4 text-center">
-                                    <div className="fs-1 mb-3">☁️</div>
+                                    <div className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                                         style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
+                                        ☁️
+                                    </div>
                                     <h3 className="h5 fw-bold text-dark mb-3">Soluciones SaaS listas para usar</h3>
-                                    <p className="text-secondary">
+                                    <p className="text-secondary mb-0">
                                         Productos verticales que ya tengo desarrollados y que facturo por
                                         suscripción, con actualizaciones y soporte continuo.
                                     </p>
@@ -124,14 +145,20 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6">
-                            <div className="card border-0 h-100 shadow-lg" style={{
-                                background: 'rgba(255,255,255,0.95)',
-                                borderRadius: '20px'
-                            }}>
+                            <div className="card border-0 h-100 shadow-lg service-card" style={{
+                                background: 'rgba(255,255,255,0.97)',
+                                borderRadius: '20px',
+                                transition: 'transform 0.25s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-6px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4 text-center">
-                                    <div className="fs-1 mb-3">🤖</div>
+                                    <div className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                                         style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
+                                        🤖
+                                    </div>
                                     <h3 className="h5 fw-bold text-dark mb-3">Inteligencia Artificial Aplicada</h3>
-                                    <p className="text-secondary">
+                                    <p className="text-secondary mb-0">
                                         Integro IA para automatizar procesos tediosos, hacer análisis predictivos
                                         y optimizar los flujos de trabajo de mis clientes.
                                     </p>
@@ -150,7 +177,7 @@ export default function PresentacionYassel() {
                             <span className="me-2">🚀</span>
                             Mis Proyectos
                         </h2>
-                        <p className="text-white-50 fs-5">Soy YOIS, tu aliado tecnológico: estos son mis casos de éxito y mi pipeline de innovación</p>
+                        <p className="text-white-50 fs-5">Mi sello YOIS está en cada uno de estos casos de éxito y en mi pipeline de innovación</p>
                     </div>
                     
                     <div className="row g-4 justify-content-center">
@@ -161,8 +188,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }} 
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
@@ -202,8 +229,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
@@ -243,8 +270,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
@@ -287,8 +314,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
@@ -333,8 +360,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
@@ -379,8 +406,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
@@ -425,8 +452,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
@@ -471,8 +498,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
@@ -504,8 +531,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
@@ -537,8 +564,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
@@ -571,8 +598,8 @@ export default function PresentacionYassel() {
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
                             }}
-                            onMouseEnter={(e) => e.target.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}>
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
                                         <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
