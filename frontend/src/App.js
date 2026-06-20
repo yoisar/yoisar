@@ -22,39 +22,22 @@ export default function PresentacionYassel() {
                         <section className="py-5">
                             <div className="container">
                                 <div className="row justify-content-center text-center">
-                                    <div className="col-lg-8">
+                                    <div className="col-lg-9">
                                         <div className="mb-4">
-                                            <div className="rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center overflow-hidden" 
-                                                 style={{
-                                                     width: '120px', 
-                                                     height: '120px', 
-                                                     border: '3px solid rgba(255,255,255,0.5)',
-                                                     boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
-                                                 }}>
-                                                <img 
-                                                    src="/yois-perfil.jpg" 
-                                                    alt="YOIS Profile" 
-                                                    className="w-100 h-100" 
-                                                    style={{ objectFit: 'cover' }}
-                                                />
-                                            </div>
                                             <h1 className="display-4 fw-bold text-white mb-3">
-                                                Hola, soy YOIS
+                                                Soluciones SaaS y Desarrollo Ágil con Inteligencia Artificial Integrada
                                             </h1>
                                             <p className="lead text-white-50 mb-4">
-                                                Desarrollador Fullstack | Emprendedor IT
-                                            </p>
-                                            <p className="text-white-50 mb-4">
-                                                Creando soluciones digitales que transforman ideas en realidad
+                                                Transformamos ideas en productos digitales escalables. Infraestructura propia y seguridad de nivel empresarial.
                                             </p>
                                             <div className="d-flex gap-3 justify-content-center flex-wrap">
-                                                <a href="mailto:me@yoisar.com" 
+                                                <a href="#contacto"
                                                    className="btn btn-light btn-lg px-4 py-2 rounded-pill">
-                                                    📧 Contactar
+                                                    💼 Cotiza tu Proyecto
                                                 </a>
-                                                <a href="#proyectos" 
+                                                <a href="#contacto"
                                                    className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
-                                                    🚀 Ver Proyectos
+                                                    🤖 Hablemos de IA
                                                 </a>
                                             </div>
                                         </div>
@@ -63,7 +46,7 @@ export default function PresentacionYassel() {
                             </div>
                         </section>
 
-                        {/* About Section */}
+                        {/* About Section - Infraestructura */}
             <section className="py-5">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -76,20 +59,78 @@ export default function PresentacionYassel() {
                                 <div className="card-body p-5">
                                     <div className="text-center mb-4">
                                         <h2 className="h2 fw-bold text-dark mb-3">
-                                            <span className="me-2">🌟</span>
-                                            Sobre mí
+                                            <span className="me-2">🏗️</span>
+                                            ¿Quiénes Somos?
                                         </h2>
                                     </div>
                                     <div className="row align-items-center">
                                         <div className="col-md-8 mx-auto">
                                             <p className="text-secondary fs-5 lh-lg text-center">
-                                                Soy desarrollador cubano radicado en Argentina, con más de <strong>{añosExperiencia} años de experiencia</strong> en sistemas. 
-                                                Actualmente me dedico al 100% a proyectos propios con visión de escalar en Latinoamérica. 
-                                                Cada línea de código que escribo, cada feature que diseño, y cada estrategia que lanzo tiene una meta clara: 
-                                                <span className="text-primary fw-semibold">construir soluciones reales que funcionen, generen impacto y dejen huella.</span>
+                                                Somos una <strong>Software Factory</strong> con más de <strong>{añosExperiencia} años de experiencia</strong> especializada
+                                                en inteligencia artificial y soluciones de gestión. No solo escribimos código: alojamos, mantenemos
+                                                y escalamos las aplicaciones sobre <span className="text-primary fw-semibold">infraestructura dedicada en la nube
+                                                y servicios de alta disponibilidad (microservicios)</span>, con soporte para proyectos de gobierno y alta concurrencia.
                                             </p>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Services Section - Líneas de Servicio */}
+            <section className="py-5">
+                <div className="container">
+                    <div className="text-center mb-5">
+                        <h2 className="h2 fw-bold text-white mb-3">
+                            <span className="me-2">⚙️</span>
+                            Líneas de Servicio
+                        </h2>
+                    </div>
+                    <div className="row g-4 justify-content-center">
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg" style={{
+                                background: 'rgba(255,255,255,0.95)',
+                                borderRadius: '20px'
+                            }}>
+                                <div className="card-body p-4 text-center">
+                                    <div className="fs-1 mb-3">💻</div>
+                                    <h3 className="h5 fw-bold text-dark mb-3">Desarrollo de Aplicaciones a Medida</h3>
+                                    <p className="text-secondary">
+                                        Construcción de software desde cero, enfocado en microservicios con
+                                        arquitectura escalable e integración con sistemas legacy.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg" style={{
+                                background: 'rgba(255,255,255,0.95)',
+                                borderRadius: '20px'
+                            }}>
+                                <div className="card-body p-4 text-center">
+                                    <div className="fs-1 mb-3">☁️</div>
+                                    <h3 className="h5 fw-bold text-dark mb-3">Soluciones SaaS</h3>
+                                    <p className="text-secondary">
+                                        Productos listos para usar, facturación recurrente y actualizaciones automáticas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg" style={{
+                                background: 'rgba(255,255,255,0.95)',
+                                borderRadius: '20px'
+                            }}>
+                                <div className="card-body p-4 text-center">
+                                    <div className="fs-1 mb-3">🤖</div>
+                                    <h3 className="h5 fw-bold text-dark mb-3">Inteligencia Artificial Aplicada</h3>
+                                    <p className="text-secondary">
+                                        Automatización de procesos, análisis predictivo y optimización de
+                                        flujos de trabajo mediante IA.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -103,9 +144,9 @@ export default function PresentacionYassel() {
                     <div className="text-center mb-5">
                         <h2 className="h2 fw-bold text-white mb-3">
                             <span className="me-2">🚀</span>
-                            Proyectos Actuales
+                            Casos de Éxito
                         </h2>
-                        <p className="text-white-50 fs-5">Innovando en cada línea de código</p>
+                        <p className="text-white-50 fs-5">Verticales de negocio que demuestran la versatilidad de la plataforma</p>
                     </div>
                     
                     <div className="row g-4 justify-content-center">
@@ -460,7 +501,7 @@ export default function PresentacionYassel() {
             </section>
 
             {/* Contact Section */}
-            <section className="py-5">
+            <section className="py-5" id="contacto">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
@@ -475,15 +516,50 @@ export default function PresentacionYassel() {
                                         ¿Hablamos?
                                     </h2>
                                     <p className="text-secondary fs-5 mb-4">
-                                        ¿Querés colaborar, invertir o sumar tu experiencia a alguno de los proyectos?
+                                        Contanos sobre tu rubro y tu necesidad para orientarte mejor.
                                     </p>
-                                    <div className="d-flex gap-3 justify-content-center flex-wrap">
-                                        <a href="mailto:me@yoisar.com" 
-                                           className="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                                    <form
+                                        className="text-start mx-auto mb-4"
+                                        style={{ maxWidth: '480px' }}
+                                        onSubmit={(e) => {
+                                            e.preventDefault();
+                                            const data = new FormData(e.target);
+                                            const nombre = data.get('nombre') || '';
+                                            const rubro = data.get('rubro') || '';
+                                            const necesidad = data.get('necesidad') || '';
+                                            const asunto = encodeURIComponent('Contacto desde yoisar.com');
+                                            const cuerpo = encodeURIComponent(
+                                                `Nombre/Empresa: ${nombre}\nRubro: ${rubro}\nNecesidad: ${necesidad}`
+                                            );
+                                            window.location.href = `mailto:me@yoisar.com?subject=${asunto}&body=${cuerpo}`;
+                                        }}
+                                    >
+                                        <div className="mb-3">
+                                            <label className="form-label fw-semibold text-dark">Nombre / Empresa</label>
+                                            <input type="text" name="nombre" className="form-control" required />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label className="form-label fw-semibold text-dark">Rubro</label>
+                                            <select name="rubro" className="form-select" required>
+                                                <option value="">Seleccioná una opción</option>
+                                                <option value="Gobierno">Gobierno</option>
+                                                <option value="Privado">Privado</option>
+                                                <option value="Startup">Startup</option>
+                                            </select>
+                                        </div>
+                                        <div className="mb-4">
+                                            <label className="form-label fw-semibold text-dark">
+                                                ¿Necesitas una App, un SaaS o un sistema con IA?
+                                            </label>
+                                            <textarea name="necesidad" className="form-control" rows="3" required></textarea>
+                                        </div>
+                                        <button type="submit" className="btn btn-primary btn-lg w-100 rounded-pill">
                                             <span className="me-2">📧</span>
-                                            me@yoisar.com
-                                        </a>
-                                        <a href="https://www.yoisar.com" 
+                                            Enviar Consulta
+                                        </button>
+                                    </form>
+                                    <div className="d-flex gap-3 justify-content-center flex-wrap">
+                                        <a href="https://www.yoisar.com"
                                            className="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill"
                                            target="_blank" rel="noopener noreferrer">
                                             <span className="me-2">🌐</span>
