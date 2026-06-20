@@ -33,13 +33,13 @@ test('renders fideliza project heading', () => {
 
 test('renders contact form submit button', () => {
   render(<App />);
-  const submitButton = screen.getByRole('button', { name: /📧 Enviar Consulta/i });
+  const submitButton = screen.getByRole('button', { name: /Enviar Consulta/i });
   expect(submitButton).toBeInTheDocument();
 });
 
 test('renders website link', () => {
   render(<App />);
-  const websiteLink = screen.getByRole('link', { name: /🌐 yoisar.com/i });
+  const websiteLink = screen.getByRole('link', { name: /yoisar.com/i });
   expect(websiteLink).toBeInTheDocument();
   expect(websiteLink).toHaveAttribute('href', 'https://www.yoisar.com');
 });
@@ -52,8 +52,8 @@ test('renders infraestructura description', () => {
 
 test('renders hero cta buttons', () => {
   render(<App />);
-  const cotizarButton = screen.getByRole('link', { name: /💼 Hablemos de tu idea/i });
-  const iaButton = screen.getByRole('link', { name: /🤖 Cotizá conmigo/i });
+  const cotizarButton = screen.getByRole('link', { name: /Hablemos de tu idea/i });
+  const iaButton = screen.getByRole('link', { name: /Cotizá conmigo/i });
   expect(cotizarButton).toBeInTheDocument();
   expect(iaButton).toBeInTheDocument();
 });
@@ -62,7 +62,7 @@ test('renders visible project links', () => {
   render(<App />);
 
   // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Inversores)
-  const visibleProjectLinks = screen.getAllByRole('link', { name: /🔗 Ver Proyecto/i });
+  const visibleProjectLinks = screen.getAllByRole('link', { name: /Ver Proyecto/i });
   expect(visibleProjectLinks).toHaveLength(6);
 
   // Test specific URLs for visible projects
@@ -139,4 +139,12 @@ test('renders footer with brand signature', () => {
 
   const footer = screen.getByText(/© 2026 - YOIS \| Desarrollo, SaaS e IA/i);
   expect(footer).toBeInTheDocument();
+});
+
+test('does not render emojis, only bootstrap-icons', () => {
+  const { container } = render(<App />);
+
+  const emojiRegex = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
+  expect(emojiRegex.test(container.textContent)).toBe(false);
+  expect(container.querySelectorAll('i.bi').length).toBeGreaterThan(0);
 });

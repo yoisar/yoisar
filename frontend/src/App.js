@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function PresentacionYassel() {
     // Calcular años de experiencia dinámicamente desde 2001
@@ -43,11 +44,11 @@ export default function PresentacionYassel() {
                                 <div className="d-flex gap-3 justify-content-center flex-wrap">
                                     <a href="#contacto"
                                        className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-semibold shadow">
-                                        💼 Hablemos de tu idea
+                                        <i className="bi bi-briefcase me-2"></i>Hablemos de tu idea
                                     </a>
                                     <a href="#contacto"
                                        className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill fw-semibold">
-                                        🤖 Cotizá conmigo
+                                        <i className="bi bi-robot me-2"></i>Cotizá conmigo
                                     </a>
                                 </div>
                             </div>
@@ -69,7 +70,7 @@ export default function PresentacionYassel() {
                                 <div className="card-body p-5">
                                     <div className="text-center mb-4">
                                         <h2 className="h2 fw-bold text-dark mb-3">
-                                            <span className="me-2">🏗️</span>
+                                            <i className="bi bi-building-gear me-2 text-primary"></i>
                                             Así trabajo: mi ingeniería de software
                                         </h2>
                                     </div>
@@ -97,7 +98,7 @@ export default function PresentacionYassel() {
                 <div className="container">
                     <div className="text-center mb-5">
                         <h2 className="h2 fw-bold text-white mb-3">
-                            <span className="me-2">⚙️</span>
+                            <i className="bi bi-gear-fill me-2"></i>
                             Mis Servicios
                         </h2>
                     </div>
@@ -113,7 +114,7 @@ export default function PresentacionYassel() {
                                 <div className="card-body p-4 text-center">
                                     <div className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
                                          style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
-                                        💻
+                                        <i className="bi bi-code-slash text-primary"></i>
                                     </div>
                                     <h3 className="h5 fw-bold text-dark mb-3">Desarrollo de Apps a Medida</h3>
                                     <p className="text-secondary mb-0">
@@ -134,7 +135,7 @@ export default function PresentacionYassel() {
                                 <div className="card-body p-4 text-center">
                                     <div className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
                                          style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
-                                        ☁️
+                                        <i className="bi bi-cloud-fill text-primary"></i>
                                     </div>
                                     <h3 className="h5 fw-bold text-dark mb-3">Soluciones SaaS listas para usar</h3>
                                     <p className="text-secondary mb-0">
@@ -155,7 +156,7 @@ export default function PresentacionYassel() {
                                 <div className="card-body p-4 text-center">
                                     <div className="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
                                          style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
-                                        🤖
+                                        <i className="bi bi-robot text-primary"></i>
                                     </div>
                                     <h3 className="h5 fw-bold text-dark mb-3">Inteligencia Artificial Aplicada</h3>
                                     <p className="text-secondary mb-0">
@@ -174,7 +175,7 @@ export default function PresentacionYassel() {
                 <div className="container">
                     <div className="text-center mb-5">
                         <h2 className="h2 fw-bold text-white mb-3">
-                            <span className="me-2">🚀</span>
+                            <i className="bi bi-rocket-takeoff-fill me-2"></i>
                             Mis Proyectos
                         </h2>
                         <p className="text-white-50 fs-5">Mi sello YOIS está en cada uno de estos casos de éxito y en mi pipeline de innovación</p>
@@ -198,7 +199,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">💳</span>
+                                            <i className="bi bi-credit-card-2-front-fill fs-4"></i>
                                         </div>
                                         <h3 className="h4 fw-bold text-dark mb-0">Cuotaplan</h3>
                                     </div>
@@ -207,7 +208,7 @@ export default function PresentacionYassel() {
                                         de beneficios exclusivos como saldo virtual, sorteos, puntos y descuentos. Brinda a los comercios 
                                         herramientas de fidelización, gestión de referidos y campañas promocionales desde un panel centralizado.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-light text-dark rounded-pill">FinTech</span>
                                         <span className="badge bg-light text-dark rounded-pill">React</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
@@ -216,7 +217,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -239,7 +240,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🏘️</span>
+                                            <i className="bi bi-houses-fill fs-4"></i>
                                         </div>
                                         <h3 className="h4 fw-bold text-dark mb-0">AdminBarrios</h3>
                                     </div>
@@ -247,7 +248,7 @@ export default function PresentacionYassel() {
                                         Gestión Integral de Barrios. Plataforma para administrar eficientemente servicios, 
                                         mejorar la comunicación entre vecinos y facilitar decisiones comunitarias.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-light text-dark rounded-pill">PropTech</span>
                                         <span className="badge bg-light text-dark rounded-pill">React</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
@@ -256,7 +257,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -280,7 +281,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🎯</span>
+                                            <i className="bi bi-bullseye fs-4"></i>
                                         </div>
                                         <h3 className="h4 fw-bold text-dark mb-0">Fideliza</h3>
                                     </div>
@@ -290,7 +291,7 @@ export default function PresentacionYassel() {
                                         promociones y sorteos; actualmente con comercios activos, usuarios acumulando puntos y participantes
                                         en rifas reales.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">Activo / En Producción</span>
                                         <span className="badge bg-light text-dark rounded-pill">CRM</span>
                                         <span className="badge bg-light text-dark rounded-pill">React Native</span>
@@ -300,7 +301,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -324,7 +325,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🎫</span>
+                                            <i className="bi bi-ticket-perforated-fill fs-4"></i>
                                         </div>
                                         <div>
                                             <h3 className="h4 fw-bold text-dark mb-0">VentaRifas</h3>
@@ -336,7 +337,7 @@ export default function PresentacionYassel() {
                                         y facturando. Marketplace desarrollado en Next.js; pagos seguros, números automáticos
                                         y panel en tiempo real para organizadores. Canon inicial más 15 % sobre lo recaudado.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">Activo / En Producción</span>
                                         <span className="badge bg-light text-dark rounded-pill">Marketplace</span>
                                         <span className="badge bg-light text-dark rounded-pill">Next.js</span>
@@ -346,7 +347,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -370,7 +371,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">📦</span>
+                                            <i className="bi bi-box-seam-fill fs-4"></i>
                                         </div>
                                         <div>
                                             <h3 className="h4 fw-bold text-dark mb-0">Distriboo</h3>
@@ -382,7 +383,7 @@ export default function PresentacionYassel() {
                                         de suministro. Digitaliza la operación de distribuidores, eliminando pedidos
                                         manuales y optimizando ventas, logística y precios.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">Activo / En Producción</span>
                                         <span className="badge bg-light text-dark rounded-pill">SaaS B2B</span>
                                         <span className="badge bg-light text-dark rounded-pill">React</span>
@@ -392,7 +393,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -416,7 +417,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🏛</span>
+                                            <i className="bi bi-bank2 fs-4"></i>
                                         </div>
                                         <div>
                                             <h3 className="h4 fw-bold text-dark mb-0">Sistema CGM (Gobierno)</h3>
@@ -428,7 +429,7 @@ export default function PresentacionYassel() {
                                         Maneja la mesa de entrada, derivación y búsqueda de expedientes mediante microservicios,
                                         modernizando la administración y digitalización de documentos institucionales.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-danger rounded-pill">Activo / Misión Crítica</span>
                                         <span className="badge bg-light text-dark rounded-pill">GovTech</span>
                                         <span className="badge bg-light text-dark rounded-pill">Next.js</span>
@@ -438,7 +439,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -462,7 +463,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🛍</span>
+                                            <i className="bi bi-bag-fill fs-4"></i>
                                         </div>
                                         <div>
                                             <h3 className="h4 fw-bold text-dark mb-0">YOIS Snacks</h3>
@@ -474,7 +475,7 @@ export default function PresentacionYassel() {
                                         con red propia de revendedores, sistema de comisiones y gestión de distribución.
                                         En producción con ventas reales y operación activa.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">Activo / En Producción</span>
                                         <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
                                         <span className="badge bg-light text-dark rounded-pill">React Native</span>
@@ -484,7 +485,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -508,7 +509,7 @@ export default function PresentacionYassel() {
                                                  height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🏃</span>
+                                            <i className="bi bi-stopwatch-fill fs-4"></i>
                                         </div>
                                         <h3 className="h4 fw-bold text-dark mb-0">Planning Yoisar</h3>
                                     </div>
@@ -516,8 +517,8 @@ export default function PresentacionYassel() {
                                         Mi SaaS para planificación de entrenadores deportivos. Actualmente en
                                         fase de construcción, pronto disponible.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
-                                        <span className="badge bg-warning text-dark rounded-pill">🚀 En Desarrollo (Activo)</span>
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
+                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>En Desarrollo (Activo)</span>
                                         <span className="badge bg-light text-dark rounded-pill">SaaS</span>
                                     </div>
                                 </div>
@@ -541,7 +542,7 @@ export default function PresentacionYassel() {
                                                  height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🏢</span>
+                                            <i className="bi bi-building-fill fs-4"></i>
                                         </div>
                                         <h3 className="h4 fw-bold text-dark mb-0">PortalCheck</h3>
                                     </div>
@@ -549,8 +550,8 @@ export default function PresentacionYassel() {
                                         Mi solución integral de gestión y comunicación para barrios cerrados,
                                         clubes, edificios y condominios. Estoy trabajando en su lanzamiento.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
-                                        <span className="badge bg-warning text-dark rounded-pill">🚀 En Desarrollo (Activo)</span>
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
+                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>En Desarrollo (Activo)</span>
                                         <span className="badge bg-light text-dark rounded-pill">PropTech</span>
                                     </div>
                                 </div>
@@ -574,7 +575,7 @@ export default function PresentacionYassel() {
                                                  height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">🩺</span>
+                                            <i className="bi bi-heart-pulse-fill fs-4"></i>
                                         </div>
                                         <h3 className="h4 fw-bold text-dark mb-0">App Patología (Gobierno)</h3>
                                     </div>
@@ -582,7 +583,7 @@ export default function PresentacionYassel() {
                                         Mi desarrollo aplicativo para el área de patología del Hospital Madariaga,
                                         digitalizando procesos clave de salud.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-danger rounded-pill">Activo / Misión Crítica</span>
                                         <span className="badge bg-light text-dark rounded-pill">HealthTech</span>
                                     </div>
@@ -608,7 +609,7 @@ export default function PresentacionYassel() {
                                                  height: '50px', 
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
-                                            <span className="fs-4">💼</span>
+                                            <i className="bi bi-graph-up-arrow fs-4"></i>
                                         </div>
                                         <h3 className="h4 fw-bold text-dark mb-0">Inversores</h3>
                                     </div>
@@ -617,7 +618,7 @@ export default function PresentacionYassel() {
                                         Pool mensual 30 % del ingreso distribuible hasta cap 2.5× el capital. Meta de
                                         recaudar $10 000 000 pesos. Invertí desde $50 000 y seguí tu aporte en tiempo real.
                                     </p>
-                                    <div className="d-flex gap-2 mb-3">
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-light text-dark rounded-pill">FinTech</span>
                                         <span className="badge bg-light text-dark rounded-pill">Investment</span>
                                     </div>
@@ -625,7 +626,7 @@ export default function PresentacionYassel() {
                                        target="_blank" 
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
-                                        <span className="me-1">🔗</span>
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
                                         Ver Proyecto
                                     </a>
                                 </div>
@@ -659,7 +660,7 @@ export default function PresentacionYassel() {
                             }}>
                                 <div className="card-body p-5 text-center">
                                     <h2 className="h2 fw-bold text-dark mb-3">
-                                        <span className="me-2">🔒</span>
+                                        <i className="bi bi-shield-lock-fill me-2"></i>
                                         Mi infraestructura, tu tranquilidad.
                                     </h2>
                                     <p className="text-secondary fs-5 lh-lg">
@@ -686,7 +687,7 @@ export default function PresentacionYassel() {
                             }}>
                                 <div className="card-body p-5 text-center">
                                     <h2 className="h2 fw-bold text-dark mb-3">
-                                        <span className="me-2">💬</span>
+                                        <i className="bi bi-chat-dots-fill me-2"></i>
                                         ¿Empezamos tu proyecto?
                                     </h2>
                                     <p className="text-secondary fs-5 mb-4">
@@ -724,7 +725,7 @@ export default function PresentacionYassel() {
                                             <textarea name="necesidad" className="form-control" rows="3" required></textarea>
                                         </div>
                                         <button type="submit" className="btn btn-primary btn-lg w-100 rounded-pill">
-                                            <span className="me-2">📧</span>
+                                            <i className="bi bi-envelope-fill me-2"></i>
                                             Enviar Consulta
                                         </button>
                                     </form>
@@ -732,7 +733,7 @@ export default function PresentacionYassel() {
                                         <a href="https://www.yoisar.com"
                                            className="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill"
                                            target="_blank" rel="noopener noreferrer">
-                                            <span className="me-2">🌐</span>
+                                            <i className="bi bi-globe me-2"></i>
                                             yoisar.com
                                         </a>
                                     </div>
