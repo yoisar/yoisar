@@ -7,8 +7,8 @@ export default function PresentacionYassel() {
     
     return (
         <div className="min-vh-100" style={{
-            background: 'linear-gradient(160deg, #0f172a 0%, #4338ca 55%, #7c3aed 100%)',
-            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            background: 'linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #334155 100%)',
+            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
             letterSpacing: '0.01em'
         }}>
             {/* Navigation Bar */}
@@ -43,7 +43,7 @@ export default function PresentacionYassel() {
                                 </p>
                                 <div className="d-flex gap-3 justify-content-center flex-wrap">
                                     <a href="#contacto"
-                                       className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-semibold shadow">
+                                       className="btn btn-primary btn-lg px-4 py-2 rounded-pill fw-semibold shadow">
                                         <i className="bi bi-briefcase me-2"></i>Hablemos de tu idea
                                     </a>
                                     <a href="#contacto"
