@@ -61,14 +61,15 @@ test('renders hero cta buttons', () => {
 test('renders visible project links', () => {
   render(<App />);
 
-  // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Inversores)
+  // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Guajira, Inversores)
   const visibleProjectLinks = screen.getAllByRole('link', { name: /Ver Proyecto/i });
-  expect(visibleProjectLinks).toHaveLength(6);
+  expect(visibleProjectLinks).toHaveLength(7);
 
   // Test specific URLs for visible projects
   const hrefs = visibleProjectLinks.map(link => link.getAttribute('href'));
   expect(hrefs).toContain('https://fideliza.yoisar.com/fideliza');
   expect(hrefs).toContain('https://ventarifas.com');
+  expect(hrefs).toContain('https://front.guajira.dev.yoisar.com/');
   expect(hrefs).toContain('https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico');
 });
 
@@ -106,7 +107,7 @@ test('renders project status badges from anexo', () => {
   const misionCritica = screen.getAllByText(/Activo \/ Misión Crítica/i);
 
   expect(activosEnProduccion.length).toBeGreaterThanOrEqual(4); // VentaRifas, Distriboo, YOIS Snacks, Fideliza
-  expect(enDesarrollo.length).toBe(2); // Planning Yoisar, PortalCheck
+  expect(enDesarrollo.length).toBe(3); // Planning Yoisar, PortalCheck, Guajira
   expect(misionCritica.length).toBe(2); // Sistema CGM, App Patología
 });
 

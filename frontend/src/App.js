@@ -84,6 +84,12 @@ export default function PresentacionYassel() {
                                                 como hospitales y casas de gobierno. Mi sello <strong>YOIS</strong> significa cercanía técnica
                                                 y responsabilidad extrema por el producto final.
                                             </p>
+                                            <p className="text-secondary fs-5 lh-lg text-center mt-3">
+                                                No solo construyo desde cero. También modernizo sistemas heredados. El proyecto
+                                                Guajira, actualmente en curso, demuestra mi capacidad para entender dominios
+                                                complejos ya existentes y elevarlos a estándares tecnológicos actuales, algo
+                                                muy valorado por empresas que necesitan evolucionar sin perder su operación actual.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -587,6 +593,53 @@ export default function PresentacionYassel() {
                                         <span className="badge bg-danger rounded-pill">Activo / Misión Crítica</span>
                                         <span className="badge bg-light text-dark rounded-pill">HealthTech</span>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
+                                background: 'linear-gradient(135deg, #0f4c75 0%, #3282b8 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
+                                             style={{
+                                                 width: '50px',
+                                                 height: '50px',
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <i className="bi bi-arrow-repeat fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">Guajira</h3>
+                                            <small className="text-dark opacity-75">Modernización y Desarrollo para Terceros</small>
+                                        </div>
+                                    </div>
+                                    <p className="text-dark mb-3 lh-lg">
+                                        Estoy a cargo del desarrollo y la modernización integral de la plataforma Guajira.
+                                        Este proyecto consiste en actualizar y reconstruir su frontend y lógica de negocio,
+                                        llevándolo a una arquitectura moderna, ágil y escalable. Es un claro ejemplo de cómo
+                                        tomo sistemas existentes y los transformo en productos robustos y mantenibles,
+                                        corriendo sobre mi infraestructura en el entorno de desarrollo (dev.yoisar.com).
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
+                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>En Desarrollo (Activo)</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Modernización</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Tercerizado</span>
+                                    </div>
+                                    <a href="https://front.guajira.dev.yoisar.com/"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
+                                        Ver Proyecto
+                                    </a>
                                 </div>
                             </div>
                         </div>
