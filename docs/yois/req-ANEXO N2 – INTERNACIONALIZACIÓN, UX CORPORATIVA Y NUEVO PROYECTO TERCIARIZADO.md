@@ -70,11 +70,23 @@ Además de mis proyectos personales y gubernamentales, debo agregar una categor�
 Debo incluir el siguiente proyecto con visibilidad equivalente al resto de mis casos de éxito:
 
 - **Nombre del Proyecto:** Guajira (Modernización y Desarrollo)
+- **Naturaleza:** Sitio de turismo
 - **URL de acceso (demo/desarrollo):** `https://front.guajira.dev.yoisar.com/`
 - **Cliente:** Tercero (empresa/cliente privado)
 - **Estado:** 🚀 En curso / Desarrollo activo
 - **Descripción (en primera persona):** 
   > *"Estoy a cargo del desarrollo y la modernización integral de la plataforma Guajira. Este proyecto consiste en actualizar y reconstruir su frontend y lógica de negocio, llevándolo a una arquitectura moderna, ágil y escalable. Es un claro ejemplo de cómo tomo sistemas existentes y los transformo en productos robustos y mantenibles, corriendo sobre mi infraestructura en el entorno de desarrollo (dev.yoisar.com)."*
+
+### 4.4. Ficha del Proyecto Por el Caribe
+Mismo cliente que Guajira. Segundo sitio de turismo a incluir con visibilidad equivalente:
+
+- **Nombre del Proyecto:** Por el Caribe (Modernización y Desarrollo)
+- **Naturaleza:** Sitio de turismo
+- **URL de acceso (demo/desarrollo):** `https://porelcaribe.dev.yoisar.com/`
+- **Cliente:** Tercero (mismo cliente que Guajira)
+- **Estado:** 🚀 En curso / Desarrollo activo
+- **Descripción (en primera persona):**
+  > *"Por el Caribe es el segundo sitio de turismo del mismo cliente de Guajira, donde aplico la misma estrategia de modernización: actualizo su frontend y lógica de negocio bajo una arquitectura moderna, ágil y escalable, corriendo sobre mi infraestructura en el entorno de desarrollo (dev.yoisar.com)."*
 
 ### 4.3. Mensaje Estratégico Asociado
 Incluiré un párrafo adicional en mi sección "Sobre Mí" o "Servicios" que diga:

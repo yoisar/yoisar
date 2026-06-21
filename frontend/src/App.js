@@ -1,10 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useTranslation } from 'react-i18next';
+
+const LANGUAGES = [
+    { code: 'es', label: 'ES' },
+    { code: 'en', label: 'EN' },
+    { code: 'pt', label: 'PT' }
+];
 
 export default function PresentacionYassel() {
+    const { t, i18n } = useTranslation();
     // Calcular años de experiencia dinámicamente desde 2001
     const añosExperiencia = new Date().getFullYear() - 2001;
-    
+
     return (
         <div className="min-vh-100" style={{
             background: 'linear-gradient(160deg, #0f172a 0%, #1e293b 55%, #334155 100%)',
@@ -13,14 +21,26 @@ export default function PresentacionYassel() {
         }}>
             {/* Navigation Bar */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
-                <div className="container">
+                <div className="container d-flex justify-content-between align-items-center">
                     <a className="navbar-brand fw-bold fs-4 d-flex align-items-center" href="#" style={{ color: '#fff', letterSpacing: '0.05em' }}>
                         <span className="rounded-circle d-inline-flex align-items-center justify-content-center me-2"
                               style={{ width: '36px', height: '36px', background: 'rgba(255,255,255,0.15)' }}>
                             Y
                         </span>
-                        YOIS
+                        {t('nav.brandFull')}
                     </a>
+                    <div className="d-flex gap-1" role="group" aria-label="Language selector">
+                        {LANGUAGES.map((lang) => (
+                            <button
+                                key={lang.code}
+                                type="button"
+                                onClick={() => i18n.changeLanguage(lang.code)}
+                                className={`btn btn-sm rounded-pill px-3 ${i18n.resolvedLanguage === lang.code ? 'btn-light' : 'btn-outline-light'}`}
+                            >
+                                {lang.label}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </nav>
 
@@ -32,23 +52,22 @@ export default function PresentacionYassel() {
                             <div className="mb-4">
                                 <span className="badge rounded-pill px-3 py-2 mb-4 fw-semibold"
                                       style={{ background: 'rgba(255,255,255,0.12)', color: '#e0e7ff', letterSpacing: '0.08em', fontSize: '0.8rem' }}>
-                                    YOIS · SOFTWARE &amp; IA
+                                    {t('hero.badge')}
                                 </span>
                                 <h1 className="display-4 fw-bold text-white mb-3" style={{ lineHeight: 1.15 }}>
-                                    Desarrollo SaaS, Apps con IA y despliego infraestructura escalable.
+                                    {t('hero.title')}
                                 </h1>
                                 <p className="lead text-white-50 mb-4 mx-auto" style={{ maxWidth: '640px' }}>
-                                    Desde sistemas para el Gobierno de Misiones hasta plataformas de gestión horizontal.
-                                    Tu proyecto corre sobre mi infraestructura y mi experiencia.
+                                    {t('hero.subtitle')}
                                 </p>
                                 <div className="d-flex gap-3 justify-content-center flex-wrap">
                                     <a href="#contacto"
                                        className="btn btn-primary btn-lg px-4 py-2 rounded-pill fw-semibold shadow">
-                                        <i className="bi bi-briefcase me-2"></i>Hablemos de tu idea
+                                        <i className="bi bi-briefcase me-2"></i>{t('hero.ctaPrimary')}
                                     </a>
                                     <a href="#contacto"
                                        className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill fw-semibold">
-                                        <i className="bi bi-robot me-2"></i>Cotizá conmigo
+                                        <i className="bi bi-robot me-2"></i>{t('hero.ctaSecondary')}
                                     </a>
                                 </div>
                             </div>
@@ -71,24 +90,16 @@ export default function PresentacionYassel() {
                                     <div className="text-center mb-4">
                                         <h2 className="h2 fw-bold text-dark mb-3">
                                             <i className="bi bi-building-gear me-2 text-primary"></i>
-                                            Así trabajo: mi ingeniería de software
+                                            {t('about.title')}
                                         </h2>
                                     </div>
                                     <div className="row align-items-center">
                                         <div className="col-md-8 mx-auto">
                                             <p className="text-secondary fs-5 lh-lg text-center">
-                                                Tengo más de <strong>{añosExperiencia} años de experiencia</strong> especializado
-                                                en inteligencia artificial y soluciones de gestión. No solo escribo código: alojo, mantengo
-                                                y escalo cada aplicación en <span className="text-primary fw-semibold">mi propia infraestructura dedicada en la nube
-                                                y servicios de alta disponibilidad (microservicios)</span>, con experiencia en proyectos de gobierno y entornos críticos
-                                                como hospitales y casas de gobierno. Mi sello <strong>YOIS</strong> significa cercanía técnica
-                                                y responsabilidad extrema por el producto final.
+                                                {t('about.description', { years: añosExperiencia })}
                                             </p>
                                             <p className="text-secondary fs-5 lh-lg text-center mt-3">
-                                                No solo construyo desde cero. También modernizo sistemas heredados. El proyecto
-                                                Guajira, actualmente en curso, demuestra mi capacidad para entender dominios
-                                                complejos ya existentes y elevarlos a estándares tecnológicos actuales, algo
-                                                muy valorado por empresas que necesitan evolucionar sin perder su operación actual.
+                                                {t('about.guajiraMessage')}
                                             </p>
                                         </div>
                                     </div>
@@ -105,7 +116,7 @@ export default function PresentacionYassel() {
                     <div className="text-center mb-5">
                         <h2 className="h2 fw-bold text-white mb-3">
                             <i className="bi bi-gear-fill me-2"></i>
-                            Mis Servicios
+                            {t('services.title')}
                         </h2>
                     </div>
                     <div className="row g-4 justify-content-center">
@@ -122,10 +133,9 @@ export default function PresentacionYassel() {
                                          style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
                                         <i className="bi bi-code-slash text-primary"></i>
                                     </div>
-                                    <h3 className="h5 fw-bold text-dark mb-3">Desarrollo de Apps a Medida</h3>
+                                    <h3 className="h5 fw-bold text-dark mb-3">{t('services.dev.title')}</h3>
                                     <p className="text-secondary mb-0">
-                                        Construyo software desde cero con arquitectura en microservicios.
-                                        Me adapto a sistemas legacy y a las necesidades específicas de tu negocio.
+                                        {t('services.dev.description')}
                                     </p>
                                 </div>
                             </div>
@@ -143,10 +153,9 @@ export default function PresentacionYassel() {
                                          style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
                                         <i className="bi bi-cloud-fill text-primary"></i>
                                     </div>
-                                    <h3 className="h5 fw-bold text-dark mb-3">Soluciones SaaS listas para usar</h3>
+                                    <h3 className="h5 fw-bold text-dark mb-3">{t('services.saas.title')}</h3>
                                     <p className="text-secondary mb-0">
-                                        Productos verticales que ya tengo desarrollados y que facturo por
-                                        suscripción, con actualizaciones y soporte continuo.
+                                        {t('services.saas.description')}
                                     </p>
                                 </div>
                             </div>
@@ -164,10 +173,9 @@ export default function PresentacionYassel() {
                                          style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, #eef2ff, #e0e7ff)', fontSize: '1.75rem' }}>
                                         <i className="bi bi-robot text-primary"></i>
                                     </div>
-                                    <h3 className="h5 fw-bold text-dark mb-3">Inteligencia Artificial Aplicada</h3>
+                                    <h3 className="h5 fw-bold text-dark mb-3">{t('services.ai.title')}</h3>
                                     <p className="text-secondary mb-0">
-                                        Integro IA para automatizar procesos tediosos, hacer análisis predictivos
-                                        y optimizar los flujos de trabajo de mis clientes.
+                                        {t('services.ai.description')}
                                     </p>
                                 </div>
                             </div>
@@ -182,11 +190,11 @@ export default function PresentacionYassel() {
                     <div className="text-center mb-5">
                         <h2 className="h2 fw-bold text-white mb-3">
                             <i className="bi bi-rocket-takeoff-fill me-2"></i>
-                            Mis Proyectos
+                            {t('projects.title')}
                         </h2>
-                        <p className="text-white-50 fs-5">Mi sello YOIS está en cada uno de estos casos de éxito y en mi pipeline de innovación</p>
+                        <p className="text-white-50 fs-5">{t('projects.subtitle')}</p>
                     </div>
-                    
+
                     <div className="row g-4 justify-content-center">
                         <div className="col-lg-5 col-md-6" style={{ display: 'none' }}>
                             <div className="card border-0 h-100 shadow-lg project-card" style={{
@@ -194,15 +202,15 @@ export default function PresentacionYassel() {
                                 borderRadius: '20px',
                                 transform: 'translateY(0)',
                                 transition: 'transform 0.3s ease'
-                            }} 
+                            }}
                             onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-credit-card-2-front-fill fs-4"></i>
@@ -210,8 +218,8 @@ export default function PresentacionYassel() {
                                         <h3 className="h4 fw-bold text-dark mb-0">Cuotaplan</h3>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        CuotaPlan es una plataforma que conecta a personas y comercios adheridos, ofreciendo un ecosistema 
-                                        de beneficios exclusivos como saldo virtual, sorteos, puntos y descuentos. Brinda a los comercios 
+                                        CuotaPlan es una plataforma que conecta a personas y comercios adheridos, ofreciendo un ecosistema
+                                        de beneficios exclusivos como saldo virtual, sorteos, puntos y descuentos. Brinda a los comercios
                                         herramientas de fidelización, gestión de referidos y campañas promocionales desde un panel centralizado.
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
@@ -219,12 +227,12 @@ export default function PresentacionYassel() {
                                         <span className="badge bg-light text-dark rounded-pill">React</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
-                                    <a href="https://cuotaplan.com/index" 
-                                       target="_blank" 
+                                    <a href="https://cuotaplan.com/index"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
@@ -240,10 +248,10 @@ export default function PresentacionYassel() {
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-houses-fill fs-4"></i>
@@ -251,7 +259,7 @@ export default function PresentacionYassel() {
                                         <h3 className="h4 fw-bold text-dark mb-0">AdminBarrios</h3>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Gestión Integral de Barrios. Plataforma para administrar eficientemente servicios, 
+                                        Gestión Integral de Barrios. Plataforma para administrar eficientemente servicios,
                                         mejorar la comunicación entre vecinos y facilitar decisiones comunitarias.
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
@@ -259,12 +267,12 @@ export default function PresentacionYassel() {
                                         <span className="badge bg-light text-dark rounded-pill">React</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
-                                    <a href="https://adminbarrio.com" 
-                                       target="_blank" 
+                                    <a href="https://adminbarrio.com"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
@@ -281,39 +289,36 @@ export default function PresentacionYassel() {
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-bullseye fs-4"></i>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">Fideliza</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">{t('projects.fideliza.name')}</h3>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Mi plataforma integral para comercios e inversionistas que combina catálogo vivo, programas de puntos,
-                                        referidos, rifas propias y de terceros, delivery partners y más. Gestión centralizada de inventario,
-                                        promociones y sorteos; actualmente con comercios activos, usuarios acumulando puntos y participantes
-                                        en rifas reales.
+                                        {t('projects.fideliza.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-success rounded-pill">Activo / En Producción</span>
+                                        <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">CRM</span>
                                         <span className="badge bg-light text-dark rounded-pill">React Native</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
-                                    <a href="https://fideliza.yoisar.com/fideliza" 
-                                       target="_blank" 
+                                    <a href="https://fideliza.yoisar.com/fideliza"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="col-lg-4 col-md-6">
                             <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
@@ -325,41 +330,39 @@ export default function PresentacionYassel() {
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-ticket-perforated-fill fs-4"></i>
                                         </div>
                                         <div>
-                                            <h3 className="h4 fw-bold text-dark mb-0">VentaRifas</h3>
-                                            <small className="text-dark opacity-75">Raffles Marketplace Platform</small>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.ventarifas.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.ventarifas.tagline')}</small>
                                         </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Mi plataforma completa para la gestión de rifas y sorteos digitales, funcionando
-                                        y facturando. Marketplace desarrollado en Next.js; pagos seguros, números automáticos
-                                        y panel en tiempo real para organizadores. Canon inicial más 15 % sobre lo recaudado.
+                                        {t('projects.ventarifas.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-success rounded-pill">Activo / En Producción</span>
+                                        <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">Marketplace</span>
                                         <span className="badge bg-light text-dark rounded-pill">Next.js</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
-                                    <a href="https://ventarifas.com" 
-                                       target="_blank" 
+                                    <a href="https://ventarifas.com"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div className="col-lg-4 col-md-6">
                             <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
@@ -371,36 +374,34 @@ export default function PresentacionYassel() {
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-box-seam-fill fs-4"></i>
                                         </div>
                                         <div>
-                                            <h3 className="h4 fw-bold text-dark mb-0">Distriboo</h3>
-                                            <small className="text-dark opacity-75">B2B Distribution SaaS</small>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.distriboo.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.distriboo.tagline')}</small>
                                         </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Mi sistema de gestión de distribución y logística, pensado para optimizar cadenas
-                                        de suministro. Digitaliza la operación de distribuidores, eliminando pedidos
-                                        manuales y optimizando ventas, logística y precios.
+                                        {t('projects.distriboo.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-success rounded-pill">Activo / En Producción</span>
+                                        <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">SaaS B2B</span>
                                         <span className="badge bg-light text-dark rounded-pill">React</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
-                                    <a href="https://distriboo.yoisar.com/" 
-                                       target="_blank" 
+                                    <a href="https://distriboo.yoisar.com/"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
@@ -417,36 +418,34 @@ export default function PresentacionYassel() {
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-bank2 fs-4"></i>
                                         </div>
                                         <div>
-                                            <h3 className="h4 fw-bold text-dark mb-0">Sistema CGM (Gobierno)</h3>
-                                            <small className="text-dark opacity-75">Document Management Platform</small>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.cgm.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.cgm.tagline')}</small>
                                         </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Yo desarrollé mi sistema de gestión documental para la Casa de Gobierno de Misiones.
-                                        Maneja la mesa de entrada, derivación y búsqueda de expedientes mediante microservicios,
-                                        modernizando la administración y digitalización de documentos institucionales.
+                                        {t('projects.cgm.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-danger rounded-pill">Activo / Misión Crítica</span>
+                                        <span className="badge bg-danger rounded-pill">{t('projects.status.missionCritical')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">GovTech</span>
                                         <span className="badge bg-light text-dark rounded-pill">Next.js</span>
                                         <span className="badge bg-light text-dark rounded-pill">PostgreSQL</span>
                                     </div>
-                                    <a href="https://test.archivo.yoisar.com/" 
-                                       target="_blank" 
+                                    <a href="https://test.archivo.yoisar.com/"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
@@ -463,36 +462,34 @@ export default function PresentacionYassel() {
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-bag-fill fs-4"></i>
                                         </div>
                                         <div>
-                                            <h3 className="h4 fw-bold text-dark mb-0">YOIS Snacks</h3>
-                                            <small className="text-dark opacity-75">Smart Snack Commerce Platform</small>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.snacks.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.snacks.tagline')}</small>
                                         </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Mi propio e-commerce vertical especializado en la venta de snacks y productos gourmet,
-                                        con red propia de revendedores, sistema de comisiones y gestión de distribución.
-                                        En producción con ventas reales y operación activa.
+                                        {t('projects.snacks.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-success rounded-pill">Activo / En Producción</span>
+                                        <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
                                         <span className="badge bg-light text-dark rounded-pill">React Native</span>
                                         <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
-                                    <a href="https://yoissnacks.com/" 
-                                       target="_blank" 
+                                    <a href="https://yoissnacks.com/"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
@@ -517,14 +514,13 @@ export default function PresentacionYassel() {
                                              }}>
                                             <i className="bi bi-stopwatch-fill fs-4"></i>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">Planning Yoisar</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">{t('projects.planning.name')}</h3>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Mi SaaS para planificación de entrenadores deportivos. Actualmente en
-                                        fase de construcción, pronto disponible.
+                                        {t('projects.planning.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>En Desarrollo (Activo)</span>
+                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>{t('projects.status.activeDevelopment')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">SaaS</span>
                                     </div>
                                 </div>
@@ -550,14 +546,13 @@ export default function PresentacionYassel() {
                                              }}>
                                             <i className="bi bi-building-fill fs-4"></i>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">PortalCheck</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">{t('projects.portalcheck.name')}</h3>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Mi solución integral de gestión y comunicación para barrios cerrados,
-                                        clubes, edificios y condominios. Estoy trabajando en su lanzamiento.
+                                        {t('projects.portalcheck.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>En Desarrollo (Activo)</span>
+                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>{t('projects.status.activeDevelopment')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">PropTech</span>
                                     </div>
                                 </div>
@@ -583,14 +578,13 @@ export default function PresentacionYassel() {
                                              }}>
                                             <i className="bi bi-heart-pulse-fill fs-4"></i>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">App Patología (Gobierno)</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">{t('projects.patologia.name')}</h3>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Mi desarrollo aplicativo para el área de patología del Hospital Madariaga,
-                                        digitalizando procesos clave de salud.
+                                        {t('projects.patologia.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-danger rounded-pill">Activo / Misión Crítica</span>
+                                        <span className="badge bg-danger rounded-pill">{t('projects.status.missionCritical')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">HealthTech</span>
                                     </div>
                                 </div>
@@ -617,19 +611,15 @@ export default function PresentacionYassel() {
                                             <i className="bi bi-arrow-repeat fs-4"></i>
                                         </div>
                                         <div>
-                                            <h3 className="h4 fw-bold text-dark mb-0">Guajira</h3>
-                                            <small className="text-dark opacity-75">Modernización y Desarrollo para Terceros</small>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.guajira.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.guajira.tagline')}</small>
                                         </div>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Estoy a cargo del desarrollo y la modernización integral de la plataforma Guajira.
-                                        Este proyecto consiste en actualizar y reconstruir su frontend y lógica de negocio,
-                                        llevándolo a una arquitectura moderna, ágil y escalable. Es un claro ejemplo de cómo
-                                        tomo sistemas existentes y los transformo en productos robustos y mantenibles,
-                                        corriendo sobre mi infraestructura en el entorno de desarrollo (dev.yoisar.com).
+                                        {t('projects.guajira.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>En Desarrollo (Activo)</span>
+                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>{t('projects.status.activeDevelopment')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">Modernización</span>
                                         <span className="badge bg-light text-dark rounded-pill">Tercerizado</span>
                                     </div>
@@ -638,7 +628,50 @@ export default function PresentacionYassel() {
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
+                                background: 'linear-gradient(135deg, #16a085 0%, #2980b9 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
+                                             style={{
+                                                 width: '50px',
+                                                 height: '50px',
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <i className="bi bi-sun-fill fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.porelcaribe.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.porelcaribe.tagline')}</small>
+                                        </div>
+                                    </div>
+                                    <p className="text-dark mb-3 lh-lg">
+                                        {t('projects.porelcaribe.description')}
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
+                                        <span className="badge bg-warning text-dark rounded-pill"><i className="bi bi-rocket-takeoff-fill me-1"></i>{t('projects.status.activeDevelopment')}</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Modernización</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Tercerizado</span>
+                                    </div>
+                                    <a href="https://porelcaribe.dev.yoisar.com/"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
@@ -656,31 +689,29 @@ export default function PresentacionYassel() {
                             onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
                                 <div className="card-body p-4">
                                     <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
                                              style={{
-                                                 width: '50px', 
-                                                 height: '50px', 
+                                                 width: '50px',
+                                                 height: '50px',
                                                  background: 'rgba(255,255,255,0.2)'
                                              }}>
                                             <i className="bi bi-graph-up-arrow fs-4"></i>
                                         </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">Inversores</h3>
+                                        <h3 className="h4 fw-bold text-dark mb-0">{t('projects.investors.name')}</h3>
                                     </div>
                                     <p className="text-dark mb-3 lh-lg">
-                                        Ronda de inversión en un ecosistema tecnológico con múltiples líneas de negocio.
-                                        Pool mensual 30 % del ingreso distribuible hasta cap 2.5× el capital. Meta de
-                                        recaudar $10 000 000 pesos. Invertí desde $50 000 y seguí tu aporte en tiempo real.
+                                        {t('projects.investors.description')}
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-light text-dark rounded-pill">FinTech</span>
                                         <span className="badge bg-light text-dark rounded-pill">Investment</span>
                                     </div>
-                                    <a href="https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico" 
-                                       target="_blank" 
+                                    <a href="https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico"
+                                       target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">
                                         <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        Ver Proyecto
+                                        {t('projects.viewProject')}
                                     </a>
                                 </div>
                             </div>
@@ -690,11 +721,7 @@ export default function PresentacionYassel() {
                     <div className="row justify-content-center mt-4">
                         <div className="col-lg-9 text-center">
                             <p className="text-white-50 fs-5 lh-lg">
-                                Así como ves, algunos de mis proyectos ya están en el mercado y otros los estoy construyendo
-                                en este momento. Para mí, el desarrollo nunca se detiene. Cada uno de estos productos
-                                —estén terminados o en marcha— representa una solución real a un problema concreto.
-                                Si ves algo en desarrollo que encaja con lo que necesitas, hablemos: puedo acelerar su
-                                llegada o adaptarlo a tu medida.
+                                {t('projects.footerNote')}
                             </p>
                         </div>
                     </div>
@@ -714,12 +741,10 @@ export default function PresentacionYassel() {
                                 <div className="card-body p-5 text-center">
                                     <h2 className="h2 fw-bold text-dark mb-3">
                                         <i className="bi bi-shield-lock-fill me-2"></i>
-                                        Mi infraestructura, tu tranquilidad.
+                                        {t('infrastructure.title')}
                                     </h2>
                                     <p className="text-secondary fs-5 lh-lg">
-                                        No alquilo servidores compartidos. Cuento con mi propia infraestructura dedicada
-                                        y orquestación de microservicios que ya soportan la carga de gestión gubernamental.
-                                        Esto me permite ofrecer alta disponibilidad y seguridad perimetral real.
+                                        {t('infrastructure.description')}
                                     </p>
                                 </div>
                             </div>
@@ -741,11 +766,10 @@ export default function PresentacionYassel() {
                                 <div className="card-body p-5 text-center">
                                     <h2 className="h2 fw-bold text-dark mb-3">
                                         <i className="bi bi-chat-dots-fill me-2"></i>
-                                        ¿Empezamos tu proyecto?
+                                        {t('contact.title')}
                                     </h2>
                                     <p className="text-secondary fs-5 mb-4">
-                                        Contame tu necesidad. Ya sea una app, un SaaS o un sistema con IA, yo me encargo
-                                        de la arquitectura, el desarrollo y el despliegue.
+                                        {t('contact.description')}
                                     </p>
                                     <form
                                         className="text-start mx-auto mb-4"
@@ -764,22 +788,22 @@ export default function PresentacionYassel() {
                                         }}
                                     >
                                         <div className="mb-3">
-                                            <label className="form-label fw-semibold text-dark">Nombre</label>
+                                            <label className="form-label fw-semibold text-dark">{t('contact.nameLabel')}</label>
                                             <input type="text" name="nombre" className="form-control" required />
                                         </div>
                                         <div className="mb-3">
-                                            <label className="form-label fw-semibold text-dark">Empresa / Entidad</label>
+                                            <label className="form-label fw-semibold text-dark">{t('contact.companyLabel')}</label>
                                             <input type="text" name="empresa" className="form-control" />
                                         </div>
                                         <div className="mb-4">
                                             <label className="form-label fw-semibold text-dark">
-                                                ¿Qué necesitas desarrollar?
+                                                {t('contact.needLabel')}
                                             </label>
                                             <textarea name="necesidad" className="form-control" rows="3" required></textarea>
                                         </div>
                                         <button type="submit" className="btn btn-primary btn-lg w-100 rounded-pill">
                                             <i className="bi bi-envelope-fill me-2"></i>
-                                            Enviar Consulta
+                                            {t('contact.submit')}
                                         </button>
                                     </form>
                                     <div className="d-flex gap-3 justify-content-center flex-wrap">
@@ -787,7 +811,7 @@ export default function PresentacionYassel() {
                                            className="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill"
                                            target="_blank" rel="noopener noreferrer">
                                             <i className="bi bi-globe me-2"></i>
-                                            yoisar.com
+                                            {t('contact.websiteLink')}
                                         </a>
                                     </div>
                                 </div>
@@ -802,7 +826,7 @@ export default function PresentacionYassel() {
                 <div className="container">
                     <div className="text-center">
                         <p className="text-white-50 mb-0">
-                            © 2026 - YOIS | Desarrollo, SaaS e IA
+                            {t('footer.text')}
                         </p>
                     </div>
                 </div>

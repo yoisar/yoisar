@@ -1,5 +1,10 @@
 import { render, screen } from '@testing-library/react';
+import i18n from './i18n';
 import App from './App';
+
+beforeAll(() => {
+  i18n.changeLanguage('es');
+});
 
 test('renders hero title', () => {
   render(<App />);
@@ -63,13 +68,14 @@ test('renders visible project links', () => {
 
   // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Guajira, Inversores)
   const visibleProjectLinks = screen.getAllByRole('link', { name: /Ver Proyecto/i });
-  expect(visibleProjectLinks).toHaveLength(7);
+  expect(visibleProjectLinks).toHaveLength(8);
 
   // Test specific URLs for visible projects
   const hrefs = visibleProjectLinks.map(link => link.getAttribute('href'));
   expect(hrefs).toContain('https://fideliza.yoisar.com/fideliza');
   expect(hrefs).toContain('https://ventarifas.com');
   expect(hrefs).toContain('https://front.guajira.dev.yoisar.com/');
+  expect(hrefs).toContain('https://porelcaribe.dev.yoisar.com/');
   expect(hrefs).toContain('https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico');
 });
 
@@ -107,7 +113,7 @@ test('renders project status badges from anexo', () => {
   const misionCritica = screen.getAllByText(/Activo \/ Misión Crítica/i);
 
   expect(activosEnProduccion.length).toBeGreaterThanOrEqual(4); // VentaRifas, Distriboo, YOIS Snacks, Fideliza
-  expect(enDesarrollo.length).toBe(3); // Planning Yoisar, PortalCheck, Guajira
+  expect(enDesarrollo.length).toBe(4); // Planning Yoisar, PortalCheck, Guajira, Por el Caribe
   expect(misionCritica.length).toBe(2); // Sistema CGM, App Patología
 });
 
