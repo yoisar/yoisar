@@ -14,7 +14,7 @@ test('renders hero title', () => {
 
 test('renders about section', () => {
   render(<App />);
-  const aboutSection = screen.getByText(/Así trabajo: mi ingeniería de software/i);
+  const aboutSection = screen.getByText(/Así trabajo: mi enfoque de ingeniería de software/i);
   expect(aboutSection).toBeInTheDocument();
 });
 
@@ -26,7 +26,7 @@ test('renders contact section', () => {
 
 test('renders projects section', () => {
   render(<App />);
-  const projectsSection = screen.getByRole('heading', { name: /Mis Proyectos/i });
+  const projectsSection = screen.getByRole('heading', { name: /Proyectos Desarrollados/i });
   expect(projectsSection).toBeInTheDocument();
 });
 
