@@ -208,17 +208,17 @@ export default function PresentacionYassel() {
                         {t('menu.projectsTitle')}
                     </p>
 
-                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}>📌 {t('menu.groupCommercial')}</p>
+                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}><i className="bi bi-pin-angle-fill me-1"></i>{t('menu.groupCommercial')}</p>
                     <ul className="list-unstyled mb-3">
                         {PROJECT_MENU.commercial.map(renderProjectItem)}
                     </ul>
 
-                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}>📌 {t('menu.groupGovernment')}</p>
+                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}><i className="bi bi-pin-angle-fill me-1"></i>{t('menu.groupGovernment')}</p>
                     <ul className="list-unstyled mb-3">
                         {PROJECT_MENU.government.map(renderProjectItem)}
                     </ul>
 
-                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}>📌 {t('menu.groupThirdParty')}</p>
+                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}><i className="bi bi-pin-angle-fill me-1"></i>{t('menu.groupThirdParty')}</p>
                     <ul className="list-unstyled mb-0">
                         {PROJECT_MENU.thirdParty.map(renderProjectItem)}
                     </ul>
