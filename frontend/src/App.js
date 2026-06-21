@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [
@@ -8,10 +9,84 @@ const LANGUAGES = [
     { code: 'pt', label: 'PT' }
 ];
 
+const PROJECT_MENU = {
+    commercial: [
+        { key: 'ventarifas', href: 'https://ventarifas.com', status: 'active' },
+        { key: 'distriboo', href: 'https://distriboo.yoisar.com/', status: 'active' },
+        { key: 'snacks', href: 'https://yoissnacks.com/', status: 'active' },
+        { key: 'planning', href: null, status: 'development' },
+        { key: 'portalcheck', href: null, status: 'development' }
+    ],
+    government: [
+        { key: 'cgm', href: 'https://test.archivo.yoisar.com/', status: 'critical' },
+        { key: 'patologia', href: null, status: 'critical' }
+    ],
+    thirdParty: [
+        { key: 'guajira', href: 'https://front.guajira.dev.yoisar.com/', status: 'development' }
+    ]
+};
+
+const STATUS_BADGE = {
+    active: { className: 'bg-success', i18nKey: 'projects.status.activeProduction' },
+    development: { className: 'bg-warning text-dark', i18nKey: 'projects.status.activeDevelopment' },
+    critical: { className: 'bg-danger', i18nKey: 'projects.status.missionCritical' }
+};
+
 export default function PresentacionYassel() {
     const { t, i18n } = useTranslation();
     // Calcular años de experiencia dinámicamente desde 2001
     const añosExperiencia = new Date().getFullYear() - 2001;
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        if (!menuOpen) return;
+        const onKeyDown = (e) => {
+            if (e.key === 'Escape') setMenuOpen(false);
+        };
+        document.addEventListener('keydown', onKeyDown);
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+            document.body.style.overflow = '';
+        };
+    }, [menuOpen]);
+
+    const goToSection = (sectionId) => {
+        setMenuOpen(false);
+        requestAnimationFrame(() => {
+            document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+        });
+    };
+
+    const handleProjectClick = (project) => {
+        if (project.href) {
+            window.open(project.href, '_blank', 'noopener,noreferrer');
+            setMenuOpen(false);
+            return;
+        }
+        goToSection('proyectos');
+    };
+
+    const renderProjectItem = (project) => {
+        const badge = STATUS_BADGE[project.status];
+        return (
+            <li key={project.key} className="mb-2">
+                <button
+                    type="button"
+                    onClick={() => handleProjectClick(project)}
+                    className="btn w-100 d-flex align-items-center justify-content-between text-start px-3 py-2 rounded-3 border-0"
+                    style={{ background: 'rgba(15,23,42,0.04)', transition: 'background 0.15s ease' }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(15,23,42,0.09)'}
+                    onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(15,23,42,0.04)'}
+                >
+                    <span className="fw-semibold text-dark">{t(`projects.${project.key}.name`)}</span>
+                    <span className={`badge rounded-pill ${badge.className}`} style={{ fontSize: '0.7rem' }}>
+                        {t(badge.i18nKey)}
+                    </span>
+                </button>
+            </li>
+        );
+    };
 
     return (
         <div className="min-vh-100" style={{
@@ -20,15 +95,26 @@ export default function PresentacionYassel() {
             letterSpacing: '0.01em'
         }}>
             {/* Navigation Bar */}
-            <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-3">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-transparent py-3" style={{ position: 'sticky', top: 0, zIndex: 1030, background: 'rgba(15,23,42,0.85)', backdropFilter: 'blur(8px)' }}>
                 <div className="container d-flex justify-content-between align-items-center">
-                    <a className="navbar-brand fw-bold fs-4 d-flex align-items-center" href="#" style={{ color: '#fff', letterSpacing: '0.05em' }}>
-                        <span className="rounded-circle d-inline-flex align-items-center justify-content-center me-2"
-                              style={{ width: '36px', height: '36px', background: 'rgba(255,255,255,0.15)' }}>
-                            Y
-                        </span>
-                        {t('nav.brandFull')}
-                    </a>
+                    <div className="d-flex align-items-center gap-3">
+                        <button
+                            type="button"
+                            onClick={() => setMenuOpen(true)}
+                            aria-label={t('menu.open')}
+                            className="btn d-flex align-items-center justify-content-center border-0"
+                            style={{ width: '44px', height: '44px', color: '#fff', fontSize: '1.5rem' }}
+                        >
+                            <i className="bi bi-list"></i>
+                        </button>
+                        <a className="navbar-brand fw-bold fs-4 d-flex align-items-center mb-0" href="#inicio" style={{ color: '#fff', letterSpacing: '0.05em' }}>
+                            <span className="rounded-circle d-inline-flex align-items-center justify-content-center me-2"
+                                  style={{ width: '36px', height: '36px', background: 'rgba(255,255,255,0.15)' }}>
+                                Y
+                            </span>
+                            {t('nav.brandFull')}
+                        </a>
+                    </div>
                     <div className="d-flex gap-1" role="group" aria-label="Language selector">
                         {LANGUAGES.map((lang) => (
                             <button
@@ -44,8 +130,103 @@ export default function PresentacionYassel() {
                 </div>
             </nav>
 
+            {/* Off-canvas Drawer Menu */}
+            {menuOpen && (
+                <div
+                    onClick={() => setMenuOpen(false)}
+                    style={{
+                        position: 'fixed',
+                        inset: 0,
+                        background: 'rgba(15,23,42,0.6)',
+                        zIndex: 1040
+                    }}
+                />
+            )}
+            <aside
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    height: '100%',
+                    width: '100%',
+                    maxWidth: '420px',
+                    background: '#f8fafc',
+                    zIndex: 1050,
+                    transform: menuOpen ? 'translateX(0)' : 'translateX(-100%)',
+                    transition: 'transform 0.3s ease',
+                    overflowY: 'auto',
+                    boxShadow: '4px 0 24px rgba(0,0,0,0.2)'
+                }}
+                className="w-100 w-md-auto"
+                aria-hidden={!menuOpen}
+            >
+                <div className="d-flex justify-content-between align-items-center px-4 py-3 border-bottom">
+                    <span className="fw-bold text-dark fs-5">{t('nav.brandFull')}</span>
+                    <button
+                        type="button"
+                        onClick={() => setMenuOpen(false)}
+                        aria-label={t('menu.close')}
+                        className="btn d-flex align-items-center justify-content-center border-0"
+                        style={{ width: '44px', height: '44px', fontSize: '1.5rem' }}
+                    >
+                        <i className="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <div className="px-4 py-3">
+                    <p className="text-uppercase text-secondary fw-semibold mb-3" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
+                        {t('menu.sections')}
+                    </p>
+                    <ul className="list-unstyled mb-0">
+                        <li className="mb-2">
+                            <button type="button" onClick={() => goToSection('inicio')} className="btn w-100 text-start px-3 py-2 rounded-3 border-0">
+                                {t('menu.home')}
+                            </button>
+                        </li>
+                        <li className="mb-2">
+                            <button type="button" onClick={() => goToSection('servicios')} className="btn w-100 text-start px-3 py-2 rounded-3 border-0">
+                                {t('menu.services')}
+                            </button>
+                        </li>
+                        <li className="mb-2">
+                            <button type="button" onClick={() => goToSection('infraestructura')} className="btn w-100 text-start px-3 py-2 rounded-3 border-0">
+                                {t('menu.infrastructure')}
+                            </button>
+                        </li>
+                        <li className="mb-2">
+                            <button type="button" onClick={() => goToSection('contacto')} className="btn w-100 text-start px-3 py-2 rounded-3 border-0">
+                                {t('menu.contact')}
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr className="mx-4" />
+
+                <div className="px-4 py-3">
+                    <p className="text-uppercase text-secondary fw-semibold mb-3" style={{ fontSize: '0.75rem', letterSpacing: '0.06em' }}>
+                        {t('menu.projectsTitle')}
+                    </p>
+
+                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}>📌 {t('menu.groupCommercial')}</p>
+                    <ul className="list-unstyled mb-3">
+                        {PROJECT_MENU.commercial.map(renderProjectItem)}
+                    </ul>
+
+                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}>📌 {t('menu.groupGovernment')}</p>
+                    <ul className="list-unstyled mb-3">
+                        {PROJECT_MENU.government.map(renderProjectItem)}
+                    </ul>
+
+                    <p className="fw-bold text-dark mb-2" style={{ fontSize: '0.85rem' }}>📌 {t('menu.groupThirdParty')}</p>
+                    <ul className="list-unstyled mb-0">
+                        {PROJECT_MENU.thirdParty.map(renderProjectItem)}
+                    </ul>
+                </div>
+            </aside>
+
             {/* Hero Section */}
-            <section className="py-5 py-md-6">
+            <section className="py-5 py-md-6" id="inicio">
                 <div className="container">
                     <div className="row justify-content-center text-center">
                         <div className="col-lg-9">
@@ -111,7 +292,7 @@ export default function PresentacionYassel() {
             </section>
 
             {/* Services Section - Líneas de Servicio */}
-            <section className="py-5">
+            <section className="py-5" id="servicios">
                 <div className="container">
                     <div className="text-center mb-5">
                         <h2 className="h2 fw-bold text-white mb-3">
@@ -729,7 +910,7 @@ export default function PresentacionYassel() {
             </section>
 
             {/* Infrastructure Section */}
-            <section className="py-5">
+            <section className="py-5" id="infraestructura">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-10">

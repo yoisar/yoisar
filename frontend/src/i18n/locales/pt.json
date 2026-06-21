@@ -3,6 +3,19 @@
   "nav": {
     "brandFull": "YOIS"
   },
+  "menu": {
+    "open": "Abrir menu",
+    "close": "Fechar menu",
+    "sections": "Navegação",
+    "home": "Início",
+    "services": "Serviços",
+    "infrastructure": "Infraestrutura",
+    "contact": "Contato",
+    "projectsTitle": "Meus Projetos",
+    "groupCommercial": "Projetos Comerciais (SaaS / Próprios)",
+    "groupGovernment": "Projetos Governamentais (Missão Crítica)",
+    "groupThirdParty": "Projetos para Terceiros (Modernização)"
+  },
   "hero": {
     "badge": "YOIS · SOFTWARE & IA",
     "title": "Desenvolvo SaaS, Apps com IA e implanto infraestrutura escalável.",

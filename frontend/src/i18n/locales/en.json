@@ -3,6 +3,19 @@
   "nav": {
     "brandFull": "YOIS"
   },
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu",
+    "sections": "Navigation",
+    "home": "Home",
+    "services": "Services",
+    "infrastructure": "Infrastructure",
+    "contact": "Contact",
+    "projectsTitle": "My Projects",
+    "groupCommercial": "Commercial Projects (SaaS / Own)",
+    "groupGovernment": "Government Projects (Mission Critical)",
+    "groupThirdParty": "Third-Party Projects (Modernization)"
+  },
   "hero": {
     "badge": "YOIS · SOFTWARE & AI",
     "title": "I build SaaS, AI-powered apps, and deploy scalable infrastructure.",
