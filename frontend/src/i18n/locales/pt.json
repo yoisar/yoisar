@@ -11,7 +11,7 @@
     "services": "Serviços",
     "infrastructure": "Infraestrutura",
     "contact": "Contato",
-    "projectsTitle": "Meus Projetos",
+    "projectsTitle": "Projetos Desenvolvidos",
     "groupCommercial": "Projetos Comerciais (SaaS / Próprios)",
     "groupGovernment": "Projetos Governamentais (Missão Crítica)",
     "groupThirdParty": "Projetos para Terceiros (Modernização)"
@@ -40,14 +40,14 @@
     },
     "ai": {
       "title": "Inteligência Artificial Aplicada",
-      "description": "Integro IA para automatizar processos tediosos, fazer análises preditivas e otimizar os fluxos de trabalho dos meus clientes."
+      "description": "Integro IA para automatizar processos tediosos, fazer análises preditivas e otimizar os fluxos de trabalho dos clientes."
     }
   },
   "projects": {
-    "title": "Meus Projetos",
+    "title": "Projetos Desenvolvidos",
     "subtitle": "Minha marca YOIS está presente em cada um destes casos de sucesso e no meu pipeline de inovação",
     "viewProject": "Ver Projeto",
-    "footerNote": "Como você pode ver, alguns dos meus projetos já estão no mercado e outros estou construindo neste momento. Para mim, o desenvolvimento nunca para. Cada um desses produtos —terminados ou em andamento— representa uma solução real para um problema concreto. Se você vê algo em desenvolvimento que se encaixa no que precisa, vamos conversar: posso acelerar seu lançamento ou adaptá-lo à sua medida.",
+    "footerNote": "Como você pode ver, alguns dos projetos que desenvolvo já estão no mercado e outros estou construindo neste momento. Para mim, o desenvolvimento nunca para. Cada um desses produtos —terminados ou em andamento— representa uma solução real para um problema concreto. Se você vê algo em desenvolvimento que se encaixa no que precisa, vamos conversar: posso acelerar seu lançamento ou adaptá-lo à sua medida.",
     "status": {
       "activeProduction": "Ativo / Em Produção",
       "activeDevelopment": "Em Desenvolvimento (Ativo)",
@@ -55,27 +55,27 @@
     },
     "fideliza": {
       "name": "Fideliza",
-      "description": "Minha plataforma integral para comércios e investidores que combina catálogo vivo, programas de pontos, indicações, rifas próprias e de terceiros, parceiros de entrega e mais. Gestão centralizada de estoque, promoções e sorteios; atualmente com comércios ativos, usuários acumulando pontos e participantes em rifas reais."
+      "description": "Plataforma integral que desenvolvo para comércios e investidores, que combina catálogo vivo, programas de pontos, indicações, rifas próprias e de terceiros, parceiros de entrega e mais. Gestão centralizada de estoque, promoções e sorteios; atualmente com comércios ativos, usuários acumulando pontos e participantes em rifas reais."
     },
     "ventarifas": {
       "name": "VentaRifas",
       "tagline": "Raffles Marketplace Platform",
-      "description": "Minha plataforma completa para gestão de rifas e sorteios digitais, em funcionamento e faturando. Marketplace desenvolvido em Next.js; pagamentos seguros, números automáticos e painel em tempo real para organizadores. Taxa inicial mais 15% sobre o valor arrecadado."
+      "description": "Plataforma completa que desenvolvo para gestão de rifas e sorteios digitais, em funcionamento e faturando. Marketplace desenvolvido em Next.js; pagamentos seguros, números automáticos e painel em tempo real para organizadores. Taxa inicial mais 15% sobre o valor arrecadado."
     },
     "distriboo": {
       "name": "Distriboo",
       "tagline": "B2B Distribution SaaS",
-      "description": "Meu sistema de gestão de distribuição e logística, pensado para otimizar cadeias de suprimentos. Digitaliza a operação de distribuidores, eliminando pedidos manuais e otimizando vendas, logística e preços."
+      "description": "Sistema de gestão de distribuição e logística que desenvolvo, pensado para otimizar cadeias de suprimentos. Digitaliza a operação de distribuidores, eliminando pedidos manuais e otimizando vendas, logística e preços."
     },
     "cgm": {
       "name": "Sistema CGM (Governo)",
       "tagline": "Document Management Platform",
-      "description": "Eu desenvolvi meu sistema de gestão documental para a Casa de Governo de Misiones. Gerencia o protocolo, a triagem e a busca de processos por meio de microsserviços, modernizando a administração e a digitalização de documentos institucionais."
+      "description": "Eu desenvolvi um sistema de gestão documental para a Casa de Governo de Misiones. Gerencia o protocolo, a triagem e a busca de processos por meio de microsserviços, modernizando a administração e a digitalização de documentos institucionais."
     },
     "snacks": {
       "name": "YOIS Snacks",
       "tagline": "Smart Snack Commerce Platform",
-      "description": "Meu próprio e-commerce vertical especializado na venda de snacks e produtos gourmet, com rede própria de revendedores, sistema de comissões e gestão de distribuição. Em produção com vendas reais e operação ativa."
+      "description": "E-commerce vertical que desenvolvo e opero, especializado na venda de snacks e produtos gourmet, com rede própria de revendedores, sistema de comissões e gestão de distribuição. Em produção com vendas reais e operação ativa."
     },
     "guajira": {
       "name": "Guajira",
@@ -89,15 +89,15 @@
     },
     "planning": {
       "name": "Planning Yoisar",
-      "description": "Meu SaaS para planejamento de treinadores esportivos. Atualmente em fase de construção, em breve disponível."
+      "description": "SaaS que estou desenvolvendo para planejamento de treinadores esportivos. Atualmente em fase de construção, em breve disponível."
     },
     "portalcheck": {
       "name": "PortalCheck",
-      "description": "Minha solução integral de gestão e comunicação para condomínios fechados, clubes, prédios e condomínios. Estou trabalhando em seu lançamento."
+      "description": "Solução integral de gestão e comunicação que desenvolvo para condomínios fechados, clubes, prédios e condomínios. Estou trabalhando em seu lançamento."
     },
     "patologia": {
       "name": "App Patologia (Governo)",
-      "description": "Meu desenvolvimento aplicativo para a área de patologia do Hospital Madariaga, digitalizando processos-chave de saúde."
+      "description": "Aplicativo construído por mim para a área de patologia do Hospital Madariaga, digitalizando processos-chave de saúde."
     },
     "investors": {
       "name": "Investidores",

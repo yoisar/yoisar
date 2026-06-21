@@ -11,7 +11,7 @@
     "services": "Servicios",
     "infrastructure": "Infraestructura",
     "contact": "Contacto",
-    "projectsTitle": "Mis Proyectos",
+    "projectsTitle": "Proyectos Desarrollados",
     "groupCommercial": "Proyectos Comerciales (SaaS / Propios)",
     "groupGovernment": "Proyectos Gubernamentales (Misión Crítica)",
     "groupThirdParty": "Proyectos para Terceros (Modernización)"
@@ -19,12 +19,12 @@
   "hero": {
     "badge": "YOIS · SOFTWARE & IA",
     "title": "Desarrollo SaaS, Apps con IA y despliego infraestructura escalable.",
-    "subtitle": "Desde sistemas para el Gobierno de Misiones hasta plataformas de gestión horizontal. Tu proyecto corre sobre mi infraestructura y mi experiencia.",
+    "subtitle": "Desde sistemas para el Gobierno de Misiones hasta plataformas de gestión horizontal. Tu proyecto corre sobre mi infraestructura y mi experiencia profesional.",
     "ctaPrimary": "Hablemos de tu idea",
     "ctaSecondary": "Cotizá conmigo"
   },
   "about": {
-    "title": "Así trabajo: mi ingeniería de software",
+    "title": "Así trabajo: mi enfoque de ingeniería de software",
     "description": "Tengo más de {{years}} años de experiencia especializado en inteligencia artificial y soluciones de gestión. No solo escribo código: alojo, mantengo y escalo cada aplicación en mi propia infraestructura dedicada en la nube y servicios de alta disponibilidad (microservicios), con experiencia en proyectos de gobierno y entornos críticos como hospitales y casas de gobierno. Mi sello YOIS significa cercanía técnica y responsabilidad extrema por el producto final.",
     "guajiraMessage": "No solo construyo desde cero. También modernizo sistemas heredados. El proyecto Guajira, actualmente en curso, demuestra mi capacidad para entender dominios complejos ya existentes y elevarlos a estándares tecnológicos actuales, algo muy valorado por empresas que necesitan evolucionar sin perder su operación actual."
   },
@@ -40,14 +40,14 @@
     },
     "ai": {
       "title": "Inteligencia Artificial Aplicada",
-      "description": "Integro IA para automatizar procesos tediosos, hacer análisis predictivos y optimizar los flujos de trabajo de mis clientes."
+      "description": "Integro IA para automatizar procesos tediosos, hacer análisis predictivos y optimizar los flujos de trabajo de los clientes."
     }
   },
   "projects": {
-    "title": "Mis Proyectos",
+    "title": "Proyectos Desarrollados",
     "subtitle": "Mi sello YOIS está en cada uno de estos casos de éxito y en mi pipeline de innovación",
     "viewProject": "Ver Proyecto",
-    "footerNote": "Así como ves, algunos de mis proyectos ya están en el mercado y otros los estoy construyendo en este momento. Para mí, el desarrollo nunca se detiene. Cada uno de estos productos —estén terminados o en marcha— representa una solución real a un problema concreto. Si ves algo en desarrollo que encaja con lo que necesitas, hablemos: puedo acelerar su llegada o adaptarlo a tu medida.",
+    "footerNote": "Así como ves, algunos de los proyectos que desarrollo ya están en el mercado y otros los estoy construyendo en este momento. Para mí, el desarrollo nunca se detiene. Cada uno de estos productos —estén terminados o en marcha— representa una solución real a un problema concreto. Si ves algo en desarrollo que encaja con lo que necesitas, hablemos: puedo acelerar su llegada o adaptarlo a tu medida.",
     "status": {
       "activeProduction": "Activo / En Producción",
       "activeDevelopment": "En Desarrollo (Activo)",
@@ -55,27 +55,27 @@
     },
     "fideliza": {
       "name": "Fideliza",
-      "description": "Mi plataforma integral para comercios e inversionistas que combina catálogo vivo, programas de puntos, referidos, rifas propias y de terceros, delivery partners y más. Gestión centralizada de inventario, promociones y sorteos; actualmente con comercios activos, usuarios acumulando puntos y participantes en rifas reales."
+      "description": "Plataforma integral que desarrollo para comercios e inversionistas, que combina catálogo vivo, programas de puntos, referidos, rifas propias y de terceros, delivery partners y más. Gestión centralizada de inventario, promociones y sorteos; actualmente con comercios activos, usuarios acumulando puntos y participantes en rifas reales."
     },
     "ventarifas": {
       "name": "VentaRifas",
       "tagline": "Raffles Marketplace Platform",
-      "description": "Mi plataforma completa para la gestión de rifas y sorteos digitales, funcionando y facturando. Marketplace desarrollado en Next.js; pagos seguros, números automáticos y panel en tiempo real para organizadores. Canon inicial más 15 % sobre lo recaudado."
+      "description": "Plataforma completa que desarrollo para la gestión de rifas y sorteos digitales, funcionando y facturando. Marketplace desarrollado en Next.js; pagos seguros, números automáticos y panel en tiempo real para organizadores. Canon inicial más 15 % sobre lo recaudado."
     },
     "distriboo": {
       "name": "Distriboo",
       "tagline": "B2B Distribution SaaS",
-      "description": "Mi sistema de gestión de distribución y logística, pensado para optimizar cadenas de suministro. Digitaliza la operación de distribuidores, eliminando pedidos manuales y optimizando ventas, logística y precios."
+      "description": "Sistema de gestión de distribución y logística que desarrollo, pensado para optimizar cadenas de suministro. Digitaliza la operación de distribuidores, eliminando pedidos manuales y optimizando ventas, logística y precios."
     },
     "cgm": {
       "name": "Sistema CGM (Gobierno)",
       "tagline": "Document Management Platform",
-      "description": "Yo desarrollé mi sistema de gestión documental para la Casa de Gobierno de Misiones. Maneja la mesa de entrada, derivación y búsqueda de expedientes mediante microservicios, modernizando la administración y digitalización de documentos institucionales."
+      "description": "Desarrollé sistema de gestión documental para la Casa de Gobierno de Misiones. Maneja la mesa de entrada, derivación y búsqueda de expedientes mediante microservicios, modernizando la administración y digitalización de documentos institucionales."
     },
     "snacks": {
       "name": "YOIS Snacks",
       "tagline": "Smart Snack Commerce Platform",
-      "description": "Mi propio e-commerce vertical especializado en la venta de snacks y productos gourmet, con red propia de revendedores, sistema de comisiones y gestión de distribución. En producción con ventas reales y operación activa."
+      "description": "E-commerce vertical que desarrollo y opero, especializado en la venta de snacks y productos gourmet, con red propia de revendedores, sistema de comisiones y gestión de distribución. En producción con ventas reales y operación activa."
     },
     "guajira": {
       "name": "Guajira",
@@ -89,15 +89,15 @@
     },
     "planning": {
       "name": "Planning Yoisar",
-      "description": "Mi SaaS para planificación de entrenadores deportivos. Actualmente en fase de construcción, pronto disponible."
+      "description": "SaaS que estoy desarrollando para planificación de entrenadores deportivos. Actualmente en fase de construcción, pronto disponible."
     },
     "portalcheck": {
       "name": "PortalCheck",
-      "description": "Mi solución integral de gestión y comunicación para barrios cerrados, clubes, edificios y condominios. Estoy trabajando en su lanzamiento."
+      "description": "Solución integral de gestión y comunicación que desarrollo para barrios cerrados, clubes, edificios y condominios. Estoy trabajando en su lanzamiento."
     },
     "patologia": {
       "name": "App Patología (Gobierno)",
-      "description": "Mi desarrollo aplicativo para el área de patología del Hospital Madariaga, digitalizando procesos clave de salud."
+      "description": "Aplicativo para el área de patología del Hospital Madariaga, construido por mí para digitalizar procesos clave de salud."
     },
     "investors": {
       "name": "Inversores",

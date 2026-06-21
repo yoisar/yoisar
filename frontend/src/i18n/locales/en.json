@@ -11,7 +11,7 @@
     "services": "Services",
     "infrastructure": "Infrastructure",
     "contact": "Contact",
-    "projectsTitle": "My Projects",
+    "projectsTitle": "Projects I Develop",
     "groupCommercial": "Commercial Projects (SaaS / Own)",
     "groupGovernment": "Government Projects (Mission Critical)",
     "groupThirdParty": "Third-Party Projects (Modernization)"
@@ -40,14 +40,14 @@
     },
     "ai": {
       "title": "Applied Artificial Intelligence",
-      "description": "I integrate AI to automate tedious processes, perform predictive analysis, and optimize my clients' workflows."
+      "description": "I integrate AI to automate tedious processes, perform predictive analysis, and optimize clients' workflows."
     }
   },
   "projects": {
-    "title": "My Projects",
+    "title": "Projects I Develop",
     "subtitle": "My YOIS brand is present in every one of these success stories and in my innovation pipeline",
     "viewProject": "View Project",
-    "footerNote": "As you can see, some of my projects are already on the market while others I'm building right now. For me, development never stops. Each of these products —finished or in progress— represents a real solution to a concrete problem. If you see something in development that fits what you need, let's talk: I can speed up its launch or tailor it to you.",
+    "footerNote": "As you can see, some of the projects I develop are already on the market while others I'm building right now. For me, development never stops. Each of these products —finished or in progress— represents a real solution to a concrete problem. If you see something in development that fits what you need, let's talk: I can speed up its launch or tailor it to you.",
     "status": {
       "activeProduction": "Active / In Production",
       "activeDevelopment": "In Development (Active)",
@@ -55,27 +55,27 @@
     },
     "fideliza": {
       "name": "Fideliza",
-      "description": "My comprehensive platform for businesses and investors that combines a live catalog, points programs, referrals, own and third-party raffles, delivery partners, and more. Centralized management of inventory, promotions, and giveaways; currently with active businesses, users earning points, and participants in real raffles."
+      "description": "A comprehensive platform I develop for businesses and investors that combines a live catalog, points programs, referrals, own and third-party raffles, delivery partners, and more. Centralized management of inventory, promotions, and giveaways; currently with active businesses, users earning points, and participants in real raffles."
     },
     "ventarifas": {
       "name": "VentaRifas",
       "tagline": "Raffles Marketplace Platform",
-      "description": "My complete platform for managing digital raffles and giveaways, live and billing. Marketplace built with Next.js; secure payments, automatic numbers, and a real-time dashboard for organizers. Initial fee plus 15% on funds raised."
+      "description": "A complete platform I develop for managing digital raffles and giveaways, live and billing. Marketplace built with Next.js; secure payments, automatic numbers, and a real-time dashboard for organizers. Initial fee plus 15% on funds raised."
     },
     "distriboo": {
       "name": "Distriboo",
       "tagline": "B2B Distribution SaaS",
-      "description": "My distribution and logistics management system, designed to optimize supply chains. It digitizes distributor operations, eliminating manual orders and optimizing sales, logistics, and pricing."
+      "description": "A distribution and logistics management system I develop, designed to optimize supply chains. It digitizes distributor operations, eliminating manual orders and optimizing sales, logistics, and pricing."
     },
     "cgm": {
       "name": "CGM System (Government)",
       "tagline": "Document Management Platform",
-      "description": "I developed my document management system for the Government House of Misiones. It handles the front desk, routing, and search of case files through microservices, modernizing the administration and digitization of institutional documents."
+      "description": "I developed a document management system for the Government House of Misiones. It handles the front desk, routing, and search of case files through microservices, modernizing the administration and digitization of institutional documents."
     },
     "snacks": {
       "name": "YOIS Snacks",
       "tagline": "Smart Snack Commerce Platform",
-      "description": "My own vertical e-commerce specialized in selling snacks and gourmet products, with its own reseller network, commission system, and distribution management. In production with real sales and active operations."
+      "description": "A vertical e-commerce I develop and operate, specialized in selling snacks and gourmet products, with its own reseller network, commission system, and distribution management. In production with real sales and active operations."
     },
     "guajira": {
       "name": "Guajira",
@@ -89,15 +89,15 @@
     },
     "planning": {
       "name": "Planning Yoisar",
-      "description": "My SaaS for sports coaches' planning. Currently under construction, coming soon."
+      "description": "A SaaS I'm developing for sports coaches' planning. Currently under construction, coming soon."
     },
     "portalcheck": {
       "name": "PortalCheck",
-      "description": "My comprehensive management and communication solution for gated communities, clubs, buildings, and condominiums. I'm working on its launch."
+      "description": "A comprehensive management and communication solution I'm developing for gated communities, clubs, buildings, and condominiums. I'm working on its launch."
     },
     "patologia": {
       "name": "Pathology App (Government)",
-      "description": "My application development for the pathology department at Madariaga Hospital, digitizing key healthcare processes."
+      "description": "An application built by me for the pathology department at Madariaga Hospital, digitizing key healthcare processes."
     },
     "investors": {
       "name": "Investors",
