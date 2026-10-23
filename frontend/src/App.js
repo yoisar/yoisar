@@ -260,7 +260,7 @@ export default function PresentacionYassel() {
                                     {t('hero.badge')}
                                 </span>
                                 <img src="/yois-perfil.jpg" alt={FULL_NAME} width="96" height="96"
-                                     className="rounded-circle mb-3 border border-3 border-light border-opacity-25" />
+                                     className="rounded-circle d-block mx-auto mb-3 border border-3 border-light border-opacity-25" />
                                 <p className="text-white-50 fw-semibold mb-2">{FULL_NAME}</p>
                                 <h1 className="display-4 fw-bold text-white mb-3" style={{ lineHeight: 1.15 }}>
                                     {t('hero.title')}
