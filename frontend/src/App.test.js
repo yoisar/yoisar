@@ -88,22 +88,15 @@ test('displays dynamic years of experience', () => {
   expect(experienceText).toBeInTheDocument();
 });
 
-test('renders visible project technologies', () => {
+test('renders project domain badges without technology names', () => {
   render(<App />);
 
-  const reactNativeBadges = screen.getAllByText(/React Native/i);
-  const laravelBadges = screen.getAllByText(/Laravel/i);
-  const crmBadges = screen.getAllByText(/CRM/i);
-  const marketplaceBadges = screen.getAllByText(/Marketplace/i);
-  const nextBadges = screen.getAllByText(/Next\.js|Nextjs/i);
-  const investmentBadges = screen.getAllByText(/Investment/i);
+  expect(screen.getAllByText(/CRM/i).length).toBe(1); // Fideliza
+  expect(screen.getAllByText(/Marketplace/i).length).toBeGreaterThanOrEqual(1); // Ventarifas
+  expect(screen.getAllByText(/Investment/i).length).toBeGreaterThanOrEqual(1); // tarjeta Inversores (oculta)
 
-  expect(reactNativeBadges.length).toBe(2); // Fideliza and YOIS Snacks have React Native
-  expect(laravelBadges.length).toBeGreaterThanOrEqual(1); // visible projects use Laravel
-  expect(crmBadges.length).toBe(1); // Fideliza has CRM
-  expect(marketplaceBadges.length).toBeGreaterThanOrEqual(1); // Ventarifas is a marketplace
-  expect(nextBadges.length).toBeGreaterThanOrEqual(1); // Ventarifas built with Next.js
-  expect(investmentBadges.length).toBeGreaterThanOrEqual(1); // investor card shows Investment badge
+  const projects = document.getElementById('proyectos').textContent;
+  expect(projects).not.toMatch(/Laravel|React|Next\.js|PostgreSQL|Vue/i);
 });
 
 test('renders project status badges from anexo', () => {
@@ -124,7 +117,7 @@ test('renders all anexo projects regardless of development status', () => {
   expect(screen.getByRole('heading', { name: /Planning Yoisar/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /PortalCheck/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /Sistema CGM \(Gobierno\)/i })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /Patología V2 \(Gobierno\)/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Patología \(Gobierno\)/i })).toBeInTheDocument();
 });
 
 test('hidden projects are not visible', () => {
@@ -161,9 +154,9 @@ test('renders case studies section with the three cases', () => {
   render(<App />);
 
   expect(screen.getByRole('heading', { name: /^Casos de estudio$/i })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /Patología V2 · RISMI/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Patología \(Hospital Madariaga\)/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /CGM · Gestión documental/i })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /Clerk AI · Asistente conversacional multi-tenant/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Clerk AI · Asistente conversacional multi-cliente/i })).toBeInTheDocument();
   expect(screen.getAllByText('Papel de la IA')).toHaveLength(3);
 });
 
@@ -209,4 +202,18 @@ test('renders schedule a call button', () => {
 
   const schedule = screen.getByRole('link', { name: /Agendar una llamada/i });
   expect(schedule.getAttribute('href')).toMatch(/^(https:\/\/|mailto:me@yoisar\.com)/);
+});
+
+test('editorial rule: no technology names, versions or pipelines in project texts', () => {
+  render(<App />);
+
+  const projectTexts = [
+    document.getElementById('casos').textContent,
+    document.getElementById('proyectos').textContent
+  ].join(' ');
+  const forbidden = /Patología V2|RISMI \(Hospital Madariaga\)|Laravel|Vue\.js|Next\.js|PostgreSQL|GitHub Actions|GHCR|pgvector|PHP|Vitest|Cypress|Playwright|v0\.10|con frontend -|hacia con/i;
+  expect(projectTexts).not.toMatch(forbidden);
+  expect(projectTexts).not.toMatch(/ {2,}|\.\.|,,/);
+  expect(projectTexts).toMatch(/Actualmente en desarrollo/);
+  expect(projectTexts).toMatch(/más de 350\.000 estudios históricos/i);
 });

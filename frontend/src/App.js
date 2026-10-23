@@ -359,11 +359,6 @@ export default function PresentacionYassel() {
                                         </ul>
                                         <h4 className="h6 fw-bold text-dark">{t('cases.aiRole')}</h4>
                                         <p className="text-secondary">{t(`cases.${c.key}.aiRole`)}</p>
-                                        <div className="d-flex gap-2 flex-wrap mb-3">
-                                            {t(`cases.${c.key}.stack`, { returnObjects: true }).map((tech) => (
-                                                <span key={tech} className="badge bg-dark rounded-pill">{tech}</span>
-                                            ))}
-                                        </div>
                                         {c.href && (
                                             <a href={c.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-pill px-3">
                                                 <i className="bi bi-box-arrow-up-right me-1"></i>
@@ -518,8 +513,6 @@ export default function PresentacionYassel() {
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">CRM</span>
-                                        <span className="badge bg-light text-dark rounded-pill">React Native</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
                                     <a href="https://fideliza.yoisar.com/fideliza"
                                        target="_blank"
@@ -562,8 +555,6 @@ export default function PresentacionYassel() {
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">Marketplace</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Next.js</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
                                     <a href="https://ventarifas.com"
                                        target="_blank"
@@ -606,8 +597,6 @@ export default function PresentacionYassel() {
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">SaaS B2B</span>
-                                        <span className="badge bg-light text-dark rounded-pill">React</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
                                     <a href="https://distriboo.yoisar.com/"
                                        target="_blank"
@@ -650,8 +639,6 @@ export default function PresentacionYassel() {
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-danger rounded-pill">{t('projects.status.missionCritical')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">GovTech</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Next.js</span>
-                                        <span className="badge bg-light text-dark rounded-pill">PostgreSQL</span>
                                     </div>
                                     <a href="https://test.archivo.yoisar.com/"
                                        target="_blank"
@@ -694,8 +681,6 @@ export default function PresentacionYassel() {
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
                                         <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
-                                        <span className="badge bg-light text-dark rounded-pill">React Native</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
                                     </div>
                                     <a href="https://yoissnacks.com/"
                                        target="_blank"
@@ -919,8 +904,7 @@ export default function PresentacionYassel() {
                                     </p>
                                     <div className="d-flex gap-2 mb-3 flex-wrap">
                                         <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
-                                        <span className="badge bg-light text-dark rounded-pill">IA / RAG</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Next.js</span>
+                                        <span className="badge bg-light text-dark rounded-pill">IA</span>
                                     </div>
                                     <a href="https://clerk.yoisar.com/"
                                        target="_blank"

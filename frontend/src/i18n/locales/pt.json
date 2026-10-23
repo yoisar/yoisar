@@ -63,7 +63,7 @@
     "ventarifas": {
       "name": "VentaRifas",
       "tagline": "Raffles Marketplace Platform",
-      "description": "Plataforma completa que desenvolvo para gestão de rifas e sorteios digitais, em funcionamento e faturando. Marketplace desenvolvido em Next.js; pagamentos seguros, números automáticos e painel em tempo real para organizadores. Taxa inicial mais 15% sobre o valor arrecadado."
+      "description": "Plataforma completa que desenvolvo para a gestão de rifas e sorteios digitais, funcionando e faturando. Marketplace com pagamentos seguros, números automáticos e painel em tempo real para organizadores. Taxa inicial mais 15 % do arrecadado."
     },
     "distriboo": {
       "name": "Distriboo",
@@ -99,7 +99,7 @@
       "description": "Solução integral de gestão e comunicação que desenvolvo para condomínios fechados, clubes, prédios e condomínios. Estou trabalhando em seu lançamento."
     },
     "patologia": {
-      "name": "Patologia V2 (Governo)",
+      "name": "Patologia (Governo)",
       "description": "Nova versão do aplicativo da área de patologia do Hospital Madariaga, integrada à plataforma RISMI. Atualmente em desenvolvimento e validação com a área usuária."
     },
     "investors": {
@@ -108,13 +108,13 @@
     },
     "clerk": {
       "name": "Clerk AI",
-      "tagline": "Assistente conversacional multi-tenant",
-      "description": "SaaS de assistente conversacional com recuperação de conhecimento própria de cada negócio, painel administrativo, planos e licenças."
+      "tagline": "Assistente conversacional multicliente",
+      "description": "SaaS de assistente conversacional que responde com as informações de cada negócio, com painel administrativo, planos e licenças."
     }
   },
   "infrastructure": {
     "title": "Minha infraestrutura, sua tranquilidade.",
-    "description": "Não alugo servidores compartilhados. Conto com minha própria infraestrutura dedicada e orquestração de microsserviços que já suportam a carga de gestão governamental. Isso me permite oferecer alta disponibilidade e segurança perimetral real."
+    "description": "Não alugo servidores compartilhados. Tenho a minha própria infraestrutura dedicada, pensada para sistemas de gestão. Isso me permite oferecer alta disponibilidade e segurança de perímetro real."
   },
   "contact": {
     "title": "Vamos conversar?",
@@ -142,63 +142,42 @@
     "aiRole": "Papel da IA",
     "viewDemo": "Ver demo",
     "patologia": {
-      "name": "Patologia V2 · RISMI (Hospital Madariaga)",
+      "name": "Patologia (Hospital Madariaga)",
       "context": "Saúde pública · Misiones · Em desenvolvimento",
-      "problem": "O sistema de anatomia patológica é uma aplicação PHP 5.6 sem framework, com centenas de milhares de estudos históricos de vários tipos (PAP, HPV, biópsias, cólon).",
-      "solution": "Estou migrando-o como mais um aplicativo dentro do RISMI (Laravel e Vue.js): autenticação única, perfis, auditoria e navegação da plataforma, e paridade funcional com o sistema anterior, relatórios incluídos.",
+      "problem": "O sistema de anatomia patológica é uma aplicação antiga, com centenas de milhares de estudos históricos de vários tipos (PAP, HPV, biópsias, cólon).",
+      "solution": "Estou migrando-o como mais um aplicativo dentro do RISMI, com autenticação única, perfis, auditoria e navegação da plataforma, e paridade funcional com o sistema anterior, relatórios incluídos.",
       "results": [
         "Domínio com mais de 350.000 estudos históricos em 8 tipos de estudo",
-        "Mais de 150 testes automatizados (Vitest e Cypress) passando",
+        "Mais de 150 testes automatizados passando",
         "Entrega em lotes, com um relatório técnico por lote",
         "QA com a área usuária aplicado lote a lote"
       ],
-      "aiRole": "Agentes de IA fazem o levantamento do sistema anterior, implementam em lotes e geram testes. Eu defino o escopo, reviso cada mudança e valido com o QA.",
-      "stack": [
-        "Laravel",
-        "Vue.js",
-        "MySQL",
-        "Cypress",
-        "Vitest"
-      ]
+      "aiRole": "Agentes de IA fazem o levantamento do sistema anterior, implementam em lotes e geram testes. Eu defino o escopo, reviso cada mudança e valido com o QA."
     },
     "cgm": {
       "name": "CGM · Gestão documental (Casa de Governo de Misiones)",
       "context": "Setor público · Misiones · Em produção",
       "problem": "Digitalizar a entrada, a numeração e o acompanhamento de processos, respeitando os formulários físicos que o órgão já usa.",
-      "solution": "Microsserviços Laravel (autenticação e permissões, entrada, processos) com frontend Next.js 14 e PostgreSQL. As imagens são construídas no GitHub Actions e publicadas no GHCR; o servidor apenas baixa e sobe.",
+      "solution": "Microsserviços (autenticação e permissões, entrada, processos) com frontend. As imagens são construídas de forma automatizada e o servidor apenas as baixa.",
       "results": [
         "Numeração sequencial com bloqueio, sem duplicidades",
         "Capa A4 réplica do formulário físico",
         "Importação de 427 códigos de órgãos com pré-visualização e auditoria",
-        "Evolução contínua por versões (v0.10.37)"
+        "Evolução contínua por versões"
       ],
-      "aiRole": "Cada requisito é escrito em um documento. Os agentes implementam, e eu verifico com testes automáticos, checagem de tipos e navegador automatizado antes de publicar.",
-      "stack": [
-        "Laravel",
-        "Next.js",
-        "PostgreSQL",
-        "Docker",
-        "GitHub Actions"
-      ]
+      "aiRole": "Cada requisito é escrito em um documento. Os agentes implementam, e eu verifico com testes automáticos, checagem de tipos e navegador automatizado antes de publicar."
     },
     "clerk": {
-      "name": "Clerk AI · Assistente conversacional multi-tenant",
+      "name": "Clerk AI · Assistente conversacional multicliente",
       "context": "SaaS próprio · Em produção",
       "problem": "Os negócios precisam atender perguntas repetitivas com um assistente que conheça as suas informações, com painel próprio e licenças.",
-      "solution": "API Laravel com recuperação de conhecimento (RAG): fragmentação de textos, embeddings em pgvector e modelo de linguagem. Landing e painel administrativo em Next.js, com gestão de planos, pagamentos e licenças.",
+      "solution": "Assistente conversacional que responde com as informações próprias de cada negócio, com painel administrativo, gestão de planos, pagamentos e licenças, e separação entre clientes.",
       "results": [
         "Mais de 780 commits e mais de 100 arquivos de teste",
-        "Testes de ponta a ponta com Playwright",
-        "Painéis separados por inquilino e superadministrador"
+        "Testes de ponta a ponta automatizados",
+        "Painéis separados para cada cliente e para o superadministrador"
       ],
-      "aiRole": "É o produto central: integra um modelo de linguagem a um fluxo de recuperação de conhecimento, e eu projeto, testo e opero cada peça.",
-      "stack": [
-        "Laravel",
-        "Next.js",
-        "PostgreSQL + pgvector",
-        "RAG",
-        "Playwright"
-      ]
+      "aiRole": "É o produto central: conecta um modelo de linguagem às informações de cada negócio, e eu projeto, testo e opero cada peça."
     }
   },
   "method": {
