@@ -49,6 +49,25 @@ fi
 echo "⏳ Esperando inicialización de contenedores..."
 sleep 10
 
+# El vhost de nginx del host (/etc/nginx/sites-enabled/yoisar.com) sirve el sitio
+# desde frontend/build en disco, no desde el contenedor. Se copia ahí el build
+# que acaba de construir la imagen para que https://yoisar.com muestre la versión nueva.
+echo "📦 Publicando build en el directorio que sirve nginx..."
+BUILD_DIR=/www/wwwroot/yoisar.com/app/frontend/build
+rm -rf "${BUILD_DIR}.new"
+mkdir -p "${BUILD_DIR}.new"
+if docker cp yois_frontend_prod:/usr/share/nginx/html/. "${BUILD_DIR}.new/"; then
+    rm -rf "${BUILD_DIR}.prev"
+    [ -d "$BUILD_DIR" ] && mv "$BUILD_DIR" "${BUILD_DIR}.prev"
+    mv "${BUILD_DIR}.new" "$BUILD_DIR"
+    rm -rf "${BUILD_DIR}.prev"
+    echo "✅ Build publicado en $BUILD_DIR"
+else
+    echo "❌ No se pudo copiar el build desde el contenedor"
+    rm -rf "${BUILD_DIR}.new"
+    exit 1
+fi
+
 # Limpiar imágenes no utilizadas
 echo "🧹 Limpiando imágenes no utilizadas..."
 docker image prune -f

@@ -113,13 +113,18 @@ Fuentes consultadas:
 - Correcciones: el mail del CV en inglés tenía un error de tipeo (`siqy23`); ahora figura `me@yoisar.com` y `sioy23@gmail.com`. Se quitaron los caracteres de ligadura rotos ("Per l", " ntech").
 - Se quitaron del CV los proyectos retirados.
 
-## 8. Pendientes que necesitan datos tuyos
+## 8. Tercera tanda (23/10/2026)
+
+- **Foto de perfil:** se usa la foto de LinkedIn (`~/Documents/foto-perfil-linkeding-yois.jpeg`, recortada para quitar la etiqueta "AUTOMÁTICA") en el hero, en `yois-perfil.jpg` (datos estructurados) y en la imagen para compartir `og-image.png`.
+- **Autorización para nombrar al hospital y a la Casa de Gobierno:** confirmada por el titular el 23/10/2026. Queda anotado; no se obtuvo constancia escrita en esta sesión.
+- **Sitio desactualizado tras el deploy (causa):** el vhost de nginx del host sirve `/www/wwwroot/yoisar.com/app/frontend/build` desde disco, pero el deploy solo reconstruía el contenedor del puerto 8090, que ese vhost no usa. El directorio seguía con el build del 21/06/2026. Corrección: `deploy-prod.sh` copia ahora el build del contenedor a ese directorio.
+- **Sitemap:** `robots.txt` ya lo declara. El alta en Google Search Console la tiene que hacer el dueño de la cuenta (ver §9).
+
+## 9. Pendientes que necesitan datos tuyos
 
 | Tarea | Qué falta |
 |---|---|
 | Agendar llamada | URL de Calendly, Cal.com o similar |
-| Foto de LinkedIn | Si querés tu foto en la imagen para compartir, hay que bajarla a mano y reemplazar `og-image.png` |
 | Repo público | Un proyecto chico y abierto con README que explique el uso de IA |
 | Lista de empresas | Búsqueda manual en LinkedIn, Torre, Remote OK y We Work Remotely con "Claude Code", "agentic", "AI-assisted" |
-| Alta en Google Search Console | Enviar `sitemap.xml` |
-| Confirmación | Que el hospital y la Casa de Gobierno autoricen nombrarlos |
+| Alta en Google Search Console | Agregar la propiedad `https://yoisar.com/`, verificarla (registro DNS TXT) y enviar `https://yoisar.com/sitemap.xml` en Sitemaps |

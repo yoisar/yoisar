@@ -259,6 +259,8 @@ export default function PresentacionYassel() {
                                       style={{ background: 'rgba(255,255,255,0.12)', color: '#e0e7ff', letterSpacing: '0.08em', fontSize: '0.8rem' }}>
                                     {t('hero.badge')}
                                 </span>
+                                <img src="/yois-perfil.jpg" alt={FULL_NAME} width="96" height="96"
+                                     className="rounded-circle mb-3 border border-3 border-light border-opacity-25" />
                                 <p className="text-white-50 fw-semibold mb-2">{FULL_NAME}</p>
                                 <h1 className="display-4 fw-bold text-white mb-3" style={{ lineHeight: 1.15 }}>
                                     {t('hero.title')}

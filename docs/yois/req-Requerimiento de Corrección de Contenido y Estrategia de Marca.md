@@ -81,7 +81,7 @@
 | :--- | :--- | :--- |
 | **Infraestructura** | "Contamos con infraestructura dedicada..." | **"Cuento con mi propia infraestructura dedicada..."** |
 | **Propuesta** | "Nuestro diferencial es la escalabilidad." | **"Mi diferencial es la escalabilidad y la cercanía."** |
-| **Caso de éxito** | "Hemos desarrollado para el Gobierno." | **"Yo desarrollé el sistema para la Casa de Gobierno."** |
+| **Caso de éxito** | "Hemos desarrollado para el Gobierno." | **"Desarrollé el sistema para la Casa de Gobierno."** |
 | **Equipo** | "Somos proveedores tecnológicos." | **"Soy tu proveedor tecnológico personal."** |
 
 ---

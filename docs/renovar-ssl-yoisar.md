@@ -1,4 +1,4 @@
-# Renovar SSL de yoisar.com en el VPS con aaPanel
+**# Renovar SSL de yoisar.com en el VPS con aaPanel
 
 **Fecha de creación:** 9 de mayo de 2026  
 **Próxima expiración:** 7 de agosto de 2026  
@@ -151,3 +151,4 @@ crontab -e
 | PID de nginx | `/www/server/nginx/logs/nginx.pid` |
 | Webroot del dominio | `/www/wwwroot/yoisar.com` |
 | Log de acceso | `/www/wwwlogs/yoisar_access.log` |
+**
