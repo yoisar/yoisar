@@ -70,6 +70,12 @@ for (const [btn, h1, cv] of [["EN", "Full-stack developer", "-en.pdf"], ["PT", "
 
 // 8. Tarjetas de proyecto visibles y sin proyectos retirados
 const body = await page.evaluate(() => document.body.innerText);
+// Regla editorial: sin tecnologías, versiones ni pipelines en textos de proyectos (#casos, #proyectos)
+const projectText = await page.evaluate(() => ["casos", "proyectos"].map((i) => document.getElementById(i).innerText).join(" "));
+check("regla editorial: sin tecnologías en proyectos", !/Patología V2|RISMI \(Hospital Madariaga\)|Laravel|Vue|Next\.js|PostgreSQL|GitHub Actions|GHCR|pgvector|PHP|React|Vitest|Cypress|Playwright|v0\.10|con frontend -|hacia con/i.test(projectText));
+check("título caso Patología (Hospital Madariaga)", projectText.includes("Patología (Hospital Madariaga)"));
+check("estado y métrica conservados", /Actualmente en desarrollo/.test(projectText) && /más de 350\.000 estudios históricos/i.test(projectText));
+check("sin dobles espacios ni puntuación duplicada", !/ {2,}|\.\.|,,/.test(projectText.replace(/\s+/g, " ").replace(/\.\.\./g, "")));
 check("sin proyectos retirados", !/AdVantage|Cuotaplan|AdminBarrio|BuildShare/i.test(body));
 const projectLinks = await page.evaluate(() => [...document.querySelectorAll("#proyectos a")].filter((a) => a.offsetParent).map((a) => a.href));
 check("8 enlaces 'Ver Proyecto' visibles", projectLinks.length === 8, String(projectLinks.length));
