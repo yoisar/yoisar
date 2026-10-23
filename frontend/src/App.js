@@ -14,6 +14,7 @@ const PROJECT_MENU = {
         { key: 'ventarifas', href: 'https://ventarifas.com', status: 'active' },
         { key: 'distriboo', href: 'https://distriboo.yoisar.com/', status: 'active' },
         { key: 'snacks', href: 'https://yoissnacks.com/', status: 'active' },
+        { key: 'helados', href: 'https://helados.yoissnacks.com/', status: 'active' },
         { key: 'clerk', href: 'https://clerk.yoisar.com/', status: 'active' },
         { key: 'planning', href: null, status: 'development' },
         { key: 'portalcheck', href: null, status: 'development' }
@@ -30,7 +31,9 @@ const PROJECT_MENU = {
 const CASE_STUDIES = [
     { key: 'patologia', icon: 'bi-heart-pulse-fill', gradient: 'linear-gradient(135deg, #cc2b5e 0%, #753a88 100%)', href: null },
     { key: 'cgm', icon: 'bi-bank2', gradient: 'linear-gradient(135deg, #4776e6 0%, #8e54e9 100%)', href: null },
-    { key: 'clerk', icon: 'bi-chat-dots-fill', gradient: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)', href: 'https://clerk.yoisar.com/' }
+    { key: 'clerk', icon: 'bi-chat-dots-fill', gradient: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)', href: 'https://clerk.yoisar.com/' },
+    { key: 'snacks', icon: 'bi-bag-fill', gradient: 'linear-gradient(135deg, #f7971e 0%, #e67e22 100%)', href: 'https://yoissnacks.com/', linkKey: 'cases.viewSite' },
+    { key: 'helados', icon: 'bi-snow2', gradient: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%)', href: 'https://helados.yoissnacks.com/', linkKey: 'cases.viewSite' }
 ];
 
 const FULL_NAME = 'Yassel Omar Izquierdo Souchay';
@@ -362,7 +365,7 @@ export default function PresentacionYassel() {
                                         {c.href && (
                                             <a href={c.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-pill px-3">
                                                 <i className="bi bi-box-arrow-up-right me-1"></i>
-                                                {t('cases.viewDemo')}
+                                                {t(c.linkKey || 'cases.viewDemo')}
                                             </a>
                                         )}
                                     </div>
@@ -683,6 +686,48 @@ export default function PresentacionYassel() {
                                         <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
                                     </div>
                                     <a href="https://yoissnacks.com/"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
+                                        {t('projects.viewProject')}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
+                                background: 'linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
+                                             style={{
+                                                 width: '50px',
+                                                 height: '50px',
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <i className="bi bi-snow2 fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.helados.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.helados.tagline')}</small>
+                                        </div>
+                                    </div>
+                                    <p className="text-dark mb-3 lh-lg">
+                                        {t('projects.helados.description')}
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
+                                        <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
+                                        <span className="badge bg-light text-dark rounded-pill">E-commerce</span>
+                                    </div>
+                                    <a href="https://helados.yoissnacks.com/"
                                        target="_blank"
                                        rel="noopener noreferrer"
                                        className="btn btn-light btn-sm rounded-pill px-3">

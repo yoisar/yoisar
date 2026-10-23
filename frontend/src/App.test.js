@@ -66,9 +66,9 @@ test('renders hero cta buttons', () => {
 test('renders visible project links', () => {
   render(<App />);
 
-  // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Clerk AI, Guajira, Por el Caribe)
+  // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, YOIS Helados, Clerk AI, Guajira, Por el Caribe)
   const visibleProjectLinks = screen.getAllByRole('link', { name: /Ver Proyecto/i });
-  expect(visibleProjectLinks).toHaveLength(8);
+  expect(visibleProjectLinks).toHaveLength(9);
 
   // Test specific URLs for visible projects
   const hrefs = visibleProjectLinks.map(link => link.getAttribute('href'));
@@ -77,6 +77,8 @@ test('renders visible project links', () => {
   expect(hrefs).toContain('https://front.guajira.dev.yoisar.com/');
   expect(hrefs).toContain('https://porelcaribe.dev.yoisar.com/');
   expect(hrefs).toContain('https://clerk.yoisar.com/');
+  expect(hrefs).toContain('https://yoissnacks.com/');
+  expect(hrefs).toContain('https://helados.yoissnacks.com/');
   expect(hrefs).not.toContain('https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico');
 });
 
@@ -157,7 +159,11 @@ test('renders case studies section with the three cases', () => {
   expect(screen.getByRole('heading', { name: /Patología \(Hospital Madariaga\)/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /CGM · Gestión documental/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /Clerk AI · Asistente conversacional multi-cliente/i })).toBeInTheDocument();
-  expect(screen.getAllByText('Papel de la IA')).toHaveLength(3);
+  expect(screen.getByRole('heading', { name: /YOIS Snacks · Tienda online de snacks proteicos/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /YOIS Helados · Tienda online de helados proteicos/i })).toBeInTheDocument();
+  expect(screen.getAllByText('Papel de la IA')).toHaveLength(5);
+  const siteLinks = screen.getAllByRole('link', { name: /Ver sitio/i }).map((l) => l.getAttribute('href'));
+  expect(siteLinks).toEqual(['https://yoissnacks.com/', 'https://helados.yoissnacks.com/']);
 });
 
 test('renders how I work with AI method steps', () => {

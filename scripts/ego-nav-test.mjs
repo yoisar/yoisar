@@ -78,7 +78,11 @@ check("estado y métrica conservados", /Actualmente en desarrollo/.test(projectT
 check("sin dobles espacios ni puntuación duplicada", !/ {2,}|\.\.|,,/.test(projectText.replace(/\s+/g, " ").replace(/\.\.\./g, "")));
 check("sin proyectos retirados", !/AdVantage|Cuotaplan|AdminBarrio|BuildShare/i.test(body));
 const projectLinks = await page.evaluate(() => [...document.querySelectorAll("#proyectos a")].filter((a) => a.offsetParent).map((a) => a.href));
-check("8 enlaces 'Ver Proyecto' visibles", projectLinks.length === 8, String(projectLinks.length));
+check("9 enlaces 'Ver Proyecto' visibles", projectLinks.length === 9, String(projectLinks.length));
+const caseLinks = await page.evaluate(() => [...document.querySelectorAll("#casos a")].map((a) => a.href));
+check("emprendimiento propio: Snacks y Helados enlazados", caseLinks.includes("https://yoissnacks.com/") && caseLinks.includes("https://helados.yoissnacks.com/"), caseLinks.join(" "));
+const caseTitles = await page.evaluate(() => [...document.querySelectorAll("#casos h3")].map((h) => h.textContent));
+check("5 casos de estudio", caseTitles.length === 5, caseTitles.join(" | "));
 
 console.log(`${results.filter(Boolean).length} PASS / ${results.filter((r) => !r).length} FAIL`);
 console.log(await page.screenshot({ path: "/tmp/ego-nav-test.png" }));

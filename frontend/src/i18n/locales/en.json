@@ -21,14 +21,14 @@
   "hero": {
     "badge": "YOIS · SOFTWARE & AI",
     "title": "Full-stack developer who works with AI agents.",
-    "subtitle": "Production systems for the public sector and my own SaaS products. Laravel, Vue and Next.js, Docker and CI/CD. I ship with automated tests and every decision documented. I want to join a team that builds products with AI.",
+    "subtitle": "Production systems for the public sector, SaaS and my own businesses. Laravel, Vue and Next.js, Docker and CI/CD. I ship with automated tests and every decision documented. I want to join a team that builds products with AI.",
     "ctaPrimary": "Let's talk about your team",
     "ctaSecondary": "See case studies",
     "cv": "Download CV"
   },
   "about": {
     "title": "How I work: my software engineering",
-    "description": "I have more than {{years}} years of experience in software development. I work with AI agents to speed up delivery, and I review, test and document every change. I take government and healthcare systems to production, hosted and maintained on my own cloud infrastructure with microservices and high availability. My YOIS signature means technical closeness and ownership of the final product.",
+    "description": "I have more than {{years}} years of experience in software development. I work with AI agents to speed up delivery, and I review, test and document every change. I take government and healthcare systems to production, hosted and maintained on my own cloud infrastructure with microservices and high availability. My YOIS signature means technical closeness and ownership of the final product. I also create and run my own digital businesses, YOIS Snacks and YOIS Helados, which give me a product and business perspective.",
     "guajiraMessage": "I don't just build from scratch. I also modernize legacy systems. The Guajira project, currently underway, demonstrates my ability to understand complex existing domains and elevate them to current technology standards, something highly valued by companies that need to evolve without losing their current operations."
   },
   "services": {
@@ -78,7 +78,7 @@
     "snacks": {
       "name": "YOIS Snacks",
       "tagline": "Smart Snack Commerce Platform",
-      "description": "A vertical e-commerce I develop and operate, specialized in selling snacks and gourmet products, with its own reseller network, commission system, and distribution management. In production with real sales and active operations."
+      "description": "Vertical e-commerce that I build and run, specialized in healthy protein snacks, with points, referrals, virtual balance, pickup points, its own reseller network and a commission system. In production with real sales and active operation."
     },
     "guajira": {
       "name": "Guajira",
@@ -110,6 +110,11 @@
       "name": "Clerk AI",
       "tagline": "Multi-customer conversational assistant",
       "description": "Conversational assistant SaaS that answers with each business's information, with an admin panel, plans and licensing."
+    },
+    "helados": {
+      "name": "YOIS Helados",
+      "tagline": "Online protein ice cream store",
+      "description": "Online store for healthy protein ice cream that I build and run: pack builder with volume discounts, product comparison, smart selector, subscription and wholesale sales. In production, shipping nationwide."
     }
   },
   "infrastructure": {
@@ -135,7 +140,7 @@
   },
   "cases": {
     "title": "Case studies",
-    "subtitle": "Three real systems, with the problem, the solution, the results and the role AI played in each.",
+    "subtitle": "Five real systems, with the problem, the solution, the results and the role AI played in each.",
     "problem": "Problem",
     "solution": "Solution",
     "results": "Results",
@@ -178,6 +183,33 @@
         "Separate panels for each customer and for the super-admin"
       ],
       "aiRole": "It is the core of the product: it connects a language model to each business's information, and I design, test and operate each piece."
+    },
+    "viewSite": "View site",
+    "snacks": {
+      "name": "YOIS Snacks · Online protein snack store",
+      "context": "Own business · In production",
+      "problem": "Selling healthy protein snacks online takes more than a catalog: you need to retain customers, add resellers and offer pickup close to the customer.",
+      "solution": "I designed and run the whole store: catalog and cart, points and rewards, referrals, virtual balance and credit, customer ranking, pickup points and a reseller program with commissions and its own panel.",
+      "results": [
+        "Store in production with real sales and daily operation",
+        "Points, referral and reseller program with tiered commissions",
+        "Management panel with sales, commission and stock indicators",
+        "Promotions and packs managed from the panel"
+      ],
+      "aiRole": "Development with AI agents, with my own review and tests of every change. I run the business myself."
+    },
+    "helados": {
+      "name": "YOIS Helados · Online protein ice cream store",
+      "context": "Own business · In production",
+      "problem": "Healthy ice cream is bought by comparison and on impulse: you have to help people choose and reward volume purchases.",
+      "solution": "Own store with a pack builder (more units, bigger discount), product comparison, a smart selector that recommends by preference, subscription and a wholesale channel.",
+      "results": [
+        "Store in production with nationwide shipping",
+        "Catalog by line: protein, keto, plant-based and collagen",
+        "Volume-discount packs and free shipping from 6 units",
+        "Linked from YOIS Snacks as its ice cream line"
+      ],
+      "aiRole": "Development with AI agents, with my own review and tests of every change. I run the business myself."
     }
   },
   "method": {

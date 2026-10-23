@@ -21,14 +21,14 @@
   "hero": {
     "badge": "YOIS · SOFTWARE & IA",
     "title": "Desarrollador full-stack que trabaja con agentes de IA.",
-    "subtitle": "Sistemas en producción para el sector público y SaaS propios. Laravel, Vue y Next.js, Docker y CI/CD. Entrego con pruebas automatizadas y cada decisión documentada. Busco sumarme a un equipo que construya producto con IA.",
+    "subtitle": "Sistemas en producción para el sector público, SaaS y negocios propios. Laravel, Vue y Next.js, Docker y CI/CD. Entrego con pruebas automatizadas y cada decisión documentada. Busco sumarme a un equipo que construya producto con IA.",
     "ctaPrimary": "Hablemos de tu equipo",
     "ctaSecondary": "Ver casos de estudio",
     "cv": "Descargar CV"
   },
   "about": {
     "title": "Así trabajo: mi enfoque de ingeniería de software",
-    "description": "Tengo más de {{years}} años de experiencia en desarrollo de software. Trabajo con agentes de IA para acelerar la entrega y reviso, pruebo y documento cada cambio. Llevo sistemas de gobierno y salud a producción, y los aloja y mantiene mi propia infraestructura en la nube, con microservicios y alta disponibilidad. Mi sello YOIS significa cercanía técnica y responsabilidad por el producto final.",
+    "description": "Tengo más de {{years}} años de experiencia en desarrollo de software. Trabajo con agentes de IA para acelerar la entrega y reviso, pruebo y documento cada cambio. Llevo sistemas de gobierno y salud a producción, y los aloja y mantiene mi propia infraestructura en la nube, con microservicios y alta disponibilidad. Mi sello YOIS significa cercanía técnica y responsabilidad por el producto final. También creo y opero mis propios negocios digitales, YOIS Snacks y YOIS Helados, que me dan una mirada de producto y de negocio.",
     "guajiraMessage": "No solo construyo desde cero. También modernizo sistemas heredados. El proyecto Guajira, actualmente en curso, demuestra mi capacidad para entender dominios complejos ya existentes y elevarlos a estándares tecnológicos actuales, algo muy valorado por empresas que necesitan evolucionar sin perder su operación actual."
   },
   "services": {
@@ -78,7 +78,7 @@
     "snacks": {
       "name": "YOIS Snacks",
       "tagline": "Smart Snack Commerce Platform",
-      "description": "E-commerce vertical que desarrollo y opero, especializado en la venta de snacks y productos gourmet, con red propia de revendedores, sistema de comisiones y gestión de distribución. En producción con ventas reales y operación activa."
+      "description": "E-commerce vertical que desarrollo y opero, especializado en snacks proteicos y saludables, con puntos, referidos, saldo virtual, puntos de retiro, red propia de revendedores y sistema de comisiones. En producción con ventas reales y operación activa."
     },
     "guajira": {
       "name": "Guajira",
@@ -110,6 +110,11 @@
       "name": "Clerk AI",
       "tagline": "Asistente conversacional multi-cliente",
       "description": "SaaS de asistente conversacional que responde con la información de cada negocio, con panel de administración, planes y licencias."
+    },
+    "helados": {
+      "name": "YOIS Helados",
+      "tagline": "Tienda online de helados proteicos",
+      "description": "Tienda online de helados proteicos y saludables que desarrollo y opero: armador de packs con descuento por volumen, comparador de productos, selector inteligente, suscripción y venta mayorista. En producción, con envío a todo el país."
     }
   },
   "infrastructure": {
@@ -135,7 +140,7 @@
   },
   "cases": {
     "title": "Casos de estudio",
-    "subtitle": "Tres sistemas reales, con el problema, la solución, los resultados y el papel de la IA en cada uno.",
+    "subtitle": "Cinco sistemas reales, con el problema, la solución, los resultados y el papel de la IA en cada uno.",
     "problem": "Problema",
     "solution": "Solución",
     "results": "Resultados",
@@ -178,6 +183,33 @@
         "Paneles separados para cada cliente y para el superadministrador"
       ],
       "aiRole": "Es el producto central: integra un modelo de lenguaje con la información de cada negocio, y yo diseño, pruebo y opero cada pieza."
+    },
+    "viewSite": "Ver sitio",
+    "snacks": {
+      "name": "YOIS Snacks · Tienda online de snacks proteicos",
+      "context": "Emprendimiento propio · En producción",
+      "problem": "Vender snacks saludables y proteicos online exige más que un catálogo: hay que fidelizar clientes, sumar revendedores y ofrecer retiro cerca del cliente.",
+      "solution": "Diseñé y opero la tienda completa: catálogo y carrito, puntos y recompensas, referidos, saldo virtual y crédito, ranking de clientes, puntos de retiro y un programa de revendedores con comisiones y panel propio.",
+      "results": [
+        "Tienda en producción con ventas reales y operación diaria",
+        "Programa de puntos, referidos y revendedores con comisiones escalonadas",
+        "Panel de gestión con indicadores de ventas, comisiones y stock",
+        "Promociones y packs gestionados desde el panel"
+      ],
+      "aiRole": "Desarrollo con agentes de IA, con revisión y pruebas propias de cada cambio. El negocio lo opero yo."
+    },
+    "helados": {
+      "name": "YOIS Helados · Tienda online de helados proteicos",
+      "context": "Emprendimiento propio · En producción",
+      "problem": "El helado saludable se compra por comparación y por impulso: hay que ayudar a elegir y premiar la compra por volumen.",
+      "solution": "Tienda propia con armador de packs (más unidades, más descuento), comparador de productos, selector inteligente que recomienda según preferencias, suscripción y canal mayorista.",
+      "results": [
+        "Tienda en producción con envío a todo el país",
+        "Catálogo por líneas: proteica, keto, vegetal y con colágeno",
+        "Packs con descuento por volumen y envío gratis desde 6 unidades",
+        "Enlazada desde YOIS Snacks como línea de helados"
+      ],
+      "aiRole": "Desarrollo con agentes de IA, con revisión y pruebas propias de cada cambio. El negocio lo opero yo."
     }
   },
   "method": {

@@ -21,14 +21,14 @@
   "hero": {
     "badge": "YOIS · SOFTWARE & IA",
     "title": "Desenvolvedor full-stack que trabalha com agentes de IA.",
-    "subtitle": "Sistemas em produção para o setor público e SaaS próprios. Laravel, Vue e Next.js, Docker e CI/CD. Entrego com testes automatizados e cada decisão documentada. Busco entrar em uma equipe que construa produto com IA.",
+    "subtitle": "Sistemas em produção para o setor público, SaaS e negócios próprios. Laravel, Vue e Next.js, Docker e CI/CD. Entrego com testes automatizados e cada decisão documentada. Busco entrar em uma equipe que construa produto com IA.",
     "ctaPrimary": "Vamos falar da sua equipe",
     "ctaSecondary": "Ver estudos de caso",
     "cv": "Baixar CV"
   },
   "about": {
     "title": "Como eu trabalho: minha engenharia de software",
-    "description": "Tenho mais de {{years}} anos de experiência em desenvolvimento de software. Trabalho com agentes de IA para acelerar a entrega e reviso, testo e documento cada mudança. Levo sistemas de governo e saúde à produção, hospedados e mantidos na minha própria infraestrutura em nuvem, com microsserviços e alta disponibilidade. A minha marca YOIS significa proximidade técnica e responsabilidade pelo produto final.",
+    "description": "Tenho mais de {{years}} anos de experiência em desenvolvimento de software. Trabalho com agentes de IA para acelerar a entrega e reviso, testo e documento cada mudança. Levo sistemas de governo e saúde à produção, hospedados e mantidos na minha própria infraestrutura em nuvem, com microsserviços e alta disponibilidade. A minha marca YOIS significa proximidade técnica e responsabilidade pelo produto final. Também crio e opero os meus próprios negócios digitais, YOIS Snacks e YOIS Helados, que me dão uma visão de produto e de negócio.",
     "guajiraMessage": "Não construo apenas do zero. Também modernizo sistemas legados. O projeto Guajira, atualmente em andamento, demonstra minha capacidade de entender domínios complexos já existentes e elevá-los aos padrões tecnológicos atuais, algo muito valorizado por empresas que precisam evoluir sem perder sua operação atual."
   },
   "services": {
@@ -78,7 +78,7 @@
     "snacks": {
       "name": "YOIS Snacks",
       "tagline": "Smart Snack Commerce Platform",
-      "description": "E-commerce vertical que desenvolvo e opero, especializado na venda de snacks e produtos gourmet, com rede própria de revendedores, sistema de comissões e gestão de distribuição. Em produção com vendas reais e operação ativa."
+      "description": "E-commerce vertical que desenvolvo e opero, especializado em snacks proteicos e saudáveis, com pontos, indicações, saldo virtual, pontos de retirada, rede própria de revendedores e sistema de comissões. Em produção com vendas reais e operação ativa."
     },
     "guajira": {
       "name": "Guajira",
@@ -110,6 +110,11 @@
       "name": "Clerk AI",
       "tagline": "Assistente conversacional multicliente",
       "description": "SaaS de assistente conversacional que responde com as informações de cada negócio, com painel administrativo, planos e licenças."
+    },
+    "helados": {
+      "name": "YOIS Helados",
+      "tagline": "Loja online de sorvetes proteicos",
+      "description": "Loja online de sorvetes proteicos e saudáveis que desenvolvo e opero: montador de packs com desconto por volume, comparador de produtos, seletor inteligente, assinatura e venda atacadista. Em produção, com envio para todo o país."
     }
   },
   "infrastructure": {
@@ -135,7 +140,7 @@
   },
   "cases": {
     "title": "Estudos de caso",
-    "subtitle": "Três sistemas reais, com o problema, a solução, os resultados e o papel da IA em cada um.",
+    "subtitle": "Cinco sistemas reais, com o problema, a solução, os resultados e o papel da IA em cada um.",
     "problem": "Problema",
     "solution": "Solução",
     "results": "Resultados",
@@ -178,6 +183,33 @@
         "Painéis separados para cada cliente e para o superadministrador"
       ],
       "aiRole": "É o produto central: conecta um modelo de linguagem às informações de cada negócio, e eu projeto, testo e opero cada peça."
+    },
+    "viewSite": "Ver site",
+    "snacks": {
+      "name": "YOIS Snacks · Loja online de snacks proteicos",
+      "context": "Negócio próprio · Em produção",
+      "problem": "Vender snacks saudáveis e proteicos online exige mais que um catálogo: é preciso fidelizar clientes, somar revendedores e oferecer retirada perto do cliente.",
+      "solution": "Projetei e opero a loja completa: catálogo e carrinho, pontos e recompensas, indicações, saldo virtual e crédito, ranking de clientes, pontos de retirada e um programa de revendedores com comissões e painel próprio.",
+      "results": [
+        "Loja em produção com vendas reais e operação diária",
+        "Programa de pontos, indicações e revendedores com comissões escalonadas",
+        "Painel de gestão com indicadores de vendas, comissões e estoque",
+        "Promoções e packs gerenciados pelo painel"
+      ],
+      "aiRole": "Desenvolvimento com agentes de IA, com revisão e testes próprios de cada mudança. O negócio eu mesmo opero."
+    },
+    "helados": {
+      "name": "YOIS Helados · Loja online de sorvetes proteicos",
+      "context": "Negócio próprio · Em produção",
+      "problem": "O sorvete saudável é comprado por comparação e por impulso: é preciso ajudar a escolher e premiar a compra por volume.",
+      "solution": "Loja própria com montador de packs (mais unidades, mais desconto), comparador de produtos, seletor inteligente que recomenda conforme as preferências, assinatura e canal atacadista.",
+      "results": [
+        "Loja em produção com envio para todo o país",
+        "Catálogo por linhas: proteica, keto, vegetal e com colágeno",
+        "Packs com desconto por volume e frete grátis a partir de 6 unidades",
+        "Linkada a partir do YOIS Snacks como linha de sorvetes"
+      ],
+      "aiRole": "Desenvolvimento com agentes de IA, com revisão e testes próprios de cada mudança. O negócio eu mesmo opero."
     }
   },
   "method": {
