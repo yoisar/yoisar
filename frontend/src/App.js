@@ -38,8 +38,8 @@ const GITHUB_URL = 'https://github.com/yoisar';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/yoisar/';
 const CV_FILES = { es: '/cv/cv-yassel-izquierdo-es.pdf', en: '/cv/cv-yassel-izquierdo-en.pdf' };
 const CONTACT_EMAIL = 'me@yoisar.com';
-// URL de Calendly / Cal.com para agendar la llamada. Mientras esté vacía, el botón abre un mail prellenado.
-const CALENDAR_URL = '';
+// Agenda de Cal.com. Si se vacía, el botón abre un mail prellenado.
+const CALENDAR_URL = 'https://cal.com/yois-ykrnja/charla-sobre-un-puesto-o-proyecto';
 const SCHEDULE_HREF = CALENDAR_URL || `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Agendar una llamada')}`;
 
 const STATUS_BADGE = {
