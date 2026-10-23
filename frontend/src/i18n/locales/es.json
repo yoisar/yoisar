@@ -127,7 +127,8 @@
     "github": "GitHub",
     "email": "Escribime por email",
     "linkedin": "LinkedIn",
-    "cv": "Descargar CV"
+    "cv": "Descargar CV",
+    "schedule": "Agendar una llamada"
   },
   "footer": {
     "text": "© 2026 - YOIS | Desarrollo, SaaS e IA"

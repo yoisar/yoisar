@@ -38,6 +38,9 @@ const GITHUB_URL = 'https://github.com/yoisar';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/yoisar/';
 const CV_FILES = { es: '/cv/cv-yassel-izquierdo-es.pdf', en: '/cv/cv-yassel-izquierdo-en.pdf' };
 const CONTACT_EMAIL = 'me@yoisar.com';
+// URL de Calendly / Cal.com para agendar la llamada. Mientras esté vacía, el botón abre un mail prellenado.
+const CALENDAR_URL = '';
+const SCHEDULE_HREF = CALENDAR_URL || `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Agendar una llamada')}`;
 
 const STATUS_BADGE = {
     active: { className: 'bg-success', i18nKey: 'projects.status.activeProduction' },
@@ -1065,6 +1068,12 @@ export default function PresentacionYassel() {
                                            target="_blank" rel="noopener noreferrer">
                                             <i className="bi bi-github me-2"></i>
                                             {t('contact.github')}
+                                        </a>
+                                        <a href={SCHEDULE_HREF}
+                                           className="btn btn-success btn-lg px-4 py-2 rounded-pill"
+                                           {...(CALENDAR_URL ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                                            <i className="bi bi-calendar-check me-2"></i>
+                                            {t('contact.schedule')}
                                         </a>
                                         <a href={LINKEDIN_URL}
                                            className="btn btn-primary btn-lg px-4 py-2 rounded-pill"

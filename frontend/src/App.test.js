@@ -203,3 +203,10 @@ test('does not reference discontinued projects', () => {
   expect(container.textContent).not.toMatch(/AdVantage|Cuotaplan|AdminBarrio|BuildShare/i);
   expect(container.innerHTML).not.toMatch(/cuotaplan\.com|adminbarrio\.com|advantage\.yoisar\.com|build\.yoisar\.com/i);
 });
+
+test('renders schedule a call button', () => {
+  render(<App />);
+
+  const schedule = screen.getByRole('link', { name: /Agendar una llamada/i });
+  expect(schedule.getAttribute('href')).toMatch(/^(https:\/\/|mailto:me@yoisar\.com)/);
+});
