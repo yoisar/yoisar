@@ -25,7 +25,7 @@ const DATA = {
     title: 'Desarrollador Fullstack | Desarrollo con agentes de IA | Sistemas de Salud y Gobierno',
     location: 'Posadas, Misiones, Argentina',
     h: { profile: 'Perfil profesional', exp: 'Experiencia profesional', skills: 'Tecnologías y herramientas', projects: 'Proyectos destacados' },
-    profile: 'Más de 25 años de experiencia en sistemas, combinando desarrollo fullstack, arquitectura de software y emprendimiento tecnológico. Desarrollador que trabaja con agentes de IA: requerimiento escrito, implementación por lotes, verificación con pruebas automatizadas e informe por lote. Llevo a producción sistemas de salud y gobierno (RISMI, Casa de Gobierno de Misiones) y productos SaaS propios (Clerk AI, Distriboo, Ventarifas). Busco sumarme a un equipo que construya producto con IA.',
+    profile: 'Más de 25 años de experiencia en sistemas, combinando desarrollo fullstack, arquitectura de software y emprendimiento tecnológico. Desarrollador que trabaja con agentes de IA: requerimiento escrito, implementación por lotes, verificación con pruebas automatizadas e informe por lote. Llevo a producción sistemas de salud y gobierno (RISMI, Casa de Gobierno de Misiones), productos SaaS propios (Clerk AI, Distriboo, Ventarifas) y tiendas online propias (YOIS Snacks, YOIS Helados). Busco sumarme a un equipo que construya producto con IA.',
     jobs: [
       {
         role: 'Desarrollador Fullstack – Gestión Documental (CGM)',
@@ -70,7 +70,8 @@ const DATA = {
           '**Clerk AI** – SaaS propio de asistente conversacional que responde con la información de cada negocio, con panel de administración, planes, pagos y licencias. Pruebas de extremo a extremo automatizadas.',
           '**Distriboo** – SaaS B2B para distribución mayorista: motor de precios de 4 niveles, pedidos online 24/7, logística por zonas, importación desde CSV/Excel, roles y planes por suscripción.',
           '**Ventarifas** – Marketplace de rifas online: números automáticos, pagos seguros y panel en tiempo real.',
-          '**Yois Snacks** – E-commerce con red de revendedores, comisiones escalonadas, dashboard con KPIs y panel self-service.',
+          '**YOIS Snacks** (yoissnacks.com) – Tienda online propia de snacks proteicos que diseño y opero: puntos y recompensas, referidos, saldo virtual y crédito, puntos de retiro, red de revendedores con comisiones escalonadas y panel de gestión con indicadores.',
+          '**YOIS Helados** (helados.yoissnacks.com) – Tienda online propia de helados proteicos: armador de packs con descuento por volumen, comparador de productos, selector inteligente, suscripción y venta mayorista.',
           '**Fideliza** – Plataforma para comercios: catálogo, puntos, referidos y rifas.'
         ]
       }
@@ -94,7 +95,8 @@ const DATA = {
       ['PorElCaribe', 'Turismo en destinos del Caribe.'],
       ['Distriboo', 'SaaS B2B de distribución mayorista. distriboo.yoisar.com'],
       ['Ventarifas', 'Marketplace de rifas online. ventarifas.com'],
-      ['Yois Snacks', 'E-commerce con red de revendedores. yoissnacks.com'],
+      ['YOIS Snacks', 'Tienda online propia de snacks proteicos, con puntos, referidos y revendedores. yoissnacks.com'],
+      ['YOIS Helados', 'Tienda online propia de helados proteicos, con packs, comparador y suscripción. helados.yoissnacks.com'],
       ['Fideliza', 'Fidelización: puntos, referidos y rifas. fideliza.yoisar.com']
     ]
   },
@@ -104,7 +106,7 @@ const DATA = {
     title: 'Fullstack Developer | AI-Agent Assisted Development | Healthcare & Government Systems',
     location: 'Posadas, Misiones, Argentina',
     h: { profile: 'Professional Profile', exp: 'Professional Experience', skills: 'Technologies & Tools', projects: 'Featured Projects' },
-    profile: 'Over 25 years of experience in IT systems, combining fullstack development, software architecture and tech entrepreneurship. I work with AI agents: written requirement, batch implementation, verification with automated tests, and a report per batch. I take healthcare and government systems (RISMI, Misiones Government House) and my own SaaS products (Clerk AI, Distriboo, Ventarifas) to production. I want to join a team that builds products with AI.',
+    profile: 'Over 25 years of experience in IT systems, combining fullstack development, software architecture and tech entrepreneurship. I work with AI agents: written requirement, batch implementation, verification with automated tests, and a report per batch. I take healthcare and government systems (RISMI, Misiones Government House), my own SaaS products (Clerk AI, Distriboo, Ventarifas) and my own online stores (YOIS Snacks, YOIS Helados) to production. I want to join a team that builds products with AI.',
     jobs: [
       {
         role: 'Fullstack Developer – Document Management (CGM)',
@@ -149,7 +151,8 @@ const DATA = {
           '**Clerk AI** – Own conversational assistant SaaS that answers with each business\'s information, with an admin panel, plans, payments and licensing. Automated end-to-end tests.',
           '**Distriboo** – B2B SaaS for wholesale distribution: 4-level pricing engine, 24/7 online ordering, zone-based logistics, CSV/Excel import, roles and subscription plans.',
           '**Ventarifas** – Online raffles marketplace: automatic numbers, secure payments and a real-time panel.',
-          '**Yois Snacks** – E-commerce with a reseller network, tiered commissions, KPI dashboard and self-service panel.',
+          '**YOIS Snacks** (yoissnacks.com) – Own online store for protein snacks that I design and run: points and rewards, referrals, virtual balance and credit, pickup points, a reseller network with tiered commissions and a management panel with indicators.',
+          '**YOIS Helados** (helados.yoissnacks.com) – Own online store for protein ice cream: pack builder with volume discounts, product comparison, smart selector, subscription and wholesale sales.',
           '**Fideliza** – Platform for merchants: catalog, points, referrals and raffles.'
         ]
       }
@@ -173,7 +176,8 @@ const DATA = {
       ['PorElCaribe', 'Tourism in Caribbean destinations.'],
       ['Distriboo', 'B2B SaaS for wholesale distribution. distriboo.yoisar.com'],
       ['Ventarifas', 'Online raffles marketplace. ventarifas.com'],
-      ['Yois Snacks', 'E-commerce with a reseller network. yoissnacks.com'],
+      ['YOIS Snacks', 'Own online protein snack store, with points, referrals and resellers. yoissnacks.com'],
+      ['YOIS Helados', 'Own online protein ice cream store, with packs, comparison and subscription. helados.yoissnacks.com'],
       ['Fideliza', 'Loyalty: points, referrals and raffles. fideliza.yoisar.com']
     ]
   }
