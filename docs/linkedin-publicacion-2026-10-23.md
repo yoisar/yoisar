@@ -12,7 +12,7 @@
 ## Imagen
 Usá `frontend/public/og-image.png` (1200×630, tu foto, nombre y rol). Subila como imagen nativa y agregá este texto alternativo: "Yassel Omar Izquierdo Souchay, desarrollador full-stack que trabaja con agentes de IA".
 
-## Publicación en español (1328 caracteres)
+## Publicación en español (1480 caracteres)
 **Primera línea (174 caracteres, antes de "ver más"):**
 > Hace más de 25 años que escribo software. Este año cambié cómo lo hago: trabajo con agentes de IA, pero cada línea que llega a producción la reviso, la pruebo y la documento.
 
@@ -36,6 +36,9 @@ Sistema de gestión documental con microservicios. Las imágenes se construyen d
 🔹 Clerk AI — SaaS propio
 Asistente conversacional que responde con la información de cada negocio, con panel, planes y licencias.
 
+🔹 YOIS Snacks y YOIS Helados — negocios propios
+Dos tiendas online en producción que diseño y opero: puntos, referidos, revendedores, packs y suscripción.
+
 La IA acelera. El criterio, la verificación y la responsabilidad siguen siendo mías.
 
 Busco sumarme a un equipo que construya producto con IA. Si tu empresa está contratando, escribime. Dejo los casos de estudio y mi CV en el primer comentario.
@@ -48,12 +51,13 @@ Busco sumarme a un equipo que construya producto con IA. Si tu empresa está con
 **Primer comentario:**
 ```
 Casos de estudio: https://yoisar.com/#casos
+Mis tiendas: https://yoissnacks.com/ y https://helados.yoissnacks.com/
 Mi CV (español): https://yoisar.com/cv/cv-yassel-izquierdo-es.pdf
 CV (English): https://yoisar.com/cv/cv-yassel-izquierdo-en.pdf
 Si querés charlar sobre un puesto o proyecto: https://cal.com/yois-ykrnja/charla-sobre-un-puesto-o-proyecto
 ```
 
-## Versión en inglés (1299 caracteres)
+## Versión en inglés (1453 caracteres)
 ```
 I have been writing software for over 25 years. This year I changed how I do it: I work with AI agents, but every line that reaches production gets reviewed, tested and documented by me.
 
@@ -74,6 +78,9 @@ Document management system built with microservices. Images are built automatica
 🔹 Clerk AI — Own SaaS
 Conversational assistant that answers with each business's information, with a panel, plans and licensing.
 
+🔹 YOIS Snacks and YOIS Helados — own businesses
+Two online stores in production that I design and run: points, referrals, resellers, packs and subscription.
+
 AI speeds things up. Judgment, verification and accountability stay with me.
 
 I am looking to join a team that builds products with AI. If your company is hiring, message me. Case studies and my CV are in the first comment.
@@ -86,6 +93,7 @@ How do you balance speed and quality control when working with agents?
 **Primer comentario:**
 ```
 Case studies: https://yoisar.com/#casos
+My stores: https://yoissnacks.com/ and https://helados.yoissnacks.com/
 CV (English): https://yoisar.com/cv/cv-yassel-izquierdo-en.pdf
 CV (español): https://yoisar.com/cv/cv-yassel-izquierdo-es.pdf
 To talk about a role or project: https://cal.com/yois-ykrnja/charla-sobre-un-puesto-o-proyecto
