@@ -47,8 +47,10 @@ Busco sumarme a un equipo que construya producto con IA. Si tu empresa está con
 
 **Primer comentario:**
 ```
-Casos de estudio y CV (es/en): https://yoisar.com/
-GitHub: https://github.com/yoisar
+Casos de estudio: https://yoisar.com/#casos
+Mi CV (español): https://yoisar.com/cv/cv-yassel-izquierdo-es.pdf
+CV (English): https://yoisar.com/cv/cv-yassel-izquierdo-en.pdf
+Si querés charlar sobre un puesto o proyecto: https://cal.com/yois-ykrnja/charla-sobre-un-puesto-o-proyecto
 ```
 
 ## Versión en inglés (1299 caracteres)
@@ -83,8 +85,10 @@ How do you balance speed and quality control when working with agents?
 
 **Primer comentario:**
 ```
-Case studies and CV (en/es): https://yoisar.com/
-GitHub: https://github.com/yoisar
+Case studies: https://yoisar.com/#casos
+CV (English): https://yoisar.com/cv/cv-yassel-izquierdo-en.pdf
+CV (español): https://yoisar.com/cv/cv-yassel-izquierdo-es.pdf
+To talk about a role or project: https://cal.com/yois-ykrnja/charla-sobre-un-puesto-o-proyecto
 ```
 
 ## Para que el perfil acompañe (los posts cortos no se indexan en Google, el perfil sí)
