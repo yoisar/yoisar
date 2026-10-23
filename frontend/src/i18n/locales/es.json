@@ -14,18 +14,21 @@
     "projectsTitle": "Proyectos Desarrollados",
     "groupCommercial": "Proyectos Comerciales (SaaS / Propios)",
     "groupGovernment": "Proyectos Gubernamentales (Misión Crítica)",
-    "groupThirdParty": "Proyectos para Terceros (Modernización)"
+    "groupThirdParty": "Proyectos para Terceros (Modernización)",
+    "cases": "Casos de estudio",
+    "method": "Cómo trabajo con IA"
   },
   "hero": {
     "badge": "YOIS · SOFTWARE & IA",
-    "title": "Desarrollo SaaS, Apps con IA y despliego infraestructura escalable.",
-    "subtitle": "Desde sistemas para el Gobierno de Misiones hasta plataformas de gestión horizontal. Tu proyecto corre sobre mi infraestructura y mi experiencia profesional.",
-    "ctaPrimary": "Hablemos de tu idea",
-    "ctaSecondary": "Cotizá conmigo"
+    "title": "Desarrollador full-stack que trabaja con agentes de IA.",
+    "subtitle": "Sistemas en producción para el sector público y SaaS propios. Laravel, Vue y Next.js, Docker y CI/CD. Entrego con pruebas automatizadas y cada decisión documentada. Busco sumarme a un equipo que construya producto con IA.",
+    "ctaPrimary": "Hablemos de tu equipo",
+    "ctaSecondary": "Ver casos de estudio",
+    "cv": "Descargar CV"
   },
   "about": {
     "title": "Así trabajo: mi enfoque de ingeniería de software",
-    "description": "Tengo más de {{years}} años de experiencia especializado en inteligencia artificial y soluciones de gestión. No solo escribo código: alojo, mantengo y escalo cada aplicación en mi propia infraestructura dedicada en la nube y servicios de alta disponibilidad (microservicios), con experiencia en proyectos de gobierno y entornos críticos como hospitales y casas de gobierno. Mi sello YOIS significa cercanía técnica y responsabilidad extrema por el producto final.",
+    "description": "Tengo más de {{years}} años de experiencia en desarrollo de software. Trabajo con agentes de IA para acelerar la entrega y reviso, pruebo y documento cada cambio. Llevo sistemas de gobierno y salud a producción, y los aloja y mantiene mi propia infraestructura en la nube, con microservicios y alta disponibilidad. Mi sello YOIS significa cercanía técnica y responsabilidad por el producto final.",
     "guajiraMessage": "No solo construyo desde cero. También modernizo sistemas heredados. El proyecto Guajira, actualmente en curso, demuestra mi capacidad para entender dominios complejos ya existentes y elevarlos a estándares tecnológicos actuales, algo muy valorado por empresas que necesitan evolucionar sin perder su operación actual."
   },
   "services": {
@@ -96,12 +99,17 @@
       "description": "Solución integral de gestión y comunicación que desarrollo para barrios cerrados, clubes, edificios y condominios. Estoy trabajando en su lanzamiento."
     },
     "patologia": {
-      "name": "App Patología (Gobierno)",
-      "description": "Aplicativo para el área de patología del Hospital Madariaga, construido por mí para digitalizar procesos clave de salud."
+      "name": "Patología V2 (Gobierno)",
+      "description": "Nueva versión del aplicativo del área de patología del Hospital Madariaga, integrada en la plataforma RISMI. Actualmente en desarrollo y validación con el área usuaria."
     },
     "investors": {
       "name": "Inversores",
       "description": "Ronda de inversión en un ecosistema tecnológico con múltiples líneas de negocio. Pool mensual 30 % del ingreso distribuible hasta cap 2.5× el capital. Meta de recaudar $10 000 000 pesos. Invertí desde $50 000 y seguí tu aporte en tiempo real."
+    },
+    "clerk": {
+      "name": "Clerk AI",
+      "tagline": "Asistente conversacional multi-tenant",
+      "description": "SaaS de asistente conversacional con recuperación de conocimiento propia de cada negocio, panel de administración, planes y licencias."
     }
   },
   "infrastructure": {
@@ -109,15 +117,110 @@
     "description": "No alquilo servidores compartidos. Cuento con mi propia infraestructura dedicada y orquestación de microservicios que ya soportan la carga de gestión gubernamental. Esto me permite ofrecer alta disponibilidad y seguridad perimetral real."
   },
   "contact": {
-    "title": "¿Empezamos tu proyecto?",
-    "description": "Contame tu necesidad. Ya sea una app, un SaaS o un sistema con IA, yo me encargo de la arquitectura, el desarrollo y el despliegue.",
+    "title": "¿Hablamos?",
+    "description": "Si tu empresa busca sumar un desarrollador que trabaje con IA, contame sobre el equipo y el puesto. También tomo proyectos puntuales.",
     "nameLabel": "Nombre",
     "companyLabel": "Empresa / Entidad",
-    "needLabel": "¿Qué necesitas desarrollar?",
+    "needLabel": "¿Qué puesto o proyecto tenés en mente?",
     "submit": "Enviar Consulta",
-    "websiteLink": "yoisar.com"
+    "websiteLink": "yoisar.com",
+    "github": "GitHub",
+    "email": "Escribime por email",
+    "linkedin": "LinkedIn",
+    "cv": "Descargar CV"
   },
   "footer": {
     "text": "© 2026 - YOIS | Desarrollo, SaaS e IA"
+  },
+  "cases": {
+    "title": "Casos de estudio",
+    "subtitle": "Tres sistemas reales, con el problema, la solución, los resultados y el papel de la IA en cada uno.",
+    "problem": "Problema",
+    "solution": "Solución",
+    "results": "Resultados",
+    "aiRole": "Papel de la IA",
+    "viewDemo": "Ver demo",
+    "patologia": {
+      "name": "Patología V2 · RISMI (Hospital Madariaga)",
+      "context": "Salud pública · Misiones · En desarrollo",
+      "problem": "El sistema de anatomía patológica es una aplicación PHP 5.6 sin framework, con cientos de miles de estudios históricos de varios tipos (PAP, HPV, biopsias, colon).",
+      "solution": "Lo migro como un aplicativo más dentro de RISMI (Laravel y Vue.js): autenticación única, roles, auditoría y navegación de la plataforma, y paridad funcional con el sistema anterior, informes incluidos.",
+      "results": [
+        "Dominio con más de 350.000 estudios históricos en 8 tipos de estudio",
+        "Más de 150 pruebas automatizadas (Vitest y Cypress) en verde",
+        "Entrega por lotes, con un informe técnico por lote",
+        "QA con el área usuaria aplicado lote a lote"
+      ],
+      "aiRole": "Agentes de IA relevan el sistema anterior, implementan por lotes y generan pruebas. Yo defino el alcance, reviso cada cambio y lo valido con QA.",
+      "stack": [
+        "Laravel",
+        "Vue.js",
+        "MySQL",
+        "Cypress",
+        "Vitest"
+      ]
+    },
+    "cgm": {
+      "name": "CGM · Gestión documental (Casa de Gobierno de Misiones)",
+      "context": "Sector público · Misiones · En producción",
+      "problem": "Digitalizar la mesa de entrada, la numeración y el seguimiento de expedientes, respetando los formularios físicos que ya usa el organismo.",
+      "solution": "Microservicios Laravel (autenticación y permisos, mesa de entrada, expedientes) con frontend Next.js 14 y PostgreSQL. Las imágenes se construyen en GitHub Actions y se publican en GHCR; el servidor solo descarga y levanta.",
+      "results": [
+        "Numeración correlativa con bloqueo, sin duplicados",
+        "Carátula A4 réplica del formulario físico",
+        "Importación de 427 códigos de organismos con vista previa y auditoría",
+        "Evolución continua por versiones (v0.10.37)"
+      ],
+      "aiRole": "Cada requerimiento se escribe en un documento. Los agentes implementan, y yo verifico con pruebas automáticas, chequeo de tipos y navegador automatizado antes de publicar.",
+      "stack": [
+        "Laravel",
+        "Next.js",
+        "PostgreSQL",
+        "Docker",
+        "GitHub Actions"
+      ]
+    },
+    "clerk": {
+      "name": "Clerk AI · Asistente conversacional multi-tenant",
+      "context": "SaaS propio · En producción",
+      "problem": "Los negocios necesitan atender consultas repetitivas con un asistente que conozca su información, con panel propio y licencias.",
+      "solution": "API Laravel con recuperación de conocimiento (RAG): fragmentación de textos, embeddings en pgvector y modelo de lenguaje. Landing y panel de administración en Next.js, con gestión de planes, pagos y licencias.",
+      "results": [
+        "Más de 780 commits y más de 100 archivos de test",
+        "Pruebas de extremo a extremo con Playwright",
+        "Separación de paneles por inquilino y superadministrador"
+      ],
+      "aiRole": "Es el producto central: integra un modelo de lenguaje en un flujo de recuperación de conocimiento, y yo diseño, pruebo y opero cada pieza.",
+      "stack": [
+        "Laravel",
+        "Next.js",
+        "PostgreSQL + pgvector",
+        "RAG",
+        "Playwright"
+      ]
+    }
+  },
+  "method": {
+    "title": "Cómo trabajo con IA",
+    "subtitle": "La IA acelera. El criterio, la verificación y la responsabilidad son míos.",
+    "steps": [
+      {
+        "title": "Requerimiento escrito",
+        "text": "Cada cambio parte de un documento con alcance y criterios de aceptación."
+      },
+      {
+        "title": "Implementación por lotes",
+        "text": "Los agentes trabajan sobre lotes chicos, con reglas del repositorio en un archivo AGENTS.md."
+      },
+      {
+        "title": "Verificación",
+        "text": "Pruebas unitarias y end-to-end, chequeo de tipos, linter y navegador automatizado."
+      },
+      {
+        "title": "Informe y trazabilidad",
+        "text": "Un informe por lote con lo hecho, lo validado y lo pendiente, y commits pequeños."
+      }
+    ],
+    "honesty": "Reviso cada línea que llega a producción y puedo defender cada decisión."
   }
 }

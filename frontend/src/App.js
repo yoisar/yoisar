@@ -14,6 +14,7 @@ const PROJECT_MENU = {
         { key: 'ventarifas', href: 'https://ventarifas.com', status: 'active' },
         { key: 'distriboo', href: 'https://distriboo.yoisar.com/', status: 'active' },
         { key: 'snacks', href: 'https://yoissnacks.com/', status: 'active' },
+        { key: 'clerk', href: 'https://clerk.yoisar.com/', status: 'active' },
         { key: 'planning', href: null, status: 'development' },
         { key: 'portalcheck', href: null, status: 'development' }
     ],
@@ -26,6 +27,18 @@ const PROJECT_MENU = {
     ]
 };
 
+const CASE_STUDIES = [
+    { key: 'patologia', icon: 'bi-heart-pulse-fill', gradient: 'linear-gradient(135deg, #cc2b5e 0%, #753a88 100%)', href: null },
+    { key: 'cgm', icon: 'bi-bank2', gradient: 'linear-gradient(135deg, #4776e6 0%, #8e54e9 100%)', href: null },
+    { key: 'clerk', icon: 'bi-chat-dots-fill', gradient: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)', href: 'https://clerk.yoisar.com/' }
+];
+
+const FULL_NAME = 'Yassel Omar Izquierdo Souchay';
+const GITHUB_URL = 'https://github.com/yoisar';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/yoisar/';
+const CV_FILES = { es: '/cv/cv-yassel-izquierdo-es.pdf', en: '/cv/cv-yassel-izquierdo-en.pdf' };
+const CONTACT_EMAIL = 'me@yoisar.com';
+
 const STATUS_BADGE = {
     active: { className: 'bg-success', i18nKey: 'projects.status.activeProduction' },
     development: { className: 'bg-warning text-dark', i18nKey: 'projects.status.activeDevelopment' },
@@ -37,6 +50,7 @@ export default function PresentacionYassel() {
     // Calcular años de experiencia dinámicamente desde 2001
     const añosExperiencia = new Date().getFullYear() - 2001;
     const [menuOpen, setMenuOpen] = useState(false);
+    const cvHref = i18n.resolvedLanguage === 'en' ? CV_FILES.en : CV_FILES.es;
 
     useEffect(() => {
         if (!menuOpen) return;
@@ -184,6 +198,16 @@ export default function PresentacionYassel() {
                             </button>
                         </li>
                         <li className="mb-2">
+                            <button type="button" onClick={() => goToSection('casos')} className="btn w-100 text-start px-3 py-2 rounded-3 border-0">
+                                {t('menu.cases')}
+                            </button>
+                        </li>
+                        <li className="mb-2">
+                            <button type="button" onClick={() => goToSection('metodo')} className="btn w-100 text-start px-3 py-2 rounded-3 border-0">
+                                {t('menu.method')}
+                            </button>
+                        </li>
+                        <li className="mb-2">
                             <button type="button" onClick={() => goToSection('servicios')} className="btn w-100 text-start px-3 py-2 rounded-3 border-0">
                                 {t('menu.services')}
                             </button>
@@ -235,6 +259,7 @@ export default function PresentacionYassel() {
                                       style={{ background: 'rgba(255,255,255,0.12)', color: '#e0e7ff', letterSpacing: '0.08em', fontSize: '0.8rem' }}>
                                     {t('hero.badge')}
                                 </span>
+                                <p className="text-white-50 fw-semibold mb-2">{FULL_NAME}</p>
                                 <h1 className="display-4 fw-bold text-white mb-3" style={{ lineHeight: 1.15 }}>
                                     {t('hero.title')}
                                 </h1>
@@ -246,9 +271,13 @@ export default function PresentacionYassel() {
                                        className="btn btn-primary btn-lg px-4 py-2 rounded-pill fw-semibold shadow">
                                         <i className="bi bi-briefcase me-2"></i>{t('hero.ctaPrimary')}
                                     </a>
-                                    <a href="#contacto"
+                                    <a href="#casos"
                                        className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill fw-semibold">
                                         <i className="bi bi-robot me-2"></i>{t('hero.ctaSecondary')}
+                                    </a>
+                                    <a href={cvHref} target="_blank" rel="noopener noreferrer"
+                                       className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill fw-semibold">
+                                        <i className="bi bi-file-earmark-person me-2"></i>{t('hero.cv')}
                                     </a>
                                 </div>
                             </div>
@@ -288,6 +317,86 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Case Studies Section */}
+            <section className="py-5" id="casos">
+                <div className="container">
+                    <div className="text-center mb-5">
+                        <h2 className="h2 fw-bold text-white mb-3">
+                            <i className="bi bi-journal-code me-2"></i>
+                            {t('cases.title')}
+                        </h2>
+                        <p className="text-white-50 fs-5">{t('cases.subtitle')}</p>
+                    </div>
+                    <div className="row g-4">
+                        {CASE_STUDIES.map((c) => (
+                            <div className="col-lg-4" key={c.key}>
+                                <article className="card border-0 h-100 shadow-lg" style={{ borderRadius: '20px', background: 'rgba(255,255,255,0.97)' }}>
+                                    <div className="p-4 text-white" style={{ background: c.gradient, borderRadius: '20px 20px 0 0' }}>
+                                        <div className="d-flex align-items-center mb-2">
+                                            <i className={`bi ${c.icon} fs-3 me-3`}></i>
+                                            <h3 className="h5 fw-bold mb-0">{t(`cases.${c.key}.name`)}</h3>
+                                        </div>
+                                        <small className="opacity-75">{t(`cases.${c.key}.context`)}</small>
+                                    </div>
+                                    <div className="card-body p-4">
+                                        <h4 className="h6 fw-bold text-dark">{t('cases.problem')}</h4>
+                                        <p className="text-secondary">{t(`cases.${c.key}.problem`)}</p>
+                                        <h4 className="h6 fw-bold text-dark">{t('cases.solution')}</h4>
+                                        <p className="text-secondary">{t(`cases.${c.key}.solution`)}</p>
+                                        <h4 className="h6 fw-bold text-dark">{t('cases.results')}</h4>
+                                        <ul className="text-secondary ps-3">
+                                            {t(`cases.${c.key}.results`, { returnObjects: true }).map((item) => (
+                                                <li key={item}>{item}</li>
+                                            ))}
+                                        </ul>
+                                        <h4 className="h6 fw-bold text-dark">{t('cases.aiRole')}</h4>
+                                        <p className="text-secondary">{t(`cases.${c.key}.aiRole`)}</p>
+                                        <div className="d-flex gap-2 flex-wrap mb-3">
+                                            {t(`cases.${c.key}.stack`, { returnObjects: true }).map((tech) => (
+                                                <span key={tech} className="badge bg-dark rounded-pill">{tech}</span>
+                                            ))}
+                                        </div>
+                                        {c.href && (
+                                            <a href={c.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                                <i className="bi bi-box-arrow-up-right me-1"></i>
+                                                {t('cases.viewDemo')}
+                                            </a>
+                                        )}
+                                    </div>
+                                </article>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Method Section - Cómo trabajo con IA */}
+            <section className="py-5" id="metodo">
+                <div className="container">
+                    <div className="text-center mb-5">
+                        <h2 className="h2 fw-bold text-white mb-3">
+                            <i className="bi bi-cpu-fill me-2"></i>
+                            {t('method.title')}
+                        </h2>
+                        <p className="text-white-50 fs-5">{t('method.subtitle')}</p>
+                    </div>
+                    <div className="row g-4 justify-content-center">
+                        {t('method.steps', { returnObjects: true }).map((step, index) => (
+                            <div className="col-lg-3 col-md-6" key={step.title}>
+                                <div className="card border-0 h-100 shadow-lg" style={{ borderRadius: '20px', background: 'rgba(255,255,255,0.97)' }}>
+                                    <div className="card-body p-4">
+                                        <span className="badge bg-primary rounded-pill mb-3">{index + 1}</span>
+                                        <h3 className="h5 fw-bold text-dark">{step.title}</h3>
+                                        <p className="text-secondary mb-0">{step.text}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <p className="text-white fs-5 text-center mt-4 mb-0">{t('method.honesty')}</p>
                 </div>
             </section>
 
@@ -377,88 +486,6 @@ export default function PresentacionYassel() {
                     </div>
 
                     <div className="row g-4 justify-content-center">
-                        <div className="col-lg-5 col-md-6" style={{ display: 'none' }}>
-                            <div className="card border-0 h-100 shadow-lg project-card" style={{
-                                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                                borderRadius: '20px',
-                                transform: 'translateY(0)',
-                                transition: 'transform 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-                                <div className="card-body p-4">
-                                    <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
-                                             style={{
-                                                 width: '50px',
-                                                 height: '50px',
-                                                 background: 'rgba(255,255,255,0.2)'
-                                             }}>
-                                            <i className="bi bi-credit-card-2-front-fill fs-4"></i>
-                                        </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">Cuotaplan</h3>
-                                    </div>
-                                    <p className="text-dark mb-3 lh-lg">
-                                        CuotaPlan es una plataforma que conecta a personas y comercios adheridos, ofreciendo un ecosistema
-                                        de beneficios exclusivos como saldo virtual, sorteos, puntos y descuentos. Brinda a los comercios
-                                        herramientas de fidelización, gestión de referidos y campañas promocionales desde un panel centralizado.
-                                    </p>
-                                    <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-light text-dark rounded-pill">FinTech</span>
-                                        <span className="badge bg-light text-dark rounded-pill">React</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
-                                    </div>
-                                    <a href="https://cuotaplan.com/index"
-                                       target="_blank"
-                                       rel="noopener noreferrer"
-                                       className="btn btn-light btn-sm rounded-pill px-3">
-                                        <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        {t('projects.viewProject')}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6" style={{ display: 'none' }}>
-                            <div className="card border-0 h-100 shadow-lg project-card" style={{
-                                background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                                borderRadius: '20px',
-                                transform: 'translateY(0)',
-                                transition: 'transform 0.3s ease'
-                            }}
-                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
-                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-                                <div className="card-body p-4">
-                                    <div className="d-flex align-items-center mb-3">
-                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
-                                             style={{
-                                                 width: '50px',
-                                                 height: '50px',
-                                                 background: 'rgba(255,255,255,0.2)'
-                                             }}>
-                                            <i className="bi bi-houses-fill fs-4"></i>
-                                        </div>
-                                        <h3 className="h4 fw-bold text-dark mb-0">AdminBarrios</h3>
-                                    </div>
-                                    <p className="text-dark mb-3 lh-lg">
-                                        Gestión Integral de Barrios. Plataforma para administrar eficientemente servicios,
-                                        mejorar la comunicación entre vecinos y facilitar decisiones comunitarias.
-                                    </p>
-                                    <div className="d-flex gap-2 mb-3 flex-wrap">
-                                        <span className="badge bg-light text-dark rounded-pill">PropTech</span>
-                                        <span className="badge bg-light text-dark rounded-pill">React</span>
-                                        <span className="badge bg-light text-dark rounded-pill">Laravel</span>
-                                    </div>
-                                    <a href="https://adminbarrio.com"
-                                       target="_blank"
-                                       rel="noopener noreferrer"
-                                       className="btn btn-light btn-sm rounded-pill px-3">
-                                        <i className="bi bi-box-arrow-up-right me-1"></i>
-                                        {t('projects.viewProject')}
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
                         <div className="col-lg-8 col-md-10">
                             <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)',
@@ -858,8 +885,51 @@ export default function PresentacionYassel() {
                             </div>
                         </div>
 
-                        {/* Investor card */}
                         <div className="col-lg-4 col-md-6">
+                            <div className="card border-0 h-100 shadow-lg project-card" style={{
+                                background: 'linear-gradient(135deg, #0f766e 0%, #14b8a6 100%)',
+                                borderRadius: '20px',
+                                transform: 'translateY(0)',
+                                transition: 'transform 0.3s ease'
+                            }}
+                            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-10px)'}
+                            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                                <div className="card-body p-4">
+                                    <div className="d-flex align-items-center mb-3">
+                                        <div className="rounded-circle me-3 d-flex align-items-center justify-content-center"
+                                             style={{
+                                                 width: '50px',
+                                                 height: '50px',
+                                                 background: 'rgba(255,255,255,0.2)'
+                                             }}>
+                                            <i className="bi bi-chat-dots-fill fs-4"></i>
+                                        </div>
+                                        <div>
+                                            <h3 className="h4 fw-bold text-dark mb-0">{t('projects.clerk.name')}</h3>
+                                            <small className="text-dark opacity-75">{t('projects.clerk.tagline')}</small>
+                                        </div>
+                                    </div>
+                                    <p className="text-dark mb-3 lh-lg">
+                                        {t('projects.clerk.description')}
+                                    </p>
+                                    <div className="d-flex gap-2 mb-3 flex-wrap">
+                                        <span className="badge bg-success rounded-pill">{t('projects.status.activeProduction')}</span>
+                                        <span className="badge bg-light text-dark rounded-pill">IA / RAG</span>
+                                        <span className="badge bg-light text-dark rounded-pill">Next.js</span>
+                                    </div>
+                                    <a href="https://clerk.yoisar.com/"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       className="btn btn-light btn-sm rounded-pill px-3">
+                                        <i className="bi bi-box-arrow-up-right me-1"></i>
+                                        {t('projects.viewProject')}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Investor card (oculta de la grilla principal) */}
+                        <div className="col-lg-4 col-md-6" style={{ display: 'none' }}>
                             <div className="card border-0 h-100 shadow-lg project-card" style={{
                                 background: 'linear-gradient(135deg, #facc15 0%, #f59e0b 100%)',
                                 borderRadius: '20px',
@@ -987,6 +1057,31 @@ export default function PresentacionYassel() {
                                             {t('contact.submit')}
                                         </button>
                                     </form>
+                                    <div className="d-flex gap-3 justify-content-center flex-wrap mb-3">
+                                        <a href={GITHUB_URL}
+                                           className="btn btn-dark btn-lg px-4 py-2 rounded-pill"
+                                           target="_blank" rel="noopener noreferrer">
+                                            <i className="bi bi-github me-2"></i>
+                                            {t('contact.github')}
+                                        </a>
+                                        <a href={LINKEDIN_URL}
+                                           className="btn btn-primary btn-lg px-4 py-2 rounded-pill"
+                                           target="_blank" rel="noopener noreferrer">
+                                            <i className="bi bi-linkedin me-2"></i>
+                                            {t('contact.linkedin')}
+                                        </a>
+                                        <a href={cvHref}
+                                           className="btn btn-outline-dark btn-lg px-4 py-2 rounded-pill"
+                                           target="_blank" rel="noopener noreferrer">
+                                            <i className="bi bi-file-earmark-person me-2"></i>
+                                            {t('contact.cv')}
+                                        </a>
+                                        <a href={`mailto:${CONTACT_EMAIL}`}
+                                           className="btn btn-outline-dark btn-lg px-4 py-2 rounded-pill">
+                                            <i className="bi bi-envelope me-2"></i>
+                                            {t('contact.email')}
+                                        </a>
+                                    </div>
                                     <div className="d-flex gap-3 justify-content-center flex-wrap">
                                         <a href="https://www.yoisar.com"
                                            className="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill"
@@ -1009,6 +1104,7 @@ export default function PresentacionYassel() {
                         <p className="text-white-50 mb-0">
                             {t('footer.text')}
                         </p>
+                        <p className="text-white-50 small mb-0 mt-1">{FULL_NAME}</p>
                     </div>
                 </div>
             </footer>

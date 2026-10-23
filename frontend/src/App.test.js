@@ -8,7 +8,7 @@ beforeAll(() => {
 
 test('renders hero title', () => {
   render(<App />);
-  const titleElement = screen.getByText(/Desarrollo SaaS, Apps con IA y despliego infraestructura escalable\./i);
+  const titleElement = screen.getByText(/Desarrollador full-stack que trabaja con agentes de IA\./i);
   expect(titleElement).toBeInTheDocument();
 });
 
@@ -20,7 +20,7 @@ test('renders about section', () => {
 
 test('renders contact section', () => {
   render(<App />);
-  const contactSection = screen.getByText(/¿Empezamos tu proyecto\?/i);
+  const contactSection = screen.getByText(/¿Hablamos\?/i);
   expect(contactSection).toBeInTheDocument();
 });
 
@@ -57,8 +57,8 @@ test('renders infraestructura description', () => {
 
 test('renders hero cta buttons', () => {
   render(<App />);
-  const cotizarButton = screen.getByRole('link', { name: /Hablemos de tu idea/i });
-  const iaButton = screen.getByRole('link', { name: /Cotizá conmigo/i });
+  const cotizarButton = screen.getByRole('link', { name: /Hablemos de tu equipo/i });
+  const iaButton = screen.getByRole('link', { name: /Ver casos de estudio/i });
   expect(cotizarButton).toBeInTheDocument();
   expect(iaButton).toBeInTheDocument();
 });
@@ -66,7 +66,7 @@ test('renders hero cta buttons', () => {
 test('renders visible project links', () => {
   render(<App />);
 
-  // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Guajira, Inversores)
+  // Test that visible project links exist (Fideliza, Ventarifas, Distriboo, CGM, YOIS Snacks, Clerk AI, Guajira, Por el Caribe)
   const visibleProjectLinks = screen.getAllByRole('link', { name: /Ver Proyecto/i });
   expect(visibleProjectLinks).toHaveLength(8);
 
@@ -76,7 +76,8 @@ test('renders visible project links', () => {
   expect(hrefs).toContain('https://ventarifas.com');
   expect(hrefs).toContain('https://front.guajira.dev.yoisar.com/');
   expect(hrefs).toContain('https://porelcaribe.dev.yoisar.com/');
-  expect(hrefs).toContain('https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico');
+  expect(hrefs).toContain('https://clerk.yoisar.com/');
+  expect(hrefs).not.toContain('https://fideliza.yoisar.com/crowdfunding/registro-inversor-dinamico');
 });
 
 test('displays dynamic years of experience', () => {
@@ -123,15 +124,15 @@ test('renders all anexo projects regardless of development status', () => {
   expect(screen.getByRole('heading', { name: /Planning Yoisar/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /PortalCheck/i })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: /Sistema CGM \(Gobierno\)/i })).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /App Patología \(Gobierno\)/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Patología V2 \(Gobierno\)/i })).toBeInTheDocument();
 });
 
 test('hidden projects are not visible', () => {
   render(<App />);
 
-  // Check that hidden projects are in DOM but not visible (Cuotaplan, AdminBarrios)
+  // Check that hidden projects are in DOM but not visible (Inversores)
   const hiddenProjects = document.querySelectorAll('[style*="display: none"]');
-  expect(hiddenProjects.length).toBeGreaterThanOrEqual(2); // Should have at least 2 hidden project divs
+  expect(hiddenProjects.length).toBeGreaterThanOrEqual(1); // Inversores
 });
 
 test('renders YOIS brand at least 3 times in copy', () => {
@@ -154,4 +155,51 @@ test('does not render emojis, only bootstrap-icons', () => {
   const emojiRegex = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u;
   expect(emojiRegex.test(container.textContent)).toBe(false);
   expect(container.querySelectorAll('i.bi').length).toBeGreaterThan(0);
+});
+
+test('renders case studies section with the three cases', () => {
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: /^Casos de estudio$/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Patología V2 · RISMI/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /CGM · Gestión documental/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Clerk AI · Asistente conversacional multi-tenant/i })).toBeInTheDocument();
+  expect(screen.getAllByText('Papel de la IA')).toHaveLength(3);
+});
+
+test('renders how I work with AI method steps', () => {
+  render(<App />);
+
+  expect(screen.getByRole('heading', { name: /Cómo trabajo con IA/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Requerimiento escrito/i })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Verificación/i })).toBeInTheDocument();
+});
+
+test('renders GitHub and email contact links', () => {
+  render(<App />);
+
+  expect(screen.getByRole('link', { name: /GitHub/i })).toHaveAttribute('href', 'https://github.com/yoisar');
+  expect(screen.getByRole('link', { name: /Escribime por email/i })).toHaveAttribute('href', 'mailto:me@yoisar.com');
+});
+
+test('renders LinkedIn link and CV downloads', () => {
+  render(<App />);
+
+  expect(screen.getByRole('link', { name: /LinkedIn/i })).toHaveAttribute('href', 'https://www.linkedin.com/in/yoisar/');
+  const cvLinks = screen.getAllByRole('link', { name: /Descargar CV/i });
+  expect(cvLinks.length).toBeGreaterThanOrEqual(2);
+  cvLinks.forEach((link) => expect(link).toHaveAttribute('href', '/cv/cv-yassel-izquierdo-es.pdf'));
+});
+
+test('shows the full name', () => {
+  render(<App />);
+
+  expect(screen.getAllByText('Yassel Omar Izquierdo Souchay').length).toBeGreaterThanOrEqual(1);
+});
+
+test('does not reference discontinued projects', () => {
+  const { container } = render(<App />);
+
+  expect(container.textContent).not.toMatch(/AdVantage|Cuotaplan|AdminBarrio|BuildShare/i);
+  expect(container.innerHTML).not.toMatch(/cuotaplan\.com|adminbarrio\.com|advantage\.yoisar\.com|build\.yoisar\.com/i);
 });

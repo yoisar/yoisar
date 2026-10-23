@@ -1,0 +1,39 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Yassel Omar Izquierdo Souchay - CV</title>
+<style>
+@page { size: A4; margin: 14mm 15mm; }
+body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 10pt; line-height: 1.4; color: #1e293b; }
+h1 { font-size: 22pt; margin: 0 0 2pt; color: #1e293b; }
+h2 { font-size: 13pt; margin: 14pt 0 5pt; padding-bottom: 2pt; border-bottom: 1px solid #cbd5e1; color: #1e3a5f; }
+h3 { font-size: 11pt; margin: 9pt 0 0; color: #1e3a5f; }
+.title { font-weight: 700; margin: 0 0 5pt; }
+.contact { margin: 0; font-size: 9.5pt; }
+.meta { margin: 1pt 0 3pt; font-style: italic; color: #475569; font-size: 9.5pt; }
+ul { margin: 2pt 0 0; padding-left: 15pt; }
+li { margin-bottom: 2pt; }
+table { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+th, td { text-align: left; vertical-align: top; padding: 3pt 6pt 3pt 0; border-bottom: 1px solid #e2e8f0; }
+th { width: 24%; color: #1e3a5f; }
+tr, li { break-inside: avoid; }
+h2, h3 { break-after: avoid; }
+</style></head><body>
+<h1>Yassel Omar Izquierdo Souchay</h1>
+<p class="title">Fullstack Developer | AI-Agent Assisted Development | Healthcare &amp; Government Systems</p>
+<p class="contact">Posadas, Misiones, Argentina | me@yoisar.com | sioy23@gmail.com | +54 9 3764 62-4361<br>
+linkedin.com/in/yoisar | github.com/yoisar | yoisar.com</p>
+<h2>Professional Profile</h2><p>Over 25 years of experience in IT systems, combining fullstack development, software architecture and tech entrepreneurship. I work with AI agents: written requirement, batch implementation, verification with automated tests, and a report per batch. I take healthcare and government systems (RISMI, Misiones Government House) and my own SaaS products (Clerk AI, Distriboo, Ventarifas) to production. I want to join a team that builds products with AI.</p>
+<h2>Professional Experience</h2>
+    <h3>Fullstack Developer – Document Management (CGM)</h3>
+    <p class="meta">Misiones Government House | Misiones, Argentina<br>2026 – Present</p>
+    <ul><li>Intake and case-file system built with <strong>Laravel microservices</strong> (authentication and permissions, intake, case files), a <strong>Next.js 14</strong> frontend, <strong>PostgreSQL</strong> and MinIO file storage.</li><li><strong>CI/CD</strong>: images are built in GitHub Actions and published to GHCR; the production server only pulls and starts them, with no builds on the server.</li><li>Sequential case-file numbering per agency and year with locking, no duplicates; A4 cover sheet that replicates the physical form.</li><li>Import of 427 agency codes with preview and audit trail; continuous evolution by versions (v0.10.x).</li><li>Every requirement is documented in writing; verification with automated tests, type checking and an automated browser, with a report per delivery.</li></ul>
+    <h3>PHP / Laravel / Vue Developer – Healthcare Systems (RISMI)</h3>
+    <p class="meta">Hospital Dr. Ramón Madariaga | Posadas, Misiones, Argentina<br>2022 – Present</p>
+    <ul><li><strong>Pathology V2 (2026)</strong>: migration of the pathology system (PHP 5.6, no framework, more than 350,000 historical studies across 8 types) to an application inside RISMI with <strong>Laravel and Vue.js</strong>, with functional parity, single sign-on, roles and platform auditing.</li><li>Pathology V2 is delivered in batches with a technical report per batch and QA with the user area; more than 150 automated tests (Vitest and Cypress).</li><li>Anesthesiologist Module (RISMI v2), digitizing anesthetic procedure management.</li><li>Maintenance of the Vaccination Module (RISMI v2) and the Inventory System (RISMI v1).</li><li>Notifications module (RISMI v1) with personalized delivery, automated alerts and event tracking.</li><li>Refactoring of legacy PHP code in RISMI v1: readability, maintainability and performance.</li></ul>
+    <h3>Fullstack Developer – Tourism Projects</h3>
+    <p class="meta">Guajira Viajes &amp; PorElCaribe | Argentina<br>2026 – Present</p>
+    <ul><li>Modernization and maintenance of the Guajira Viajes and PorElCaribe tourism platforms: frontend, business logic and an admin panel for content, packages and inquiries.</li><li>Cruise module with a dedicated landing page; fixed-rate installment financing in ARS with bank agreements.</li><li>Staging environments for development and testing: front.guajira.dev.yoisar.com and porelcaribe.dev.yoisar.com.</li></ul>
+    <h3>Independent Fullstack Developer &amp; Entrepreneur</h3>
+    <p class="meta">Own products | Argentina<br>2025 – Present</p>
+    <ul><li><strong>Clerk AI</strong> – Multi-tenant conversational assistant SaaS: Laravel 11 API with retrieval-augmented generation (RAG: text chunking, pgvector embeddings and a language model), Next.js landing and admin panel, plans, payments and licensing. End-to-end tests with Playwright. Laravel, Next.js, PostgreSQL.</li><li><strong>Distriboo</strong> – B2B SaaS for wholesale distribution: 4-level pricing engine, 24/7 online ordering, zone-based logistics, CSV/Excel import, roles and subscription plans. Laravel, React, MySQL.</li><li><strong>Ventarifas</strong> – Online raffles marketplace: automatic numbers, secure payments and a real-time panel. Next.js, Laravel, REST API.</li><li><strong>Yois Snacks</strong> – E-commerce with a reseller network, tiered commissions, KPI dashboard and self-service panel. Laravel, React Native (Expo), MySQL.</li><li><strong>Fideliza</strong> – Platform for merchants: catalog, points, referrals and raffles. Laravel, React Native, MySQL.</li></ul>
+<h2>Technologies & Tools</h2><table><tr><th>Languages</th><td>PHP (5.2 to modern), JavaScript, TypeScript</td></tr><tr><th>Frameworks</th><td>Laravel, Symfony, Vue.js, Next.js, React, React Native</td></tr><tr><th>Databases</th><td>MySQL, PostgreSQL (pgvector)</td></tr><tr><th>AI</th><td>Claude Code and AI agents, GitHub Copilot, RAG (embeddings, pgvector), repository rules in AGENTS.md</td></tr><tr><th>Quality</th><td>Vitest, Cypress, Playwright, PHPUnit, ESLint</td></tr><tr><th>Infrastructure</th><td>Docker, GitHub Actions, GHCR, nginx, Let's Encrypt, Linux VPS</td></tr><tr><th>Version control</th><td>Git, GitFlow, GitLab</td></tr><tr><th>Management</th><td>Kanboard</td></tr></table>
+<h2>Featured Projects</h2><table><tr><th>Project</th><th>Description</th><th>Technologies</th></tr><tr><th>Clerk AI</th><td>Multi-tenant conversational assistant with RAG, panel, plans and licensing. clerk.yoisar.com</td><td>Laravel, Next.js, pgvector</td></tr><tr><th>CGM</th><td>Document management for the Misiones Government House: intake and case files.</td><td>Laravel, Next.js, PostgreSQL</td></tr><tr><th>Pathology V2 (RISMI)</th><td>New version of the Madariaga Hospital pathology application (internal, in development).</td><td>Laravel, Vue.js</td></tr><tr><th>Guajira Viajes</th><td>Travel agency with packages, cruises and installment financing.</td><td>Laravel, Next.js</td></tr><tr><th>PorElCaribe</th><td>Tourism in Caribbean destinations.</td><td>Laravel, React</td></tr><tr><th>Distriboo</th><td>B2B SaaS for wholesale distribution. distriboo.yoisar.com</td><td>Laravel, React</td></tr><tr><th>Ventarifas</th><td>Online raffles marketplace. ventarifas.com</td><td>Next.js, Laravel</td></tr><tr><th>Yois Snacks</th><td>E-commerce with a reseller network. yoissnacks.com</td><td>Laravel, React Native</td></tr><tr><th>Fideliza</th><td>Loyalty: points, referrals and raffles. fideliza.yoisar.com</td><td>Laravel, React Native</td></tr></table>
+</body></html>
