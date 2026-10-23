@@ -124,7 +124,7 @@ Fuentes consultadas:
 
 | Tarea | Qué falta |
 |---|---|
-| Agendar llamada | Botón listo en el sitio. Falta crear la agenda (Cal.com o Calendly, plan gratuito) y poner su URL en `CALENDAR_URL` de `frontend/src/App.js`. Mientras esté vacía, el botón abre un mail a me@yoisar.com con el asunto "Agendar una llamada" |
+| Agendar llamada | Hecho: botón con `https://cal.com/yois-ykrnja/charla-sobre-un-puesto-o-proyecto` |
 | Repo público | Un proyecto chico y abierto con README que explique el uso de IA |
 | Lista de empresas | Búsqueda manual en LinkedIn, Torre, Remote OK y We Work Remotely con "Claude Code", "agentic", "AI-assisted" |
 | Alta en Google Search Console | Agregar la propiedad `https://yoisar.com/`, verificarla (registro DNS TXT) y enviar `https://yoisar.com/sitemap.xml` en Sitemaps |
